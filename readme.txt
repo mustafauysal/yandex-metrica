@@ -1,15 +1,19 @@
 === Yandex Metrica ===
 Contributors: m_uysl
 Tags: yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika
-Requires at least: 3.x
+Requires at least: 3.0
 Tested up to: 3.5.1
 Stable tag: trunk
 License: GPLv2 (or later)
 
-Easy way to use Yandex Metrica in your WordPress site. If you didn't hear metrica yet, you can <a href="http://metrica.yandex.com/">check official metrica</a> page. Really powerfull analytics tool.
+Easy way to use Yandex Metrica in your WordPress site. 
 
 == Description ==
 Enter your counter id, and track your site easily. Also you can use metrica informer widget.
+
+== What is Metrica ==
+Metrica is an analytics tool like as google analytics.If you didn't hear metrica yet, you can <a href="http://metrica.yandex.com/">check official metrica</a> page.
+
 
 = Translations =
 

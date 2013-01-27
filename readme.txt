@@ -11,7 +11,7 @@ Easy way to use Yandex Metrica in your WordPress site.
 == Description ==
 Enter your counter id, and track your site easily. Also you can use metrica informer widget.
 
-== What is Metrica ==
+= What is Metrica =
 Metrica is an analytics tool like as google analytics.If you didn't hear metrica yet, you can <a href="http://metrica.yandex.com/">check official metrica</a> page.
 
 

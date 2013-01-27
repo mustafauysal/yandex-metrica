@@ -32,8 +32,6 @@ class Yandex_Metrica
     function plugin_localization()
     {
         load_plugin_textdomain('yandex_metrica', false, '/yandex-metrica/languages/');
-
-
     }
 
     /**
@@ -69,7 +67,6 @@ class Yandex_Metrica
         $metrica_data = $this->get_metrica_options();
         $this->counter_id = $metrica_data['counter_id'];
         include(WP_PLUGIN_DIR . '/yandex-metrica/settings.php');
-
 
     }
 
@@ -131,11 +128,8 @@ class Yandex_Metrica
             $metrica_options['tracklinks'] = empty($_POST['metrica_tracklinks']) ? 'false' : 'true';
             $metrica_options['accurate_track'] = empty($_POST['metrica_accurate_track']) ? 'false' : 'true';
 
-            echo ' <div class="updated"><p>' . __('Options saved','yandex_metrica') . '</p></div>';
             return update_option("metrica_options", $metrica_options);
 
-        } else{
-            return $this->get_metrica_options();
         }
 
     }

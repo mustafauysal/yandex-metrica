@@ -56,6 +56,12 @@
             <input type="submit" name="save" class="button-primary" value="<?php _e('Save Changes') ?>"/>
         </p>
 
+        <?php
+        if (isset($_POST['save'])) {
+            echo ' <div class="updated"><p>' . __('Options saved','yandex_metrica') . '</p></div>';
+        }
+        ?>
+
 
     </form>
 </div>

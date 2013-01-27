@@ -37,6 +37,9 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 
 == Changelog ==
 
-= 1.0 =
+= 0.1.1 =
+ - Bug fix
+
+= 0.1 =
 
 Initial release.

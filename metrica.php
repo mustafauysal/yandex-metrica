@@ -21,8 +21,8 @@ if (!defined('WP_PLUGIN_DIR'))
     define('WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins');
 
 
-require_once(WP_PLUGIN_DIR . '/metrica/class.metrica.php');
-require_once(WP_PLUGIN_DIR . '/metrica/widget.php');
+require_once(WP_PLUGIN_DIR . '/yandex-metrica/class.metrica.php');
+require_once(WP_PLUGIN_DIR . '/yandex-metrica/widget.php');
 
 
 ////////// YANDEXLE YANDEXLE.... :) \\\\\\\\\\\\\\\

@@ -31,7 +31,7 @@ class Yandex_Metrica
      */
     function plugin_localization()
     {
-        load_plugin_textdomain('yandex_metrica', false, '/metrica/languages/');
+        load_plugin_textdomain('yandex_metrica', false, '/yandex-metrica/languages/');
 
 
     }
@@ -68,7 +68,7 @@ class Yandex_Metrica
         }
         $metrica_data = $this->get_metrica_options();
         $this->counter_id = $metrica_data['counter_id'];
-        include(WP_PLUGIN_DIR . '/metrica/settings.php');
+        include(WP_PLUGIN_DIR . '/yandex-metrica/settings.php');
 
 
     }
@@ -77,7 +77,7 @@ class Yandex_Metrica
     function metrica_counter_display()
     {
     //output
-        $metrica_data = get_option('metrica_options');
+        $metrica_data = $this->get_metrica_options();
 
 
         echo'          <!--Yandex.Metrika counter by metrica plugin-->

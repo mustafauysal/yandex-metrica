@@ -37,8 +37,11 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 
 == Changelog ==
 
+= 0.1.2 =
+ - Bug fix - about options
+
 = 0.1.1 =
- - Bug fix
+ - bug fix - header output
 
 = 0.1 =
 

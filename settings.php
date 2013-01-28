@@ -1,3 +1,22 @@
+<?php
+if (isset($_POST['save'])) {
+
+    $metrica_options = array();
+    $metrica_options['counter_id'] = $_POST['metrica_counter_id'];
+    $metrica_options['webvisor'] = empty($_POST['metrica_webvisor']) ? 'false' : 'true';
+    $metrica_options['clickmap'] = empty($_POST['metrica_clickmap']) ? 'false' : 'true';
+    $metrica_options['tracklinks'] = empty($_POST['metrica_tracklinks']) ? 'false' : 'true';
+    $metrica_options['accurate_track'] = empty($_POST['metrica_accurate_track']) ? 'false' : 'true';
+
+    $metrica_data  = $metrica_options;
+    update_option("metrica_options", $metrica_data);
+
+
+
+    echo ' <div class="updated"><p>' . __('Options saved','yandex_metrica') . '</p></div>';
+}
+?>
+
 <div class="wrap">
     <h2>Yandex Metrica</h2>
     <form method="post" action="">
@@ -56,11 +75,7 @@
             <input type="submit" name="save" class="button-primary" value="<?php _e('Save Changes') ?>"/>
         </p>
 
-        <?php
-        if (isset($_POST['save'])) {
-            echo ' <div class="updated"><p>' . __('Options saved','yandex_metrica') . '</p></div>';
-        }
-        ?>
+
 
 
     </form>

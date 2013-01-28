@@ -22,7 +22,6 @@ class Yandex_Metrica
         add_action('plugins_loaded', array(&$this, 'plugin_localization'));
         add_action('wp_footer', array(&$this, 'metrica_counter_display'));
         add_action('admin_menu', array(&$this, 'metrica_admin_menu'));
-        add_action('admin_init',array(&$this, 'save_metrica_options'));
 
     }
 
@@ -118,21 +117,7 @@ class Yandex_Metrica
     }
 
 
-    function save_metrica_options()
-    {
-        if (isset($_POST['save'])) {
-            $metrica_options = array();
-            $metrica_options['counter_id'] = $_POST['metrica_counter_id'];
-            $metrica_options['webvisor'] = empty($_POST['metrica_webvisor']) ? 'false' : 'true';
-            $metrica_options['clickmap'] = empty($_POST['metrica_clickmap']) ? 'false' : 'true';
-            $metrica_options['tracklinks'] = empty($_POST['metrica_tracklinks']) ? 'false' : 'true';
-            $metrica_options['accurate_track'] = empty($_POST['metrica_accurate_track']) ? 'false' : 'true';
 
-            return update_option("metrica_options", $metrica_options);
-
-        }
-
-    }
 }
 
 $metrica = new Yandex_Metrica;

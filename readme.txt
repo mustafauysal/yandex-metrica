@@ -36,7 +36,9 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 1. screenshot-1.png
 
 == Changelog ==
-
+= 0.1.3 =
+ - Minor bug fixes
+ 
 = 0.1.2 =
  - Bug fix - about options
 

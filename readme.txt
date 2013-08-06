@@ -2,7 +2,7 @@
 Contributors: m_uysl
 Tags: yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika
 Requires at least: 3.0
-Tested up to: 3.5.1
+Tested up to: 3.6
 Stable tag: trunk
 License: GPLv2 (or later)
 
@@ -19,6 +19,14 @@ Metrica is an analytics tool like as google analytics.If you didn't hear metrica
 
 * English (en\_US), built-in
 * Turkish (tr\_TR), native support
+
+
+= Roadmap =
+
+Here is the sort of things that are on my radar:
+
+* Role based tracking
+* Metrica API Support, you will be able to access statical information from WordPress dashboard
 
 == Installation ==
 

@@ -13,7 +13,7 @@
                 enabled: false
             },
             subtitle: {
-                text: 'Source: wpnotlari.com'
+                text: 'Source:<?php echo self::$metrica_api->get_counter_name( $this->options["counter_id"] );?>'
             },
             xAxis: {
                 type: 'datetime',

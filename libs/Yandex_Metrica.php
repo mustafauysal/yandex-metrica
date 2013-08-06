@@ -101,6 +101,11 @@ class Yandex_Metrica {
     }
 
 
+    public function get_counter_name( $counter_id ) {
+        $current_counter = $this->fetch_counter( $counter_id );
+        return $current_counter["counter"]["name"];
+    }
+
     public function get_counter_statistics( $counter_id ){
         $stats_url = 'http://api-metrika.yandex.com/stat/traffic/summary.json?id='.$counter_id.'&pretty=1&oauth_token='.$this->access_token;
         $statistics = json_decode( $this->fetch_data_by_curl ( $stats_url ), true );

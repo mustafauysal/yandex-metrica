@@ -118,10 +118,6 @@ class Yandex_Oauth {
                     return 'Invalid or expired authorization code.';
                     break;
 
-                case 'invalid_grant':
-                    return 'Invalid Grant';
-                    break;
-
                 case 'unsupported_grant_type':
                     return 'Incorrect value for the grant_type parameter.';
                     break;

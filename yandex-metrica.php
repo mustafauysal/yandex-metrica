@@ -31,8 +31,6 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
     public function __construct() {
         self::$instance = $this;
         $this->hook( 'init' );
-
-
     }
 
 
@@ -41,6 +39,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
         load_plugin_textdomain( 'yandex_metrica', false, basename( dirname( __FILE__ ) ) . '/languages' );
 
         $this->options =  $this->get_options();
+
 
         $this->hook( 'admin_menu' );
         $this->hook( 'wp_footer' );   // using wp_footer for adding tracking code. If you theme don't have it, this plugin can't track your site.
@@ -51,6 +50,9 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
             $this->hook( 'wp_dashboard_setup' );
             $this->hook( 'in_admin_footer',  'enqueue');    // footer probably is the best place for speed matters...
         }
+
+        $this->widgets_init();  // get metrica informer
+
 
     }
 
@@ -76,7 +78,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
 
     /**
      * @param $code numeric confirmation code
-     * @return bool|void
+     * @return bool
      */
     public function authorize( $code ) {
         $Auth = new Yandex_Oauth( self::YANDEX_APP_ID, self::YANDEX_APP_SECRET );
@@ -202,6 +204,23 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
         }
     }
 
+
+    public function metrica_widget()
+    {
+        echo '<img src="http://bs.yandex.ru/informer/' . $this->options['counter_id'] . '/3_1_FFFFFFFF_EFEFEFFF_0_pageviews" style="width:80px; height:31px; border:0;" />';
+    }
+
+    public function widgets_init(){
+        wp_register_sidebar_widget(
+            'metrica_informer',
+            'Metrica Informer',
+            array( &$this, 'metrica_widget' ),
+            array(
+            'description' => 'Add metrica Informer to your sidebar, share daily statistics'
+            )
+         );
+
+    }
 
 }
 

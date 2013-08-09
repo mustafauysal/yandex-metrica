@@ -6,23 +6,14 @@ class Yandex_Metrica {
     public $error;
 
     /**
-     * Fetch data via curl, generated for common usage.
+     * Fetch data via WordPress http api
      * @param $url
      * @return mixed
      */
-    public function fetch_data_by_curl( $url ) {
-        $ch = curl_init();
+    public function fetch_data( $url ) {
+        $data = wp_remote_get( $url );
 
-        curl_setopt( $ch, CURLOPT_AUTOREFERER, TRUE );
-        curl_setopt( $ch, CURLOPT_HEADER, 0 );
-        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
-        curl_setopt( $ch, CURLOPT_URL, $url );
-        curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, TRUE );
-
-        $data = curl_exec( $ch );
-        curl_close( $ch );
-
-        return $data;
+        return $data["body"];
     }
 
 
@@ -44,7 +35,7 @@ class Yandex_Metrica {
      */
     public function fetch_results() {
         $url = 'http://api-metrika.yandex.com/counters.json?pretty=1&oauth_token='.$this->access_token;
-        $data = $this->fetch_data_by_curl( $url );
+        $data = $this->fetch_data( $url );
         $results = json_decode( $data, true);
 
         return $results;
@@ -94,33 +85,40 @@ class Yandex_Metrica {
      */
     public function fetch_counter( $counter_id ) {
         $counter_url = 'http://api-metrika.yandex.com/counter/'.$counter_id.'.json?pretty=1&oauth_token='.$this->access_token;
-        $data = $this->fetch_data_by_curl( $counter_url );
+        $data = $this->fetch_data( $counter_url );
         $results = json_decode( $data, true );
 
         return $results;
     }
-
 
     public function get_counter_name( $counter_id ) {
         $current_counter = $this->fetch_counter( $counter_id );
         return $current_counter["counter"]["name"];
     }
 
+
+
+
+
+
     public function get_counter_statistics( $counter_id ){
         $stats_url = 'http://api-metrika.yandex.com/stat/traffic/summary.json?id='.$counter_id.'&pretty=1&oauth_token='.$this->access_token;
-        $statistics = json_decode( $this->fetch_data_by_curl ( $stats_url ), true );
+        $statistics = json_decode( $this->fetch_data ( $stats_url ), true );
         return $statistics;
     }
 
+
+
+
     public function get_popular_content( $counter_id , $per_page = 5 ){
         $content_url = 'http://api-metrika.yandex.com/stat/content/popular.json?id='.$counter_id.'&pretty=1&per_page='.$per_page.'&oauth_token='.$this->access_token;
-        $popular_content = json_decode( $this->fetch_data_by_curl( $content_url ), true );
+        $popular_content = json_decode( $this->fetch_data( $content_url ), true );
         return $popular_content;
     }
 
     public function get_referal_sites( $counter_id, $per_page = 5 ){
         $referral_url = 'http://api-metrika.yandex.com/stat/sources/sites.json?id='.$counter_id.'&pretty=1&per_page='.$per_page.'&oauth_token='.$this->access_token;
-        $top_referrers = json_decode( $this->fetch_data_by_curl( $referral_url ), true );
+        $top_referrers = json_decode( $this->fetch_data( $referral_url ), true );
         return $top_referrers;
 
     }
@@ -128,7 +126,7 @@ class Yandex_Metrica {
 
     public function get_search_terms( $counter_id, $per_page = 5 ){
         $phrases_url =   'http://api-metrika.yandex.com/stat/sources/phrases.json?id='.$counter_id.'&pretty=1&per_page='.$per_page.'&oauth_token='.$this->access_token;
-        $top_searches = json_decode( $this->fetch_data_by_curl( $phrases_url ), true);
+        $top_searches = json_decode( $this->fetch_data( $phrases_url ), true);
         return $top_searches;
     }
 

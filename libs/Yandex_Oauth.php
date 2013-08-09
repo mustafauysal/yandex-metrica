@@ -3,7 +3,6 @@
 
 class Yandex_Oauth {
 
-    const VERSION = "1.0-alpha";
     public static $instance;
     private  $app_id;
     private  $app_secret;
@@ -16,7 +15,7 @@ class Yandex_Oauth {
      * @param string $app_secret App secret
      * @link https://oauth.yandex.com/client/my
      */
-    public function __construct( $app_id, $app_secret ){
+    public function __construct( $app_id, $app_secret ) {
         self::$instance = $this;
         $this->app_id = $app_id;
         $this->app_secret  = $app_secret;
@@ -26,66 +25,39 @@ class Yandex_Oauth {
      * @param int $confirmation_code
      * @return bool
      */
-    public function connect_oauth_server( $confirmation_code ){
+    public function connect_oauth_server( $confirmation_code ) {
+        $param = 'grant_type=authorization_code&code='.$confirmation_code.'&client_id='.$this->app_id.'&client_secret='.$this->app_secret.'';
+        $url = "https://oauth.yandex.com/token";
 
-        if( ! $this->check_curl() ) {
-            $this->error = "CURL is not installed on this server, you should install it!";
-            return false;
-        }
-
-        $url = 'grant_type=authorization_code&code='.$confirmation_code.'&client_id='.$this->app_id.'&client_secret='.$this->app_secret.'';
-        $host = "https://oauth.yandex.com/token";
         $header = array(
             'POST /token HTTP/1.1',
             'Host: oauth.yandex.com',
             'Content-type:  application/json',
-            'Content-Length: '.strlen( $url ),
+            'Content-Length: ' . strlen( $param ),
         );
 
-        $connect = array(
-            CURLOPT_POST => TRUE,
-            CURLOPT_HEADER => FALSE,
-            CURLOPT_URL => $host,
-            CURLOPT_CONNECTTIMEOUT => 3,
-            CURLOPT_FRESH_CONNECT => TRUE,
-            CURLOPT_RETURNTRANSFER => TRUE,
-            CURLOPT_FORBID_REUSE => TRUE,
-            CURLOPT_TIMEOUT => 5,
-            CURLOPT_POSTFIELDS => $url,
-            CURLOPT_HTTPHEADER => $header,
-            CURLOPT_SSL_VERIFYPEER => FALSE,
-            CURLOPT_RETURNTRANSFER => TRUE
+        $data = wp_remote_post( $url, array(
+                'method' => 'POST',
+                'timeout' => 45,
+                'httpversion' => '1.1',
+                'header' => $header,
+                'body' => $param,
+                'sslverify' => false
+            )
         );
 
 
+        $http_code = $data["response"]["code"];
 
-        $ch = curl_init();
-        curl_setopt_array( $ch, $connect );
-
-        if( !$data = curl_exec( $ch ) )
-        {
-            $this->error = 'curl'.curl_errno( $ch );
-            return false;
-        }
-
-        $http_code = curl_getinfo( $ch, CURLINFO_HTTP_CODE );
-        if ( ( $http_code != '200' ) && ( $http_code != '400' ) )
-        {
+        if ( ( $http_code != '200' ) && ( $http_code != '400' ) ) {
             $this->error = $http_code;
             return false;
         }
-        curl_close($ch);
 
-        $result = json_decode( $data, true );
+        $result = json_decode( $data["body"], true );
 
-        if ( empty( $result['error'] ) )
-        {
+        if ( empty( $result['error'] ) ) {
             $this->access_token = $result['access_token'];
-            if ( ! empty( $result['expires_in'] ) )
-            {
-                $this->life_time = $result['expires_in'];
-            }
-            $this->create_time = time();
             return true;
         } else {
             $this->error = $result['error'];
@@ -95,6 +67,9 @@ class Yandex_Oauth {
 
     }
 
+    /**
+     * @return bool
+     */
     public function check_access() {
         if  ( ! empty( $this->access_token ) && ( empty( $this->error ) ) ) {
             return true;
@@ -102,11 +77,13 @@ class Yandex_Oauth {
             $this->error = 'expired_token';
             return false;
         }
-
     }
 
-
-    public function get_error(){
+    /**
+     * What is the problem?
+     * @return string
+     */
+    public function get_error() {
         if( !empty( $this->error ) ) {
 
             switch ( $this->error ) {
@@ -141,6 +118,7 @@ class Yandex_Oauth {
                 default:
                     return 'ERROR: '.$this->error;
             }
+
         }
 
     }
@@ -153,21 +131,6 @@ class Yandex_Oauth {
             return $this->access_token;
         }
     }
-
-    /**
-     * Check curl installed on the server. API access need it!
-     * @since 1.0
-     * @return bool
-     * $link http://php.net/manual/en/book.curl.php
-     */
-    public function check_curl() {
-        if  ( in_array  ('curl', get_loaded_extensions())) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
 
 
 }

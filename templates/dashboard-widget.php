@@ -1,5 +1,11 @@
 <?php if ( !defined( 'ABSPATH' ) ) die(); ?>
-<div id="metrica-graph" style="min-width: 400px; height: 400px;"></div>
+<select name="period" id="period">
+    <option <?php selected( $this->period, "daily" ); ?> value="daily">Daily</option>
+    <option <?php selected( $this->period, "weekly" ); ?> <?php if( empty ( $this->period )) echo "selected";?> value="weekly">Weekly</option>
+    <option <?php selected( $this->period, "monthly" ); ?> value="monthly">Monthly</option>
+</select>
+<span id="metricaloading"></span>
+<div id="metrica-graph" style="width:100%; height: 400px;"></div>
 <div id="metrica-widget-data">
     <h3><?php _e('Site Usage','yandex_metrica');?></h3>
     <table width="100%">
@@ -26,7 +32,7 @@
                 <b><?php echo _e('Page Views','yandex_metrica');?></b>
             </td>
             <td>
-                <?php echo round($total_values["depth"],1);?>
+                <?php echo round( $total_values["depth"],1);?>
             </td>
             <td>
                 <b><?php echo _e('Session depth','yandex_metrica');?></b>
@@ -54,7 +60,7 @@
         <h3><?php _e('Popular Pages','yandex_metrica');?></h3>
         <ol>
             <?php
-            foreach ($popular_posts["data"] as $post) {
+            foreach ( $popular_posts["data"] as $post) {
                 echo '<li><a href="' . $post["url"] . '">' . $post["url"] . '</a> - ' . $post["page_views"] . ' ' . _x('Views', 'yandex_metrica') . '</li>';
             }
             ?>

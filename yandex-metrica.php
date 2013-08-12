@@ -26,7 +26,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
     const MENU_SLUG   = 'yandex-metrica';
     const YANDEX_APP_ID = 'e1a0017805e24d7b9395f969b379b7bf';
     const YANDEX_APP_SECRET = '410e753d1ab9478eaa21aa2c3f9a7d88';   // If you want to create your app? you can change app_id and app_secret!
-
+    public $period = "weekly" , $start_date, $end_date;
 
     public function __construct() {
         self::$instance = $this;
@@ -43,16 +43,16 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
 
         $this->hook( 'admin_menu' );
         $this->hook( 'wp_footer' );   // using wp_footer for adding tracking code. If you theme don't have it, this plugin can't track your site.
+        $this->hook( 'admin_head', 'yandex_metrica_js' );
 
         if ( $this->is_authorized() ) {
             self::$metrica_api = new Yandex_Metrica( $this->options["access_token"] );
-
+            $this->hook( 'wp_ajax_metrica_actions', 'ajax_listener' );
             $this->hook( 'wp_dashboard_setup' );
             $this->hook( 'in_admin_footer',  'enqueue');    // footer probably is the best place for speed matters...
         }
 
-        $this->widgets_init();  // get metrica informer
-
+        $this->widgets_init();
 
     }
 
@@ -72,9 +72,11 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
         return wp_parse_args( get_option( self::OPTION ), $defaults );
     }
 
+
     public function admin_menu() {
         add_options_page( 'Yandex Metrica', 'Yandex Metrica', 'manage_options' ,self::MENU_SLUG, array($this, 'metrica_settings_page') );
     }
+
 
     /**
      * @param $code numeric confirmation code
@@ -90,6 +92,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
         }
         return false;
     }
+
 
     /**
      * Check authorization status
@@ -113,29 +116,83 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
     }
 
 
-
-
-
-
     public function wp_dashboard_setup() {
         /**
          * Check user access
          */
         if ( $this->current_user_has_access( $this->options["widget-access-roles"] ) &&  self::$metrica_api->is_valid_counter( $this->options["counter_id"] ) ) {
-            $this->hook( 'admin_head', 'dashboard_chart_js' ); // add neccessary js
+
+            $this->hook( 'admin_head', 'dashboard_chart_js' ); // add neccessary jsc
             wp_add_dashboard_widget( 'yandex_metrica_widget', __('Metrica Statistics','yandex_metrica'), array( $this, 'metrica_dashboard_widget' ));
         }
 
     }
 
 
+    public function metrica_dashboard_widget( ) {
+        $total_values = self::$metrica_api->get_counter_statistics( $this->options["counter_id"], $this->start_date , $this->end_date, "totals");
+        $popular_posts = self::$metrica_api->get_popular_content( $this->options["counter_id"], $this->start_date , $this->end_date );
+        $top_referrers = self::$metrica_api->get_referal_sites( $this->options["counter_id"], $this->start_date , $this->end_date );
+        $top_searches = self::$metrica_api->get_search_terms( $this->options["counter_id"], $this->start_date , $this->end_date );
 
-    public function metrica_dashboard_widget() {
-            $total_values = $this->get_metrica_stats( false, "totals" );
-            $popular_posts = self::$metrica_api->get_popular_content( $this->options["counter_id"] );
-            $top_referrers = self::$metrica_api->get_referal_sites( $this->options["counter_id"] );
-            $top_searches = self::$metrica_api->get_search_terms( $this->options["counter_id"] );
-            include( dirname( __FILE__ ) . '/templates/dashboard-widget.php' );
+        include( dirname( __FILE__ ) . '/templates/dashboard-widget.php' );
+    }
+
+
+    public function yandex_metrica_js() { ?>
+        <script type="text/javascript">
+            jQuery(document).ready(function($){
+                jQuery('#yandex_metrica_widget h3.hndle span').append('<span class="postbox-title-action"><a href="http://metrica.yandex.com" class="edit-box open-box"><?php _e('View Full Report', 'yandex_metrica');?></a></span>');
+
+
+                    $(document).on("change", "#period", function(){
+
+                    jQuery.ajax({
+                        type: 'post',
+                        url: 'admin-ajax.php',
+                        cache: false,
+                        data: {
+                            action: 'metrica_actions',
+                            period: $(this).val(),
+                            _ajax_nonce: '<?php echo wp_create_nonce("yandex-metrica-nonce");?>'
+
+
+                        },
+
+                        beforeSend: function() {
+                            jQuery("#metricaloading").html('<img src="<?php echo admin_url("images/wpspin_light.gif")?>" />').show();
+                        },
+
+                        success: function(html) {
+                            //console.log(html);
+                            jQuery("#metricaloading").hide();
+                            jQuery('#yandex_metrica_widget .inside').html(html);
+                            return true;
+                        }
+
+                    });
+                });
+            });
+        </script>
+    <?php }
+
+    public function dashboard_chart_js( ) {
+        wp_enqueue_script( 'jquery' );
+        $statical_data = array_reverse( self::$metrica_api->get_counter_statistics( $this->options["counter_id"], $this->start_date , $this->end_date, "data" ) );
+        include( dirname( __FILE__ ) . '/templates/dashboard-charts-js.php' );
+    }
+
+
+    public function ajax_listener(){
+
+        if( isset( $_POST["period"] ) &&  check_ajax_referer( "yandex-metrica-nonce" ) ) {
+            $period = $_POST["period"];
+            $this->set_period( $period );
+            $this->dashboard_chart_js();
+            $this->metrica_dashboard_widget();
+        }
+
+        die();
     }
 
 
@@ -152,21 +209,26 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
     }
 
 
-    /**
-     * Fetch counter statistics from metrica api.
-     *
-     * @param null | mixed $period time pediof of the data array, (week,daily,month etc...)
-     * @param null $value  of the array
-     * @return mixed
-     */
-    public function get_metrica_stats( $period = null , $value = null ){
-        $grab_data = self::$metrica_api->get_counter_statistics( $this->options["counter_id"] );
+    public function set_period( $period = "weekly" ){
 
-        if( is_null( $value ) ) {
-            return $grab_data;
+        switch( $period ){
+            case "monthly":
+                $this->start_date = date('Ymd', strtotime("-1 month"));
+                $this->end_date = date('Ymd');
+                break;
+            case "weekly":
+                $this->start_date = date('Ymd', strtotime("-6 days"));
+                $this->end_date = date('Ymd');
+                break;
+            case "daily":
+                $this->start_date = date('Ymd');
+                $this->end_date = date('Ymd');
+                break;
         }
-        return $grab_data[$value];
+
+        return $this->period = $period;
     }
+
 
     /**
      * @return mixed | Current user' role
@@ -189,13 +251,6 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
     }
 
 
-    public function dashboard_chart_js() {
-        wp_enqueue_script( 'jquery' );
-        $this->get_metrica_stats();
-        $statical_data = array_reverse( $this->get_metrica_stats( false, "data" ) );
-        include( dirname( __FILE__ ) . '/templates/dashboard-charts-js.php' );
-    }
-
     public function wp_footer() {
         if( $this->options["track-logged-in"] === true && ( is_user_logged_in() && ! $this->current_user_has_access( $this->options["untrack-roles"] ) ) || ( ! is_user_logged_in() ) ) {
             include( dirname( __FILE__ ) . '/templates/tracker-js.php' );
@@ -210,6 +265,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
         echo '<img src="http://bs.yandex.ru/informer/' . $this->options['counter_id'] . '/3_1_FFFFFFFF_EFEFEFFF_0_pageviews" style="width:80px; height:31px; border:0;" />';
     }
 
+
     public function widgets_init(){
         wp_register_sidebar_widget(
             'metrica_informer',
@@ -222,10 +278,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
 
     }
 
+
 }
 
 new WP_Yandex_Metrica;
-
-
-
-////////// YANDEXLE YANDEXLE.... :) \\\\\\\\\\\\\\\

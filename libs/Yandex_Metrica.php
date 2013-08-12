@@ -11,9 +11,13 @@ class Yandex_Metrica {
      * @return mixed
      */
     public function fetch_data( $url ) {
-        $data = wp_remote_get( $url );
+        $data = wp_remote_get( $url, array( 'timeout' => 5, 'httpversion' => '1.1', 'sslverify' => false ));
 
-        return $data["body"];
+        if ( ! empty ( $data["body"] ) ){
+            return $data["body"];
+        }
+        $this->error = "API connectivity problem.";
+        return false;
     }
 
 
@@ -101,8 +105,8 @@ class Yandex_Metrica {
 
 
 
-    public function get_counter_statistics( $counter_id ){
-        $stats_url = 'http://api-metrika.yandex.com/stat/traffic/summary.json?id='.$counter_id.'&pretty=1&oauth_token='.$this->access_token;
+    public function get_counter_statistics( $counter_id, $start_date, $end_day ){
+        $stats_url = 'http://api-metrika.yandex.com/stat/traffic/summary.json?id='.$counter_id.'&pretty=1&date1='.$start_date.'&date2='.$end_day.'&oauth_token='.$this->access_token;
         $statistics = json_decode( $this->fetch_data ( $stats_url ), true );
         return $statistics;
     }
@@ -110,22 +114,55 @@ class Yandex_Metrica {
 
 
 
-    public function get_popular_content( $counter_id , $per_page = 5 ){
-        $content_url = 'http://api-metrika.yandex.com/stat/content/popular.json?id='.$counter_id.'&pretty=1&per_page='.$per_page.'&oauth_token='.$this->access_token;
+    public function get_popular_content( $counter_id , $period, $per_page = 5 ){
+        if( $period == "monthly" ){
+            $start_date = date('Ymd', strtotime("-1 month"));
+            $end_day = date('Ymd');
+        } elseif( $period == "daily" ){
+            $start_date = date('Ymd');
+            $end_day = date('Ymd');
+        }else{
+            $start_date = date('Ymd', strtotime("-6 days"));
+            $end_day = date('Ymd');
+        }
+
+        $content_url = 'http://api-metrika.yandex.com/stat/content/popular.json?id='.$counter_id.'&pretty=1&date1='.$start_date.'&date2='.$end_day.'&per_page='.$per_page.'&oauth_token='.$this->access_token;
         $popular_content = json_decode( $this->fetch_data( $content_url ), true );
         return $popular_content;
     }
 
-    public function get_referal_sites( $counter_id, $per_page = 5 ){
-        $referral_url = 'http://api-metrika.yandex.com/stat/sources/sites.json?id='.$counter_id.'&pretty=1&per_page='.$per_page.'&oauth_token='.$this->access_token;
+    public function get_referal_sites( $counter_id, $period, $per_page = 5 ){
+        if( $period == "monthly" ){
+            $start_date = date('Ymd', strtotime("-1 month"));
+            $end_day = date('Ymd');
+        } elseif( $period == "daily" ){
+            $start_date = date('Ymd');
+            $end_day = date('Ymd');
+        }else{
+            $start_date = date('Ymd', strtotime("-6 days"));
+            $end_day = date('Ymd');
+        }
+
+        $referral_url = 'http://api-metrika.yandex.com/stat/sources/sites.json?id='.$counter_id.'&pretty=1&date1='.$start_date.'&date2='.$end_day.'&per_page='.$per_page.'&oauth_token='.$this->access_token;
         $top_referrers = json_decode( $this->fetch_data( $referral_url ), true );
         return $top_referrers;
 
     }
 
 
-    public function get_search_terms( $counter_id, $per_page = 5 ){
-        $phrases_url =   'http://api-metrika.yandex.com/stat/sources/phrases.json?id='.$counter_id.'&pretty=1&per_page='.$per_page.'&oauth_token='.$this->access_token;
+    public function get_search_terms( $counter_id, $period, $per_page = 5 ){
+        if( $period == "monthly" ){
+            $start_date = date('Ymd', strtotime("-1 month"));
+            $end_day = date('Ymd');
+        } elseif( $period == "daily" ){
+            $start_date = date('Ymd');
+            $end_day = date('Ymd');
+        }else{
+            $start_date = date('Ymd', strtotime("-6 days"));
+            $end_day = date('Ymd');
+        }
+
+        $phrases_url =   'http://api-metrika.yandex.com/stat/sources/phrases.json?id='.$counter_id.'&pretty=1&date1='.$start_date.'&date2='.$end_day.'&per_page='.$per_page.'&oauth_token='.$this->access_token;
         $top_searches = json_decode( $this->fetch_data( $phrases_url ), true);
         return $top_searches;
     }

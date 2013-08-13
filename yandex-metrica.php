@@ -67,7 +67,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
             'track-logged-in' => true,
             'untrack-roles' => array("administrator"),
             'widget-access-roles' => array("administrator"),
-            'legacy-mode' => false
+            'backward' => false
         );
         return wp_parse_args( get_option( self::OPTION ), $defaults );
     }
@@ -144,7 +144,6 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
             jQuery(document).ready(function($){
                 jQuery('#yandex_metrica_widget h3.hndle span').append('<span class="postbox-title-action"><a href="http://metrica.yandex.com" class="edit-box open-box"><?php _e('View Full Report', 'yandex_metrica');?></a></span>');
 
-
                     $(document).on("change", "#period", function(){
 
                     jQuery.ajax({
@@ -155,7 +154,6 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
                             action: 'metrica_actions',
                             period: $(this).val(),
                             _ajax_nonce: '<?php echo wp_create_nonce("yandex-metrica-nonce");?>'
-
 
                         },
 
@@ -186,7 +184,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin
     public function ajax_listener(){
 
         if( isset( $_POST["period"] ) &&  check_ajax_referer( "yandex-metrica-nonce" ) ) {
-            $period = $_POST["period"];
+            $period = stripslashes( $_POST["period"] );
             $this->set_period( $period );
             $this->dashboard_chart_js();
             $this->metrica_dashboard_widget();

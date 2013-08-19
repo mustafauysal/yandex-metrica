@@ -29,16 +29,7 @@ if ( isset( $_POST["yandex-metrica-save"] ) ) {
 	$this->options["widget-access-roles"] = ! empty( $_POST["widget_access"] ) ? array_map( 'esc_attr', $_POST["widget_access"] ) : "";
 
 
-	if ( $this->options["backward"] === false ) {
-		if ( self::$metrica_api->is_valid_counter( $this->options["counter_id"] ) ) {
-			echo '<div class="updated"><p>' . __( 'Options Saved!', 'yandex_metrica' ) . '</p></div>';
-			$this->update_options( $this->options );
-		}
-		else {
-			echo '<div class="error fade"><p>' . __( "Your selected counter seems not working. Please check counter status from official metrica website!", "yandex_metrica" ) . '</a></p></div>';
-		}
-	}
-	elseif ( is_numeric( $this->options['counter_id'] ) ) {
+	if ( is_numeric( $this->options['counter_id'] ) ) {
 		echo '<div class="updated"><p>' . __( 'Options Saved!', 'yandex_metrica' ) . '</p></div>';
 		$this->update_options( $this->options );
 	}
@@ -87,7 +78,7 @@ if ( isset( $_POST["reset"] ) ) {
 				<label for="metrica-counter"><?php _e( 'Counter:', 'yandex_metrica' ); ?></label>
 				<select name="metrica-counter" id="metrica-counter">
 					<?php foreach ( self::$metrica_api->get_counters() as $counter ): ?>
-						<option <?php if ( ! empty( $this->options["counter_id"] ) ) selected( $this->options["counter_id"], $counter['id'] ); ?>  style="color:<?php echo self::$metrica_api->is_valid_counter( $counter['id'] ) ? "green" : "red"; ?>" value="<?php echo $counter['id']; ?>"><?php echo $counter['site']; ?></option>
+						<option <?php if ( ! empty( $this->options["counter_id"] ) ) selected( $this->options["counter_id"], $counter['id'] ); ?>   value="<?php echo $counter['id']; ?>"><?php echo $counter['site']; ?></option>
 					<?php endforeach; ?>
 				</select>
 

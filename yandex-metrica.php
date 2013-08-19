@@ -131,6 +131,15 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 			$this->hook( 'admin_head', 'dashboard_chart_js' ); // add neccessary jsc
 			wp_add_dashboard_widget( 'yandex_metrica_widget', __( 'Metrica Statistics', 'yandex_metrica' ), array( $this, 'metrica_dashboard_widget' ) );
 		}
+		else {
+			wp_add_dashboard_widget( 'yandex_metrica_widget', __( 'Metrica Statistics', 'yandex_metrica' ), function () {
+				echo '<p><b>' . __( 'Oh no! There is nothing to display. Here Are the Possible Causes' ) . '</b></p>';
+				echo '<ol><li>' . __( 'If selected a new counter (recently created), please give a few hours for verification. Please be patient.', 'yandex_metrica' ) . '</li>';
+				echo '<li>' . __( 'Did you save options? You need to save options at least once after account confirmation.', 'yandex_metrica' ) . '</li>';
+				echo '<li>' . __( 'Are you sure you selected the correct counter? Please confirm.', 'yandex_metrica' ) . '</li>';
+				echo '<li>' . __( 'Temporary, connectivity problem!', 'yandex_metrica' ) . '</li><ol>';
+			} );
+		}
 
 	}
 
@@ -258,11 +267,14 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 
 	public function wp_footer() {
-		if ( $this->options["track-logged-in"] === true && ( is_user_logged_in() && ! $this->current_user_has_access( $this->options["untrack-roles"] ) ) || ( ! is_user_logged_in() ) ) {
-			include( dirname( __FILE__ ) . '/templates/tracker-js.php' );
-		}
-		elseif ( $this->options["track-logged-in"] === false && ! is_user_logged_in() ) {
-			include( dirname( __FILE__ ) . '/templates/tracker-js.php' );
+		if ( ! empty( $this->options['counter_id'] ) ) {
+
+			if ( $this->options["track-logged-in"] === true && ( is_user_logged_in() && ! $this->current_user_has_access( $this->options["untrack-roles"] ) ) || ( ! is_user_logged_in() ) ) {
+				include( dirname( __FILE__ ) . '/templates/tracker-js.php' );
+			}
+			elseif ( $this->options["track-logged-in"] === false && ! is_user_logged_in() ) {
+				include( dirname( __FILE__ ) . '/templates/tracker-js.php' );
+			}
 		}
 	}
 

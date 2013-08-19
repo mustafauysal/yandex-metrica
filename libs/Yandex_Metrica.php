@@ -113,12 +113,12 @@ class Yandex_Metrica {
 
 
 	public function get_counter_statistics( $counter_id, $start_date, $end_date, $value = null ) {
-		$statistics = get_transient( 'counter_statistics_' . $start_date . $end_date );
+		$statistics = get_transient( 'counter_statistics_' . $counter_id . '_' . $start_date . $end_date );
 
 		if ( ! $statistics ) {
 			$stats_url  = 'http://api-metrika.yandex.com/stat/traffic/summary.json?id=' . $counter_id . '&pretty=1&date1=' . $start_date . '&date2=' . $end_date . '&oauth_token=' . $this->access_token;
 			$statistics = json_decode( $this->fetch_data( $stats_url ), true );
-			set_transient( 'counter_statistics_' . $start_date . $end_date, $statistics, 3600 );
+			set_transient( 'counter_statistics_' . $counter_id . '_' . $start_date . $end_date, $statistics, 3600 );
 		}
 
 		if ( is_null( $value ) ) {
@@ -129,12 +129,12 @@ class Yandex_Metrica {
 
 
 	public function get_popular_content( $counter_id, $start_date, $end_date, $per_page = 5 ) {
-		$popular_content = get_transient( 'popular_content_' . $start_date . $end_date );
+		$popular_content = get_transient( 'popular_content_' . $counter_id . '_' . $start_date . $end_date );
 
 		if ( ! $popular_content ) {
 			$content_url     = 'http://api-metrika.yandex.com/stat/content/popular.json?id=' . $counter_id . '&pretty=1&date1=' . $start_date . '&date2=' . $end_date . '&per_page=' . $per_page . '&oauth_token=' . $this->access_token;
 			$popular_content = json_decode( $this->fetch_data( $content_url ), true );
-			set_transient( 'popular_content_' . $start_date . $end_date, $popular_content, 3600 );
+			set_transient( 'popular_content_' . $counter_id . '_' . $start_date . $end_date, $popular_content, 3600 );
 		}
 
 		return $popular_content;
@@ -142,12 +142,12 @@ class Yandex_Metrica {
 
 
 	public function get_referal_sites( $counter_id, $start_date, $end_date, $per_page = 5 ) {
-		$top_referrers = get_transient( 'top_referrers_' . $start_date . $end_date );
+		$top_referrers = get_transient( 'top_referrers_' . $counter_id . '_' . $start_date . $end_date );
 
 		if ( ! $top_referrers ) {
 			$referral_url  = 'http://api-metrika.yandex.com/stat/sources/sites.json?id=' . $counter_id . '&pretty=1&date1=' . $start_date . '&date2=' . $end_date . '&per_page=' . $per_page . '&oauth_token=' . $this->access_token;
 			$top_referrers = json_decode( $this->fetch_data( $referral_url ), true );
-			set_transient( 'top_referrers_' . $start_date . $end_date, $top_referrers, 3600 );
+			set_transient( 'top_referrers_' . $counter_id . '_' . $start_date . $end_date, $top_referrers, 3600 );
 		}
 
 		return $top_referrers;
@@ -155,12 +155,12 @@ class Yandex_Metrica {
 
 
 	public function get_search_terms( $counter_id, $start_date, $end_date, $per_page = 5 ) {
-		$top_searches = get_transient( 'top_searches_' . $start_date . $end_date );
+		$top_searches = get_transient( 'top_searches_' . $counter_id . '_' . $start_date . $end_date );
 
 		if ( ! $top_searches ) {
 			$phrases_url  = 'http://api-metrika.yandex.com/stat/sources/phrases.json?id=' . $counter_id . '&pretty=1&date1=' . $start_date . '&date2=' . $end_date . '&per_page=' . $per_page . '&oauth_token=' . $this->access_token;
 			$top_searches = json_decode( $this->fetch_data( $phrases_url ), true );
-			set_transient( 'top_searches_' . $start_date . $end_date, $top_searches, 3600 );
+			set_transient( 'top_searches_' . $counter_id . '_' . $start_date . $end_date, $top_searches, 3600 );
 		}
 
 		return $top_searches;

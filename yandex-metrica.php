@@ -28,6 +28,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 	const YANDEX_APP_SECRET = '410e753d1ab9478eaa21aa2c3f9a7d88'; // If you want to create your app? you can change app_id and app_secret!
 	public $period = "weekly", $start_date, $end_date;
 
+
 	public function __construct() {
 		self::$instance = $this;
 		$this->options  = $this->get_options();
@@ -302,6 +303,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		);
 
 	}
+
 
 
 }

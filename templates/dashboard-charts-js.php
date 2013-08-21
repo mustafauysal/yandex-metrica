@@ -20,16 +20,22 @@
 				categories: [
 					<?php
 					// use WordPress' date function date_i18n instead of the php's date. Because localization matters...
-							 foreach(  $statical_data as $item){
+							if($this->period != "monthly"){
+							foreach(  $statical_data as $item){
 									echo "'" .date_i18n('D', strtotime($item["date"])). "',";
 							 };
+							} else {
+							foreach(  $statical_data as $item){
+									echo "'" .date_i18n('d M', strtotime($item["date"])). "',";
+							 };
+							}
 					?>
 				]
 
 			},
 			yAxis   : {
 				title: {
-					text: 'Visits'
+					text: '<?php echo _x('Visits','yandex_metrica');?>'
 				},
 				min  : 0
 			},
@@ -43,7 +49,7 @@
 
 			series: [
 				{
-					name: 'Visits',
+					name: '<?php echo _x('Visits','yandex_metrica');?>',
 					data: [
 						<?php foreach( $statical_data as $item){
 							 echo $item["visits"].",";
@@ -51,7 +57,7 @@
 					]
 				},
 				{
-					name: 'Unique',
+					name: '<?php echo _x('Unique','yandex_metrica');?>',
 					data: [
 						<?php foreach( $statical_data as $item){
 							 echo $item["visitors"].',';

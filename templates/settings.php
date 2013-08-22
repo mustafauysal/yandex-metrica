@@ -29,14 +29,14 @@ if ( isset( $_POST["yandex-metrica-save"] ) ) {
 	$this->options["widget-access-roles"] = ! empty( $_POST["widget_access"] ) ? array_map( 'esc_attr', $_POST["widget_access"] ) : "";
 
 
-	if ( is_numeric( $this->options['counter_id'] ) ) {
+	if ( is_numeric( $_POST["metrica-counter"] ) ) {
 		echo '<div class="updated"><p>' . __( 'Options Saved!', 'yandex_metrica' ) . '</p></div>';
-		$this->update_options( $this->options );
 	}
 	else {
 		echo '<div class="error fade"><p>' . __( "Please enter a valid counter code!", "yandex_metrica" ) . '</a></p></div>';
 	}
 
+	$this->update_options( $this->options );
 
 }
 

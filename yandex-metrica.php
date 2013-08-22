@@ -4,7 +4,7 @@ Plugin Name: Yandex Metrica
 Plugin URI: http://uysalmustafa.com/plugins/yandex-metrica
 Description: Easy way to use Yandex Metrica in your WordPress site.
 Author: Mustafa Uysal
-Version: 1.0 - beta
+Version: 1.0-RC
 Text Domain: yandex_metrica
 Domain Path: /languages/
 Author URI: http://uysalmustafa.com
@@ -134,7 +134,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		}
 		else {
 			wp_add_dashboard_widget( 'yandex_metrica_widget', __( 'Metrica Statistics', 'yandex_metrica' ), function () {
-				echo '<p><b>' . __( 'Oh no! There is nothing to display. Here Are the Possible Causes' ) . '</b></p>';
+				echo '<p><b>' . __( 'Oh no! There is nothing to display. Here Are the Possible Causes', 'yandex_metrica' ) . '</b></p>';
 				echo '<ol><li>' . __( 'If selected a new counter (recently created), please give a few hours for verification. Please be patient.', 'yandex_metrica' ) . '</li>';
 				echo '<li>' . __( 'Did you save options? You need to save options at least once after account confirmation.', 'yandex_metrica' ) . '</li>';
 				echo '<li>' . __( 'Are you sure you selected the correct counter? Please confirm.', 'yandex_metrica' ) . '</li>';
@@ -198,7 +198,9 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		include( dirname( __FILE__ ) . '/templates/dashboard-charts-js.php' );
 	}
 
-
+	/**
+	 * Ajax request handler
+	 */
 	public function ajax_listener() {
 
 		if ( isset( $_POST["period"] ) && check_ajax_referer( "yandex-metrica-nonce" ) ) {
@@ -224,7 +226,13 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		update_option( self::OPTION, $options );
 	}
 
-
+	/**
+	 * Calculate time period of data blocks.
+	 *
+	 * @param string $period
+	 *
+	 * @return string
+	 */
 	public function set_period( $period = "weekly" ) {
 
 		switch ( $period ) {
@@ -303,7 +311,6 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		);
 
 	}
-
 
 
 }

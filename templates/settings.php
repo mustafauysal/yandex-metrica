@@ -34,6 +34,7 @@ if ( isset( $_POST["yandex-metrica-save"] ) ) {
 	}
 	else {
 		echo '<div class="error fade"><p>' . __( "Please enter a valid counter code!", "yandex_metrica" ) . '</a></p></div>';
+		$this->options["counter_id"] = null;
 	}
 
 	$this->update_options( $this->options );
@@ -75,14 +76,19 @@ if ( isset( $_POST["reset"] ) ) {
 
 		<?php else: ?>
 			<?php if ( $this->options["backward"] === false ): ?>
-				<label for="metrica-counter"><?php _e( 'Counter:', 'yandex_metrica' ); ?></label>
-				<select name="metrica-counter" id="metrica-counter">
-					<?php foreach ( self::$metrica_api->get_counters() as $counter ): ?>
-						<option <?php if ( ! empty( $this->options["counter_id"] ) ) selected( $this->options["counter_id"], $counter['id'] ); ?>   value="<?php echo $counter['id']; ?>"><?php echo $counter['site']; ?></option>
-					<?php endforeach; ?>
-				</select>
-
-				<br />
+				<?php if ( ! is_null( self::$metrica_api->get_counters() ) ): ?>
+					<label for="metrica-counter"><?php _e( 'Counter:', 'yandex_metrica' ); ?></label>
+					<select name="metrica-counter" id="metrica-counter">
+						<?php foreach ( self::$metrica_api->get_counters() as $counter ): ?>
+							<option <?php if ( ! empty( $this->options["counter_id"] ) ) selected( $this->options["counter_id"], $counter['id'] ); ?>   value="<?php echo $counter['id']; ?>"><?php echo $counter['site']; ?></option>
+						<?php endforeach; ?>
+					</select>
+				<?php
+				else:;
+					echo '<div class="updated"><p>' . __( 'Temporary, getting connectivity problem.!', 'yandex_metrica' ) . '</p></div>';
+					?>
+					<br />
+				<?php endif; ?>
 			<?php else: ?>
 				<input type="text" name="metrica-counter" <?php if ( isset( $this->options["counter_id"] ) ) echo 'value="' . esc_attr( $this->options["counter_id"] ) . '"'; ?> placeholder="<?php _e( 'Enter counter number', 'yandex_metrica' ); ?>" style="width:300px;" metrica-counter" />
         <?php endif; ?>
@@ -165,7 +171,7 @@ if ( isset( $_POST["reset"] ) ) {
 
 			<div class="save">
 				<?php submit_button( __( 'Save', 'yandex_metrica' ), 'primary', 'yandex-metrica-save', false ); ?>
-				<input type="submit" name="reset" value="Reset" class="button-secondary" />
+				<input type="submit" name="reset" value="<?php echo __( 'Reset', 'yandex_metrica' ); ?>" class="button-secondary" />
 			</div>
 
 		<?php endif; ?>

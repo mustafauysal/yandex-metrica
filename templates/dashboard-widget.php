@@ -1,8 +1,8 @@
 <?php if ( ! defined( 'ABSPATH' ) ) die(); ?>
 <select name="period" id="period">
-	<option <?php selected( $this->period, "daily" ); ?> value="daily"><?php _e('Daily','yandex_metrica');?></option>
-	<option <?php selected( $this->period, "weekly" ); ?> <?php if ( empty ( $this->period ) ) echo "selected"; ?> value="weekly"><?php _e('Weekly','yandex_metrica');?></option>
-	<option <?php selected( $this->period, "monthly" ); ?> value="monthly"><?php _e('Monthly','yandex_metrica');?></option>
+	<option <?php selected( $this->period, "daily" ); ?> value="daily"><?php _e( 'Daily', 'yandex_metrica' ); ?></option>
+	<option <?php selected( $this->period, "weekly" ); ?> <?php if ( empty ( $this->period ) ) echo "selected"; ?> value="weekly"><?php _e( 'Weekly', 'yandex_metrica' ); ?></option>
+	<option <?php selected( $this->period, "monthly" ); ?> value="monthly"><?php _e( 'Monthly', 'yandex_metrica' ); ?></option>
 </select>
 <span id="metricaloading"></span>
 <?php if ( ! empty( $total_values["visits"] ) || ! empty( $total_values["visitors"] ) ): ?>
@@ -149,7 +149,7 @@
 							<?php
 							if ( ! empty( $top_searches["data"] ) ) {
 								foreach ( $top_searches["data"] as $search_term ) {
-									echo '<li><strong>' . $search_term["phrase"] . '</strong> - ' . $referrer["visits"] . '  ' . __( 'visits', 'yandex_metrica' ) . '</li>';
+									echo '<li><strong>' . $search_term["phrase"] . '</strong> - ' . $search_term["visits"] . '  ' . __( 'visits', 'yandex_metrica' ) . '</li>';
 								}
 							}
 							else {

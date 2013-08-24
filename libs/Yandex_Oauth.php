@@ -138,7 +138,3 @@ class Yandex_Oauth {
 
 
 }
-
-
-
-

@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) die(); ?>
 <?php
 /**
  * @package   : WordPress

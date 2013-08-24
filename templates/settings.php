@@ -8,7 +8,7 @@ if ( isset( $_POST['yandex-metrica-authorize'] ) ) {
 		echo '<div class="updated"><p>' . __( 'Successfully connected to Yandex Server', 'yandex_metrica' ) . '</p></div>';
 	}
 	else {
-		echo '<div class="error"><p>' . __( 'DAMMIT! Something went wrong!', 'yandex_metrica' ) . '</p></div>';
+		echo '<div class="error"><p>' . __( 'Something went wrong. Please check your confirmation code!', 'yandex_metrica' ) . '</p></div>';
 	}
 }
 
@@ -83,10 +83,9 @@ if ( isset( $_POST["reset"] ) ) {
 							<option <?php if ( ! empty( $this->options["counter_id"] ) ) selected( $this->options["counter_id"], $counter['id'] ); ?>   value="<?php echo $counter['id']; ?>"><?php echo $counter['site']; ?></option>
 						<?php endforeach; ?>
 					</select>
-				<?php
-				else:;
+				<?php else:
 					echo '<div class="updated"><p>' . __( 'Temporary, getting connectivity problem.!', 'yandex_metrica' ) . '</p></div>';
-					?>
+				?>
 					<br />
 				<?php endif; ?>
 			<?php else: ?>
@@ -137,7 +136,7 @@ if ( isset( $_POST["reset"] ) ) {
 						$untrack_roles = $this->options["untrack-roles"]; // get roles that not tracking if logged users track tuned on
 						if ( ! is_array( $untrack_roles ) ) $untrack_roles = array();
 
-						foreach ( $roles AS $role => $name ): ?>
+						foreach ( $roles as $role => $name ): ?>
 							<input type="checkbox" <?php if ( in_array( $role, $untrack_roles ) ) echo "checked"; ?>  name="tracker_role[]" value="<?php echo $role; ?>" /> <?php echo translate_user_role( $name ); ?>
 							<br />
 						<?php endforeach; ?>

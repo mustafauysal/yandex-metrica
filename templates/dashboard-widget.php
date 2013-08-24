@@ -106,7 +106,7 @@
 			<?php
 			if ( ! empty( $popular_posts["data"] ) ) {
 				foreach ( $popular_posts["data"] as $post ) {
-					echo '<li><a href="' . $post["url"] . '">' . $post["url"] . '</a> - ' . $post["page_views"] . ' ' . __( 'Views', 'yandex_metrica' ) . '</li>';
+					printf( '<li><a href="' . $post["url"] . '">' . $post["url"] . '</a> - ' . _n( '%d View', '%d Views', $post["page_views"], 'yandex_metrica' ), $post["page_views"] . '</li>' );
 				}
 			}
 			else {
@@ -129,7 +129,8 @@
 							<?php
 							if ( ! empty( $top_referrers["data"] ) ) {
 								foreach ( $top_referrers["data"] as $referrer ) {
-									echo '<li><a href="' . $referrer["url"] . '">' . $referrer["url"] . '</a> - ' . $referrer["visits"] . ' ' . __( 'visits', 'yandex_metrica' ) . '</li>';
+									//echo '<li><a href="' . $referrer["url"] . '">' . $referrer["url"] . '</a> - ' . $referrer["visits"] . ' ' . __( 'visits', 'yandex_metrica' ) . '</li>';
+									printf( '<li><a href="' . $referrer["url"] . '">' . $referrer["url"] . '</a> - ' . _n( '%d Visit', '%d Visits', $referrer["visits"], 'yandex_metrica' ), $referrer["visits"] . '</li>' );
 								}
 							}
 							else {
@@ -149,7 +150,7 @@
 							<?php
 							if ( ! empty( $top_searches["data"] ) ) {
 								foreach ( $top_searches["data"] as $search_term ) {
-									echo '<li><strong>' . $search_term["phrase"] . '</strong> - ' . $search_term["visits"] . '  ' . __( 'visits', 'yandex_metrica' ) . '</li>';
+									printf( '<li><strong>' . $search_term["phrase"] . '</strong> - ' . _n( '%d Visit', '%d Visits', $search_term["visits"], 'yandex_metrica' ), $search_term["visits"] . '</li>' );
 								}
 							}
 							else {

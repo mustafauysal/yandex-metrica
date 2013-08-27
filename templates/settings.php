@@ -61,7 +61,7 @@ if ( isset( $_POST["reset"] ) ) {
 		<?php if ( ! $this->is_authorized() && $this->options["backward"] === false ) : ?>
 			<p><?php _e( 'You need sign in to Yandex and grant this plugin access to your Yandex Metrica account.', 'yandex_metrica' ); ?></p>
 			<p class="button" onclick="window.open('https://oauth.yandex.com/authorize?response_type=code&client_id=<?php echo self::YANDEX_APP_ID; ?>&display=popup', 'activate','width=600, height=500, menubar=0, status=0, location=0, toolbar=0')">
-				<a style="text-decoration: none;" target="_blank" href="javascript:void(0);"><b><?php _e( 'Click here for get activation code', 'yandex_metrica' ); ?></b></a>
+				<a style="text-decoration: none;" target="_blank" href="javascript:void(0);"><b><?php _e( 'Click here to getting confirmation code', 'yandex_metrica' ); ?></b></a>
 			</p>
 
 			<div id="metrica-settings">

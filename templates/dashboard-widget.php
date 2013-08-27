@@ -129,7 +129,6 @@
 							<?php
 							if ( ! empty( $top_referrers["data"] ) ) {
 								foreach ( $top_referrers["data"] as $referrer ) {
-									//echo '<li><a href="' . $referrer["url"] . '">' . $referrer["url"] . '</a> - ' . $referrer["visits"] . ' ' . __( 'visits', 'yandex_metrica' ) . '</li>';
 									printf( '<li><a href="' . $referrer["url"] . '">' . $referrer["url"] . '</a> - ' . _n( '%d Visit', '%d Visits', $referrer["visits"], 'yandex_metrica' ), $referrer["visits"] . '</li>' );
 								}
 							}

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Yandex Metrica 1.x\n"
-"POT-Creation-Date: 2013-08-24 18:16+0200\n"
-"PO-Revision-Date: 2013-08-24 18:28+0200\n"
+"POT-Creation-Date: 2013-08-27 20:18+0200\n"
+"PO-Revision-Date: 2013-08-27 20:19+0200\n"
 "Last-Translator: Mustafa Uysal <mustafa@lettoblog.com>\n"
 "Language-Team: \n"
 "Language: English\n"
@@ -24,11 +24,11 @@ msgstr "Bu sayfayı görüntüleme yetkiniz bulunmamaktadır."
 msgid "Metrica Statistics"
 msgstr "Metrika İstatistikleri"
 
-#: ../yandex-metrica.php:137
+#: ../yandex-metrica.php:143
 msgid "Oh no! There is nothing to display. Here Are the Possible Causes"
 msgstr "Olamaz :( Yayınlayacak bi'şey bulamadık. Muhtemel sebepler şöyle;"
 
-#: ../yandex-metrica.php:138
+#: ../yandex-metrica.php:144
 msgid ""
 "If selected a new counter (recently created), please give a few hours for "
 "verification. Please be patient."
@@ -36,7 +36,7 @@ msgstr ""
 "Seçtiğiniz sayacı yeni mi oluşturdunuz? Eğer yeni oluşturmuşsanız "
 "doğrulamamız için bir kaç saat bekleyiniz."
 
-#: ../yandex-metrica.php:139
+#: ../yandex-metrica.php:145
 msgid ""
 "Did you save options? You need to save options at least once after account "
 "confirmation."
@@ -44,74 +44,74 @@ msgstr ""
 "Ayarları kaydettiniz mi? Api izni verdikten sonra en az bir kere ayarları "
 "kaydetmeniz gerekmektedir."
 
-#: ../yandex-metrica.php:140
+#: ../yandex-metrica.php:146
 msgid "Are you sure you selected the correct counter? Please confirm."
 msgstr ""
 "Seçtiğiniz sayaç doğru mu? Lütfen sayacı yada sayacı kurarken belirttiğiniz "
 "internet adresinin doğru olduğundan emin olunuz."
 
-#: ../yandex-metrica.php:141
+#: ../yandex-metrica.php:147
 msgid "Temporary, connectivity problem!"
 msgstr ""
 "Düşük bir olasılıkta olsa, geçici bir bağlantı sorunu yaşamış olabilirsiniz."
 
-#: ../yandex-metrica.php:162
+#: ../yandex-metrica.php:165
 msgid "View Full Report"
 msgstr "Tüm Raporu Görüntüle"
 
-#: ../libs/widget.php:26
+#: ../libs/widget.php:27
 msgid "Display statistics within selected period."
 msgstr "Seçtiğim periyot için istatistikleri görüntüle."
 
-#: ../libs/widget.php:54
+#: ../libs/widget.php:55
 #, php-format
 msgid "<h3>Metrica statistics for %s </h3>"
 msgstr "<h3>%s için Metrika İstatistikleri </h3>"
 
-#: ../libs/widget.php:65
+#: ../libs/widget.php:66
 #, php-format
 msgid "Page Views: <b>%d</b> <br/>"
 msgstr "Sayfa Gösterimleri: <b>%d</b> <br/>"
 
-#: ../libs/widget.php:67
+#: ../libs/widget.php:68
 #, php-format
 msgid "Visits: <b>%d</b> </br>"
 msgstr "Ziyaretler: <b>%d</b> </br>"
 
-#: ../libs/widget.php:69
+#: ../libs/widget.php:70
 #, php-format
 msgid "Visitors: <b>%d</b> </br>"
 msgstr "Ziyaretçiler: <b>%d</b> </br>"
 
-#: ../libs/widget.php:84
+#: ../libs/widget.php:85
 msgid "Title:"
 msgstr "Başlık:"
 
-#: ../libs/widget.php:88
+#: ../libs/widget.php:89
 msgid "Statistics for:"
 msgstr "Zaman:"
 
-#: ../libs/widget.php:90
+#: ../libs/widget.php:91
 msgid "Today"
 msgstr "Bugün"
 
-#: ../libs/widget.php:91
+#: ../libs/widget.php:92
 msgid "Week"
 msgstr "Hafta"
 
-#: ../libs/widget.php:92
+#: ../libs/widget.php:93
 msgid "Month"
 msgstr "Ay"
 
-#: ../libs/widget.php:96
+#: ../libs/widget.php:97
 msgid "Show Pageview"
 msgstr "Sayfa Gösterimlerini Göster"
 
-#: ../libs/widget.php:98
+#: ../libs/widget.php:99
 msgid "Show Visits"
 msgstr "Ziyaretleri Göster"
 
-#: ../libs/widget.php:100
+#: ../libs/widget.php:101
 msgid "Show Visitors"
 msgstr "Ziyaretçileri Göster"
 
@@ -237,7 +237,7 @@ msgstr ""
 "bağlanmasına izin vermelisiniz."
 
 #: ../templates/settings.php:64
-msgid "Click here for get activation code"
+msgid "Click here to getting confirmation code"
 msgstr "Aktivasyon kodu almak için tıklayınız."
 
 #: ../templates/settings.php:68

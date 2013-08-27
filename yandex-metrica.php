@@ -133,13 +133,13 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 			wp_add_dashboard_widget( 'yandex_metrica_widget', __( 'Metrica Statistics', 'yandex_metrica' ), array( $this, 'metrica_dashboard_widget' ) );
 		}
 		else {
-			wp_add_dashboard_widget( 'yandex_metrica_widget', __( 'Metrica Statistics', 'yandex_metrica' ), array( $this, 'temporary_widget' ) );
+			wp_add_dashboard_widget( 'yandex_metrica_widget', __( 'Metrica Statistics', 'yandex_metrica' ), array( $this, 'temporary_dashboard_widget' ) );
 		}
 
 	}
 
 
-	public function temporary_widget() {
+	public function temporary_dashboard_widget() {
 		echo '<p><b>' . __( 'Oh no! There is nothing to display. Here Are the Possible Causes', 'yandex_metrica' ) . '</b></p>';
 		echo '<ol><li>' . __( 'If selected a new counter (recently created), please give a few hours for verification. Please be patient.', 'yandex_metrica' ) . '</li>';
 		echo '<li>' . __( 'Did you save options? You need to save options at least once after account confirmation.', 'yandex_metrica' ) . '</li>';

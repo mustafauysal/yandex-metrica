@@ -53,7 +53,8 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		if ( $this->is_authorized() ) {
 			self::$metrica_api = new Yandex_Metrica( $this->options["access_token"] );
 			$this->hook( 'wp_ajax_metrica_actions', 'ajax_listener' );
-			$this->hook( 'wp_dashboard_setup' );
+			if ( $this->current_user_has_access( $this->options["widget-access-roles"] ) )
+				$this->hook( 'wp_dashboard_setup' );
 			$this->hook( 'in_admin_footer', 'enqueue' ); // footer probably is the best place for speed matters...
 
 		}
@@ -127,7 +128,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		/**
 		 * Check user access
 		 */
-		if ( $this->current_user_has_access( $this->options["widget-access-roles"] ) && self::$metrica_api->is_valid_counter( $this->options["counter_id"] ) ) {
+		if ( self::$metrica_api->is_valid_counter( $this->options["counter_id"] ) ) {
 
 			$this->hook( 'admin_head', 'dashboard_chart_js' ); // add neccessary jsc
 			wp_add_dashboard_widget( 'yandex_metrica_widget', __( 'Metrica Statistics', 'yandex_metrica' ), array( $this, 'metrica_dashboard_widget' ) );

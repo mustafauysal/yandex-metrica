@@ -4,7 +4,7 @@ Contributors: [m_uysl](https://github.com/mustafauysal/)
 Tags: yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika	
 Requires at least: 3.0		
 Tested up to: 3.7	
-Stable tag: 1.0.1		
+Stable tag: 1.0.2		
 License: GPLv2 (or later)	
 
 Easy way to use Yandex Metrica in your WordPress site.
@@ -60,6 +60,9 @@ Extract the zip file and just drop the contents in the `wp-content/plugins/` dir
 
 ## Changelog ##
 
+#### 1.0.2 ####
+ - Capability checking before display temporary dashboard widget
+ 
 #### 1.0.1 ####
  - Closure function removed
  - Typo fix

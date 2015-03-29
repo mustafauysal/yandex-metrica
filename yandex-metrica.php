@@ -52,7 +52,8 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 		if ( $this->is_authorized() ) {
 			self::$metrica_api = new Yandex_Metrica( $this->options["access_token"] );
-			$this->hook( 'wp_ajax_metrica_actions', 'ajax_listener' );
+            $this->set_period( $this->period );
+            $this->hook( 'wp_ajax_metrica_actions', 'ajax_listener' );
 			if ( $this->current_user_has_access( $this->options["widget-access-roles"] ) )
 				$this->hook( 'wp_dashboard_setup' );
 			$this->hook( 'in_admin_footer', 'enqueue' ); // footer probably is the best place for speed matters...

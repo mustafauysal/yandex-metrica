@@ -66,7 +66,27 @@
 				}
 			]
 		});
-	});
+
+        $( "#toggle-popular-pages" ).click(function() {
+            $( ".metrica-popular-pages" ).toggle(  function() {
+
+            });
+        });
+
+        $( "#toggle-top-referrers" ).click(function() {
+            $( ".metrica-top-referrers" ).toggle(  function() {
+
+            });
+        });
+
+        $( "#toggle-top-searches" ).click(function() {
+            $( ".metrica-top-searches" ).toggle(  function() {
+
+            });
+        });
+
+
+    });
 
 
 </script>

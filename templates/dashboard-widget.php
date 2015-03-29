@@ -100,9 +100,13 @@
 
 	</table>
 
-	<div id="popular-posts">
-		<h3><?php _e( 'Popular Pages', 'yandex_metrica' ); ?></h3>
-		<ol>
+
+    <div id="popular-posts" class="postbox">
+		<div class="handlediv" id="toggle-popular-pages"><br/></div>
+
+            <h3 ><?php _e( 'Popular Pages', 'yandex_metrica' ); ?></h3>
+
+        <ol class="metrica-popular-pages">
 			<?php
 			if ( ! empty( $popular_posts["data"] ) ) {
 				foreach ( $popular_posts["data"] as $post ) {
@@ -118,49 +122,46 @@
 	</div>
 
 
-	<div id="metrica-incoming">
-		<table>
-			<tr valign="top">
-				<td width="50%">
-					<div class="top-referrers">
-						<h4><?php _e( 'Top Referrers', 'yandex_metrica' ); ?></h4>
 
-						<ol>
-							<?php
-							if ( ! empty( $top_referrers["data"] ) ) {
-								foreach ( $top_referrers["data"] as $referrer ) {
-									printf( '<li><a href="' . $referrer["url"] . '">' . $referrer["url"] . '</a> - ' . _n( '%d Visit', '%d Visits', $referrer["visits"], 'yandex_metrica' ), $referrer["visits"] . '</li>' );
-								}
-							}
-							else {
-								echo __( 'None', 'yandex_metrica' );
+        <div id="metrica-incoming" class="postbox">
+            <div class="handlediv" id="toggle-top-referrers"><br/></div>
 
-							}
+            <h3><?php _e( 'Top Referrers', 'yandex_metrica' ); ?></h3>
 
-							?>
-						</ol>
+            <ol class="metrica-top-referrers" style="display:none">
+                <?php
+                if ( ! empty( $top_referrers["data"] )) {
+                    foreach ($top_referrers["data"] as $referrer) {
+                        printf( '<li><a href="'.$referrer["url"].'">'.$referrer["url"].'</a> - '._n( '%d Visit', '%d Visits', $referrer["visits"], 'yandex_metrica' ), $referrer["visits"].'</li>' );
+                    }
+                } else {
+                    echo __( 'None', 'yandex_metrica' );
 
-					</div>
-				</td>
-				<td>
-					<div class="top-searches">
-						<h4><?php _e( 'Search Terms', 'yandex_metrica' ); ?></h4>
-						<ol>
-							<?php
-							if ( ! empty( $top_searches["data"] ) ) {
-								foreach ( $top_searches["data"] as $search_term ) {
-									printf( '<li><strong>' . $search_term["phrase"] . '</strong> - ' . _n( '%d Visit', '%d Visits', $search_term["visits"], 'yandex_metrica' ), $search_term["visits"] . '</li>' );
-								}
-							}
-							else {
-								echo __( 'None', 'yandex_metrica' );
-							}
-							?>
-						</ol>
-					</div>
-				</td>
-			</tr>
-		</table>
-	</div>
+                }
 
-</div>
+                ?>
+            </ol>
+
+        </div>
+
+
+        <div id="top-searches" class="postbox">
+            <div class="handlediv" id="toggle-top-searches"><br/></div>
+
+            <h3><?php _e( 'Search Terms', 'yandex_metrica' ); ?></h3>
+            <ol class="metrica-top-searches" style="display:none">
+                <?php
+                if ( ! empty( $top_searches["data"] )) {
+                    foreach ($top_searches["data"] as $search_term) {
+                        printf( '<li><strong>'.$search_term["phrase"].'</strong> - '._n( '%d Visit', '%d Visits', $search_term["visits"], 'yandex_metrica' ), $search_term["visits"].'</li>' );
+                    }
+                } else {
+                    echo __( 'None', 'yandex_metrica' );
+                }
+                ?>
+            </ol>
+        </div>
+
+    </div>
+
+

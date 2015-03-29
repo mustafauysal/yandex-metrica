@@ -24,19 +24,19 @@
                 if ( ! empty( $total_values["visits"] )) {
                     echo $total_values["visits"];
                 } else {
-                    echo __( 'None', 'yandex_metrica' );
+                     _e( 'None', 'yandex_metrica' );
                 }
                 ?>
             </td>
             <td width="20%">
-                <b><?php echo _e( 'New Visitors', 'yandex_metrica' ); ?>:</b>
+                <b><?php _e( 'New Visitors', 'yandex_metrica' ); ?>:</b>
             </td>
             <td width="20%">
                 <?php
                 if ( ! empty( $total_values["new_visitors_perc"] )) {
                     echo '%'.$total_values["new_visitors_perc"] * 100;
                 } else {
-                    echo __( 'None', 'yandex_metrica' );
+                     _e( 'None', 'yandex_metrica' );
                 }
                 ?>
             </td>
@@ -45,24 +45,24 @@
 
         <tr>
             <td>
-                <b><?php echo _e( 'Page Views', 'yandex_metrica' ); ?>:</b>
+                <b><?php  _e( 'Page Views', 'yandex_metrica' ); ?>:</b>
             </td>
             <td>
                 <?php if ( ! empty( $total_values["page_views"] )) {
                     echo $total_values["page_views"];
                 } else {
-                    echo __( 'None', 'yandex_metrica' );
+                    _e( 'None', 'yandex_metrica' );
                 }
                 ?>
             </td>
             <td>
-                <b><?php echo _e( 'Session depth', 'yandex_metrica' ); ?>:</b>
+                <b><?php  _e( 'Session depth', 'yandex_metrica' ); ?>:</b>
             </td>
             <td>
                 <?php if ( ! empty( $total_values["depth"] )) {
                     echo round( $total_values["depth"], 1 );
                 } else {
-                    echo __( 'None', 'yandex_metrica' );
+                    _e( 'None', 'yandex_metrica' );
                 }
                 ?>
             </td>
@@ -82,14 +82,14 @@
                 ?>
             </td>
             <td>
-                <b><?php echo _e( 'Avg. Time on Site', 'yandex_metrica' ); ?>:</b>
+                <b><?php  _e( 'Avg. Time on Site', 'yandex_metrica' ); ?>:</b>
             </td>
             <td>
                 <?php
                 if ( ! empty( $total_values["visit_time"] )) {
                     echo gmdate( "H:i:s", $total_values["visit_time"] );
                 } else {
-                    echo __( 'None', 'yandex_metrica' );
+                    _e( 'None', 'yandex_metrica' );
                 }
                 ?>
             </td>
@@ -116,7 +116,7 @@
             <?php else: ?>
                 <?php _e( 'None', 'yandex_metrica' ); ?>
             <?php endif; ?>
-            
+
         </ol>
     </div>
 

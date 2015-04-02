@@ -199,8 +199,12 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 	public function dashboard_chart_js() {
 		wp_enqueue_script( 'jquery' );
-		$statical_data = array_reverse( self::$metrica_api->get_counter_statistics( $this->options["counter_id"], $this->start_date, $this->end_date, "data" ) );
-		include( dirname( __FILE__ ) . '/templates/dashboard-charts-js.php' );
+		$statical_data =  self::$metrica_api->get_counter_statistics( $this->options["counter_id"], $this->start_date, $this->end_date, "data" );
+        foreach ($statical_data as $key => $row) {
+            $days[$key]  = $row['date'];
+        }
+        array_multisort($days, SORT_ASC, $statical_data);
+        include( dirname( __FILE__ ) . '/templates/dashboard-charts-js.php' );
 	}
 
 	/**

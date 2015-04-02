@@ -4,7 +4,7 @@ Plugin Name: Yandex Metrica
 Plugin URI: http://uysalmustafa.com/plugins/yandex-metrica
 Description: Best metrica plugin for the use Yandex Metrica in your WordPress site.
 Author: Mustafa Uysal
-Version: 1.1
+Version: 1.1.1
 Text Domain: yandex_metrica
 Domain Path: /languages/
 Author URI: http://uysalmustafa.com

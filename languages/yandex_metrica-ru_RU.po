@@ -1,0 +1,333 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Yandex Metrica 1.x\n"
+"POT-Creation-Date: 2015-11-16 21:29+0200\n"
+"PO-Revision-Date: 2015-11-16 23:18+0200\n"
+"Last-Translator: Mustafa Uysal <mustafa@lettoblog.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.1\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;_n:1,2;_n_noop:1,2\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Language: ru\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../yandex-metrica.php:120
+msgid "You do not have sufficient permissions to access this page."
+msgstr "У вас недостаточно прав для доступа к этой странице."
+
+#: ../yandex-metrica.php:133 ../yandex-metrica.php:136
+msgid "Metrica Statistics"
+msgstr "Статистика Метрики"
+
+#: ../yandex-metrica.php:143
+msgid "Oh no! There is nothing to display. Here Are the Possible Causes"
+msgstr "Нет элементов для отображения. Возможно причина в следующем"
+
+#: ../yandex-metrica.php:144
+msgid ""
+"If selected a new counter (recently created), please give a few hours for "
+"verification. Please be patient."
+msgstr ""
+"Если выбран новый счётчик (недавно созданный), будьте терпеливы и подождите "
+"несколько часов, пока пройдет процесс верификации."
+
+#: ../yandex-metrica.php:145
+msgid ""
+"Did you save options? You need to save options at least once after account "
+"confirmation."
+msgstr ""
+"Вы сохранили параметры? Вам нужно сохранить нужные параметры хотя бы раз "
+"после подтверждения аккаунта."
+
+#: ../yandex-metrica.php:146
+msgid "Are you sure you selected the correct counter? Please confirm."
+msgstr "Вы уверены, что выбрали правильный счетчик? Пожалуйста, подтвердите."
+
+#: ../yandex-metrica.php:147
+msgid "Temporary, connectivity problem!"
+msgstr "Временная проблема с подключением!"
+
+#: ../yandex-metrica.php:165
+msgid "View Full Report"
+msgstr "Посмотреть полный отчёт"
+
+#: ../libs/widget.php:27
+msgid "Display statistics within selected period."
+msgstr "Показать статистику для выбранного периода"
+
+#: ../libs/widget.php:55
+#, php-format
+msgid "<h3>Metrica statistics for %s </h3>"
+msgstr "<h3>Статистика Метрики для %s </h3>"
+
+#: ../libs/widget.php:66
+#, php-format
+msgid "Page Views: <b>%d</b> <br/>"
+msgstr "Просмотры страниц: <b>%d</b> <br/>"
+
+#: ../libs/widget.php:68
+#, php-format
+msgid "Visits: <b>%d</b> </br>"
+msgstr "Визиты: <b>%d</b> </br>"
+
+#: ../libs/widget.php:70
+#, php-format
+msgid "Visitors: <b>%d</b> </br>"
+msgstr "Посетители: <b>%d</b> </br>"
+
+#: ../libs/widget.php:85
+msgid "Title:"
+msgstr "Заголовок"
+
+#: ../libs/widget.php:89
+msgid "Statistics for:"
+msgstr "Статистика за:"
+
+#: ../libs/widget.php:91
+msgid "Today"
+msgstr "сегодня"
+
+#: ../libs/widget.php:92
+msgid "Week"
+msgstr "неделю"
+
+#: ../libs/widget.php:93
+msgid "Month"
+msgstr "месяц"
+
+#: ../libs/widget.php:97
+msgid "Show Pageview"
+msgstr "Показать просмотры страниц"
+
+#: ../libs/widget.php:99
+msgid "Show Visits"
+msgstr "Показать посещения"
+
+#: ../libs/widget.php:101
+msgid "Show Visitors"
+msgstr "Показать посетителей"
+
+#: ../templates/dashboard-charts-js.php:10
+msgid "Metrica Traffic"
+msgstr "Трафик Метрики"
+
+#: ../templates/dashboard-charts-js.php:16
+msgid "Source"
+msgstr "Источник"
+
+#: ../templates/dashboard-charts-js.php:38
+#: ../templates/dashboard-charts-js.php:52
+#: ../templates/dashboard-widget.php:16
+msgid "Visits"
+msgstr "Посещения"
+
+#: ../templates/dashboard-charts-js.php:60
+msgid "Unique"
+msgstr "Уникальные"
+
+#: ../templates/dashboard-widget.php:3
+msgid "Daily"
+msgstr "по дням"
+
+#: ../templates/dashboard-widget.php:4
+msgid "Weekly"
+msgstr "по неделям"
+
+#: ../templates/dashboard-widget.php:5
+msgid "Monthly"
+msgstr "по месяцам"
+
+#: ../templates/dashboard-widget.php:12
+msgid "Site Usage"
+msgstr "Использование сайта"
+
+#: ../templates/dashboard-widget.php:24 ../templates/dashboard-widget.php:37
+#: ../templates/dashboard-widget.php:53 ../templates/dashboard-widget.php:65
+#: ../templates/dashboard-widget.php:81 ../templates/dashboard-widget.php:94
+#: ../templates/dashboard-widget.php:113
+#: ../templates/dashboard-widget.php:137
+#: ../templates/dashboard-widget.php:157
+msgid "None"
+msgstr "Нет"
+
+#: ../templates/dashboard-widget.php:29
+msgid "New Visitors"
+msgstr "Новые посетители"
+
+#: ../templates/dashboard-widget.php:46
+msgid "Page Views"
+msgstr "Просмотры страниц"
+
+#: ../templates/dashboard-widget.php:58
+msgid "Session depth"
+msgstr "Глубина сессии"
+
+#: ../templates/dashboard-widget.php:74
+msgid "Visitors"
+msgstr "Посетители"
+
+#: ../templates/dashboard-widget.php:86
+msgid "Avg. Time on Site"
+msgstr "Среднее время на сайте"
+
+#: ../templates/dashboard-widget.php:104
+msgid "Popular Pages"
+msgstr "Популярные страницы"
+
+#: ../templates/dashboard-widget.php:109
+#, php-format
+msgid "%d View"
+msgid_plural "%d Views"
+msgstr[0] "%d просмотр"
+msgstr[1] "%d просмотра"
+msgstr[2] "%d просмотров"
+
+#: ../templates/dashboard-widget.php:126
+msgid "Top Referrers"
+msgstr "Основные источники"
+
+#: ../templates/dashboard-widget.php:133
+#: ../templates/dashboard-widget.php:153
+#, php-format
+msgid "%d Visit"
+msgid_plural "%d Visits"
+msgstr[0] "%d посещение"
+msgstr[1] "%d посещения"
+msgstr[2] "%d посещений"
+
+#: ../templates/dashboard-widget.php:148
+msgid "Search Terms"
+msgstr "Поисковые запросы"
+
+#: ../templates/settings.php:8
+msgid "Successfully connected to Yandex Server"
+msgstr "Успешное соединение с сервером Яндекса"
+
+#: ../templates/settings.php:11
+msgid "Something went wrong. Please check your confirmation code!"
+msgstr "Что-то пошло не так! Пожалуйста, проверьте ваш код подтверждения!"
+
+#: ../templates/settings.php:33
+msgid "Options Saved!"
+msgstr "Параметры сохранены!"
+
+#: ../templates/settings.php:36
+msgid "Please enter a valid counter code!"
+msgstr "Пожалуйста, введите правильный код счетчика!"
+
+#: ../templates/settings.php:49
+msgid "All options cleared!"
+msgstr "Все параметры очищены!"
+
+#: ../templates/settings.php:59
+msgid "Yandex Metrica"
+msgstr "Яндекс Метрика"
+
+#: ../templates/settings.php:62
+msgid ""
+"You need sign in to Yandex and grant this plugin access to your Yandex "
+"Metrica account."
+msgstr ""
+"Вам нужно войти в ваш аккаунт в Яндекс Метрике и дать плагину право доступа "
+"к вашему аккаунту."
+
+#: ../templates/settings.php:64
+msgid "Click here to getting confirmation code"
+msgstr "Нажмите сюда для получения кода подтверждения"
+
+#: ../templates/settings.php:68
+msgid "Enter Confirmation code here"
+msgstr "Введите код подтверждения здесь"
+
+#: ../templates/settings.php:69 ../templates/settings.php:172
+msgid "Save"
+msgstr "Сохранить"
+
+#: ../templates/settings.php:73
+msgid "If you don't want to use API, you can use basic mode."
+msgstr ""
+"Если Вы не хотите использовать API, то Вы можете использовать обычный режим."
+
+#: ../templates/settings.php:74
+msgid "Basic Mode (Compatible with Backward)"
+msgstr "Обычный режим (обратно совместимый)"
+
+#: ../templates/settings.php:80
+msgid "Counter:"
+msgstr "Счётчик:"
+
+#: ../templates/settings.php:87
+msgid "Temporary, getting connectivity problem.!"
+msgstr "Временная проблема с подключением!"
+
+#: ../templates/settings.php:92
+msgid "Enter counter number"
+msgstr "Введите код счётчика"
+
+#: ../templates/settings.php:95
+msgid "Tracking Settings"
+msgstr "Настройки отслеживания"
+
+#: ../templates/settings.php:103
+msgid "Select tracking options"
+msgstr "Выберите настройки отслеживания"
+
+#: ../templates/settings.php:106
+msgid "Webvisor"
+msgstr "Вебвизор"
+
+#: ../templates/settings.php:108
+msgid "Track Clickmap"
+msgstr "Отслеживание карты кликов"
+
+#: ../templates/settings.php:110
+msgid "Track Links, social sharing, file requests..."
+msgstr "Отслеживание ссылок, социальных факторов, файловых запросов.."
+
+#: ../templates/settings.php:112
+msgid "Accurate Track Bounce"
+msgstr "Точный учет отказов"
+
+#: ../templates/settings.php:119
+msgid "Track logged in users"
+msgstr "Отслеживание авторизованных пользователей"
+
+#: ../templates/settings.php:123
+msgid "Yes"
+msgstr "Да"
+
+#: ../templates/settings.php:124
+msgid "No"
+msgstr "Нет"
+
+#: ../templates/settings.php:131
+msgid "User roles to not track"
+msgstr "Не отслеживаемые роли пользователей"
+
+#: ../templates/settings.php:144
+msgid ""
+"If a user is logged into with one of these roles, they won't track by "
+"metrica."
+msgstr ""
+"Если у пользователя имеется одна из этих ролей, то он не будет "
+"отслеживаться Метрикой"
+
+#: ../templates/settings.php:150
+msgid "User roles to display dashboard widget"
+msgstr ""
+"Роли пользователей, для которых отображается виджет в панели управления."
+
+#: ../templates/settings.php:164
+msgid "Selected roles can display metrica statistic on the dashboard."
+msgstr ""
+"Выбранные роли могут показывать статистику Метрики в панели управленя."
+
+#: ../templates/settings.php:173
+msgid "Reset"
+msgstr "Сбросить"

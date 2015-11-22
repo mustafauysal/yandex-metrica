@@ -15,12 +15,13 @@ class Yandex_Metrica {
 	public function fetch_data( $url ) {
 		$data = wp_remote_get( $url, array( 'timeout' => 7, 'httpversion' => '1.1', 'sslverify' => false ) );
 
-		if ( ! empty ( $data["body"] ) ) {
-			return $data["body"];
+		if ( isset( $data['response']['message'] ) && 'OK' != $data['response']['message'] ) {
+			$this->error = "API connectivity problem.";
+
+			return false;
 		}
 
-		$this->error = "API connectivity problem.";
-		return false;
+		return $data["body"];
 	}
 
 

@@ -84,7 +84,7 @@ if ( isset( $_POST["reset"] ) ) {
 						<?php endforeach; ?>
 					</select>
 				<?php else:
-					echo '<div class="updated"><p>' . __( 'Temporary, getting connectivity problem.!', 'yandex_metrica' ) . '</p></div>';
+					echo '<div class="error"><p>' . __( 'Temporary, getting connectivity problem.!', 'yandex_metrica' ) . '</p></div>';
 				?>
 					<br />
 				<?php endif; ?>

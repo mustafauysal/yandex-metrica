@@ -1,6 +1,6 @@
 # Yandex Metrica #
 
-Contributors: [m_uysl](https://github.com/mustafauysal/)			
+Contributors: m_uysl			
 Tags: yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika	
 Requires at least: 3.0		
 Tested up to: 4.4	

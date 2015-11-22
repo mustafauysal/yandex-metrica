@@ -1,61 +1,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Yandex Metrica 1.x\n"
-"POT-Creation-Date: 2015-11-16 21:29+0200\n"
-"PO-Revision-Date: 2015-11-16 23:18+0200\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yandex-metrica\n"
+"POT-Creation-Date: 2015-11-22 18:38+0200\n"
+"PO-Revision-Date: 2015-11-22 18:40+0200\n"
 "Last-Translator: Mustafa Uysal <mustafa@lettoblog.com>\n"
 "Language-Team: \n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.6.7\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;_n:1,2;_n_noop:1,2\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"Language: ru\n"
 "X-Poedit-SearchPath-0: ..\n"
-
-#: ../yandex-metrica.php:120
-msgid "You do not have sufficient permissions to access this page."
-msgstr "У вас недостаточно прав для доступа к этой странице."
-
-#: ../yandex-metrica.php:133 ../yandex-metrica.php:136
-msgid "Metrica Statistics"
-msgstr "Статистика Метрики"
-
-#: ../yandex-metrica.php:143
-msgid "Oh no! There is nothing to display. Here Are the Possible Causes"
-msgstr "Нет элементов для отображения. Возможно причина в следующем"
-
-#: ../yandex-metrica.php:144
-msgid ""
-"If selected a new counter (recently created), please give a few hours for "
-"verification. Please be patient."
-msgstr ""
-"Если выбран новый счётчик (недавно созданный), будьте терпеливы и подождите "
-"несколько часов, пока пройдет процесс верификации."
-
-#: ../yandex-metrica.php:145
-msgid ""
-"Did you save options? You need to save options at least once after account "
-"confirmation."
-msgstr ""
-"Вы сохранили параметры? Вам нужно сохранить нужные параметры хотя бы раз "
-"после подтверждения аккаунта."
-
-#: ../yandex-metrica.php:146
-msgid "Are you sure you selected the correct counter? Please confirm."
-msgstr "Вы уверены, что выбрали правильный счетчик? Пожалуйста, подтвердите."
-
-#: ../yandex-metrica.php:147
-msgid "Temporary, connectivity problem!"
-msgstr "Временная проблема с подключением!"
-
-#: ../yandex-metrica.php:165
-msgid "View Full Report"
-msgstr "Посмотреть полный отчёт"
 
 #: ../libs/widget.php:27
 msgid "Display statistics within selected period."
@@ -123,7 +84,7 @@ msgstr "Источник"
 
 #: ../templates/dashboard-charts-js.php:38
 #: ../templates/dashboard-charts-js.php:52
-#: ../templates/dashboard-widget.php:16
+#: ../templates/dashboard-widget.php:20
 msgid "Visits"
 msgstr "Посещения"
 
@@ -131,40 +92,39 @@ msgstr "Посещения"
 msgid "Unique"
 msgstr "Уникальные"
 
-#: ../templates/dashboard-widget.php:3
+#: ../templates/dashboard-widget.php:5
 msgid "Daily"
 msgstr "по дням"
 
-#: ../templates/dashboard-widget.php:4
+#: ../templates/dashboard-widget.php:8
 msgid "Weekly"
 msgstr "по неделям"
 
-#: ../templates/dashboard-widget.php:5
+#: ../templates/dashboard-widget.php:9
 msgid "Monthly"
 msgstr "по месяцам"
 
-#: ../templates/dashboard-widget.php:12
+#: ../templates/dashboard-widget.php:16
 msgid "Site Usage"
 msgstr "Использование сайта"
 
-#: ../templates/dashboard-widget.php:24 ../templates/dashboard-widget.php:37
-#: ../templates/dashboard-widget.php:53 ../templates/dashboard-widget.php:65
-#: ../templates/dashboard-widget.php:81 ../templates/dashboard-widget.php:94
-#: ../templates/dashboard-widget.php:113
-#: ../templates/dashboard-widget.php:137
-#: ../templates/dashboard-widget.php:157
+#: ../templates/dashboard-widget.php:27 ../templates/dashboard-widget.php:39
+#: ../templates/dashboard-widget.php:54 ../templates/dashboard-widget.php:65
+#: ../templates/dashboard-widget.php:80 ../templates/dashboard-widget.php:92
+#: ../templates/dashboard-widget.php:117 ../templates/dashboard-widget.php:139
+#: ../templates/dashboard-widget.php:161
 msgid "None"
 msgstr "Нет"
 
-#: ../templates/dashboard-widget.php:29
+#: ../templates/dashboard-widget.php:32
 msgid "New Visitors"
 msgstr "Новые посетители"
 
-#: ../templates/dashboard-widget.php:46
+#: ../templates/dashboard-widget.php:48
 msgid "Page Views"
 msgstr "Просмотры страниц"
 
-#: ../templates/dashboard-widget.php:58
+#: ../templates/dashboard-widget.php:59
 msgid "Session depth"
 msgstr "Глубина сессии"
 
@@ -172,36 +132,19 @@ msgstr "Глубина сессии"
 msgid "Visitors"
 msgstr "Посетители"
 
-#: ../templates/dashboard-widget.php:86
+#: ../templates/dashboard-widget.php:85
 msgid "Avg. Time on Site"
 msgstr "Среднее время на сайте"
 
-#: ../templates/dashboard-widget.php:104
+#: ../templates/dashboard-widget.php:105
 msgid "Popular Pages"
 msgstr "Популярные страницы"
 
-#: ../templates/dashboard-widget.php:109
-#, php-format
-msgid "%d View"
-msgid_plural "%d Views"
-msgstr[0] "%d просмотр"
-msgstr[1] "%d просмотра"
-msgstr[2] "%d просмотров"
-
-#: ../templates/dashboard-widget.php:126
+#: ../templates/dashboard-widget.php:127
 msgid "Top Referrers"
 msgstr "Основные источники"
 
-#: ../templates/dashboard-widget.php:133
-#: ../templates/dashboard-widget.php:153
-#, php-format
-msgid "%d Visit"
-msgid_plural "%d Visits"
-msgstr[0] "%d посещение"
-msgstr[1] "%d посещения"
-msgstr[2] "%d посещений"
-
-#: ../templates/dashboard-widget.php:148
+#: ../templates/dashboard-widget.php:150
 msgid "Search Terms"
 msgstr "Поисковые запросы"
 
@@ -225,7 +168,7 @@ msgstr "Пожалуйста, введите правильный код сче�
 msgid "All options cleared!"
 msgstr "Все параметры очищены!"
 
-#: ../templates/settings.php:59
+#: ../templates/settings.php:59 ../yandex-metrica.php:85
 msgid "Yandex Metrica"
 msgstr "Яндекс Метрика"
 
@@ -236,6 +179,10 @@ msgid ""
 msgstr ""
 "Вам нужно войти в ваш аккаунт в Яндекс Метрике и дать плагину право доступа "
 "к вашему аккаунту."
+
+#: ../templates/settings.php:63
+msgid "https://oauth.yandex.com/"
+msgstr "https://oauth.yandex.ru/"
 
 #: ../templates/settings.php:64
 msgid "Click here to getting confirmation code"
@@ -315,8 +262,8 @@ msgid ""
 "If a user is logged into with one of these roles, they won't track by "
 "metrica."
 msgstr ""
-"Если у пользователя имеется одна из этих ролей, то он не будет "
-"отслеживаться Метрикой"
+"Если у пользователя имеется одна из этих ролей, то он не будет отслеживаться "
+"Метрикой"
 
 #: ../templates/settings.php:150
 msgid "User roles to display dashboard widget"
@@ -325,9 +272,64 @@ msgstr ""
 
 #: ../templates/settings.php:164
 msgid "Selected roles can display metrica statistic on the dashboard."
-msgstr ""
-"Выбранные роли могут показывать статистику Метрики в панели управленя."
+msgstr "Выбранные роли могут показывать статистику Метрики в панели управленя."
 
 #: ../templates/settings.php:173
 msgid "Reset"
 msgstr "Сбросить"
+
+#: ../yandex-metrica.php:122
+msgid "You do not have sufficient permissions to access this page."
+msgstr "У вас недостаточно прав для доступа к этой странице."
+
+#: ../yandex-metrica.php:135 ../yandex-metrica.php:138
+msgid "Metrica Statistics"
+msgstr "Статистика Метрики"
+
+#: ../yandex-metrica.php:145
+msgid "Oh no! There is nothing to display. Here Are the Possible Causes"
+msgstr "Нет элементов для отображения. Возможно причина в следующем"
+
+#: ../yandex-metrica.php:146
+msgid ""
+"If selected a new counter (recently created), please give a few hours for "
+"verification. Please be patient."
+msgstr ""
+"Если выбран новый счётчик (недавно созданный), будьте терпеливы и подождите "
+"несколько часов, пока пройдет процесс верификации."
+
+#: ../yandex-metrica.php:147
+msgid ""
+"Did you save options? You need to save options at least once after account "
+"confirmation."
+msgstr ""
+"Вы сохранили параметры? Вам нужно сохранить нужные параметры хотя бы раз "
+"после подтверждения аккаунта."
+
+#: ../yandex-metrica.php:148
+msgid "Are you sure you selected the correct counter? Please confirm."
+msgstr "Вы уверены, что выбрали правильный счетчик? Пожалуйста, подтвердите."
+
+#: ../yandex-metrica.php:149
+msgid "Temporary, connectivity problem!"
+msgstr "Временная проблема с подключением!"
+
+#: ../yandex-metrica.php:167
+msgid "View Full Report"
+msgstr "Посмотреть полный отчёт"
+
+#~ msgid "%d View"
+#~ msgid_plural "%d Views"
+#~ msgstr[0] "%d просмотр"
+#~ msgstr[1] "%d просмотра"
+#~ msgstr[2] "%d просмотров"
+
+#~ msgid "%d Visit"
+#~ msgid_plural "%d Visits"
+#~ msgstr[0] "%d посещение"
+#~ msgstr[1] "%d посещения"
+#~ msgstr[2] "%d посещений"
+
+#~ msgid ""
+#~ "Best metrica plugin for the use Yandex Metrica in your WordPress site."
+#~ msgstr "Лучший плагин для использования Яндекс Метрики на сайте Wordpress."

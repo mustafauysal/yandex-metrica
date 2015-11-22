@@ -1,56 +1,22 @@
+# Copyright (C) 2015 Yandex Metrica
+# This file is distributed under the same license as the Yandex Metrica package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Yandex Metrica 1.x\n"
-"POT-Creation-Date: 2013-08-27 20:18+0200\n"
-"PO-Revision-Date: 2013-08-27 20:18+0200\n"
-"Last-Translator: Mustafa Uysal <mustafa@lettoblog.com>\n"
-"Language-Team: \n"
-"Language: English\n"
+"Project-Id-Version: Yandex Metrica\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yandex-metrica\n"
+"POT-Creation-Date: 2015-11-22 18:38+0200\n"
+"PO-Revision-Date: 2015-11-22 18:39+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: WpHandle <mustafa@lettoblog.com>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.5\n"
-"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;_n:1,2;_n_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.7\n"
 "X-Poedit-Basepath: .\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: ..\n"
-
-#: ../yandex-metrica.php:120
-msgid "You do not have sufficient permissions to access this page."
-msgstr ""
-
-#: ../yandex-metrica.php:133 ../yandex-metrica.php:136
-msgid "Metrica Statistics"
-msgstr ""
-
-#: ../yandex-metrica.php:143
-msgid "Oh no! There is nothing to display. Here Are the Possible Causes"
-msgstr ""
-
-#: ../yandex-metrica.php:144
-msgid ""
-"If selected a new counter (recently created), please give a few hours for "
-"verification. Please be patient."
-msgstr ""
-
-#: ../yandex-metrica.php:145
-msgid ""
-"Did you save options? You need to save options at least once after account "
-"confirmation."
-msgstr ""
-
-#: ../yandex-metrica.php:146
-msgid "Are you sure you selected the correct counter? Please confirm."
-msgstr ""
-
-#: ../yandex-metrica.php:147
-msgid "Temporary, connectivity problem!"
-msgstr ""
-
-#: ../yandex-metrica.php:165
-msgid "View Full Report"
-msgstr ""
 
 #: ../libs/widget.php:27
 msgid "Display statistics within selected period."
@@ -118,7 +84,7 @@ msgstr ""
 
 #: ../templates/dashboard-charts-js.php:38
 #: ../templates/dashboard-charts-js.php:52
-#: ../templates/dashboard-widget.php:16
+#: ../templates/dashboard-widget.php:20
 msgid "Visits"
 msgstr ""
 
@@ -126,39 +92,39 @@ msgstr ""
 msgid "Unique"
 msgstr ""
 
-#: ../templates/dashboard-widget.php:3
+#: ../templates/dashboard-widget.php:5
 msgid "Daily"
 msgstr ""
 
-#: ../templates/dashboard-widget.php:4
+#: ../templates/dashboard-widget.php:8
 msgid "Weekly"
 msgstr ""
 
-#: ../templates/dashboard-widget.php:5
+#: ../templates/dashboard-widget.php:9
 msgid "Monthly"
 msgstr ""
 
-#: ../templates/dashboard-widget.php:12
+#: ../templates/dashboard-widget.php:16
 msgid "Site Usage"
 msgstr ""
 
-#: ../templates/dashboard-widget.php:24 ../templates/dashboard-widget.php:37
-#: ../templates/dashboard-widget.php:53 ../templates/dashboard-widget.php:65
-#: ../templates/dashboard-widget.php:81 ../templates/dashboard-widget.php:94
-#: ../templates/dashboard-widget.php:113 ../templates/dashboard-widget.php:137
-#: ../templates/dashboard-widget.php:157
+#: ../templates/dashboard-widget.php:27 ../templates/dashboard-widget.php:39
+#: ../templates/dashboard-widget.php:54 ../templates/dashboard-widget.php:65
+#: ../templates/dashboard-widget.php:80 ../templates/dashboard-widget.php:92
+#: ../templates/dashboard-widget.php:117 ../templates/dashboard-widget.php:139
+#: ../templates/dashboard-widget.php:161
 msgid "None"
 msgstr ""
 
-#: ../templates/dashboard-widget.php:29
+#: ../templates/dashboard-widget.php:32
 msgid "New Visitors"
 msgstr ""
 
-#: ../templates/dashboard-widget.php:46
+#: ../templates/dashboard-widget.php:48
 msgid "Page Views"
 msgstr ""
 
-#: ../templates/dashboard-widget.php:58
+#: ../templates/dashboard-widget.php:59
 msgid "Session depth"
 msgstr ""
 
@@ -166,33 +132,19 @@ msgstr ""
 msgid "Visitors"
 msgstr ""
 
-#: ../templates/dashboard-widget.php:86
+#: ../templates/dashboard-widget.php:85
 msgid "Avg. Time on Site"
 msgstr ""
 
-#: ../templates/dashboard-widget.php:104
+#: ../templates/dashboard-widget.php:105
 msgid "Popular Pages"
 msgstr ""
 
-#: ../templates/dashboard-widget.php:109
-#, php-format
-msgid "%d View"
-msgid_plural "%d Views"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../templates/dashboard-widget.php:126
+#: ../templates/dashboard-widget.php:127
 msgid "Top Referrers"
 msgstr ""
 
-#: ../templates/dashboard-widget.php:133 ../templates/dashboard-widget.php:153
-#, php-format
-msgid "%d Visit"
-msgid_plural "%d Visits"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../templates/dashboard-widget.php:148
+#: ../templates/dashboard-widget.php:150
 msgid "Search Terms"
 msgstr ""
 
@@ -216,7 +168,7 @@ msgstr ""
 msgid "All options cleared!"
 msgstr ""
 
-#: ../templates/settings.php:59
+#: ../templates/settings.php:59 ../yandex-metrica.php:85
 msgid "Yandex Metrica"
 msgstr ""
 
@@ -224,6 +176,10 @@ msgstr ""
 msgid ""
 "You need sign in to Yandex and grant this plugin access to your Yandex "
 "Metrica account."
+msgstr ""
+
+#: ../templates/settings.php:63
+msgid "https://oauth.yandex.com/"
 msgstr ""
 
 #: ../templates/settings.php:64
@@ -314,4 +270,40 @@ msgstr ""
 
 #: ../templates/settings.php:173
 msgid "Reset"
+msgstr ""
+
+#: ../yandex-metrica.php:122
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: ../yandex-metrica.php:135 ../yandex-metrica.php:138
+msgid "Metrica Statistics"
+msgstr ""
+
+#: ../yandex-metrica.php:145
+msgid "Oh no! There is nothing to display. Here Are the Possible Causes"
+msgstr ""
+
+#: ../yandex-metrica.php:146
+msgid ""
+"If selected a new counter (recently created), please give a few hours for "
+"verification. Please be patient."
+msgstr ""
+
+#: ../yandex-metrica.php:147
+msgid ""
+"Did you save options? You need to save options at least once after account "
+"confirmation."
+msgstr ""
+
+#: ../yandex-metrica.php:148
+msgid "Are you sure you selected the correct counter? Please confirm."
+msgstr ""
+
+#: ../yandex-metrica.php:149
+msgid "Temporary, connectivity problem!"
+msgstr ""
+
+#: ../yandex-metrica.php:167
+msgid "View Full Report"
 msgstr ""

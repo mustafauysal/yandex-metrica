@@ -3,7 +3,7 @@
 Contributors: [m_uysl](https://github.com/mustafauysal/)			
 Tags: yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika	
 Requires at least: 3.0		
-Tested up to: 4.1.1	
+Tested up to: 4.4	
 Stable tag: 1.1.1	
 License: GPLv2 (or later)	
 
@@ -17,6 +17,9 @@ Best Metrica plugin for the using Yandex Metrica in your WordPress site.
 
 Metrica is an analytics tool like as google analytics.If you didn't hear metrica yet, you can [check official metrica](http://metrica.yandex.com/) page.
 
+### Что такое Метрика ###
+
+Яндекс Метрика - это система аналитики сайтов, так же как и Гугл Аналиткс. Вы можете посмотреть официальную страницу Яндекс Метрики (http://metrica.yandex.ru/)
 
 ### Features ###
 
@@ -27,11 +30,21 @@ Metrica is an analytics tool like as google analytics.If you didn't hear metrica
 - Basic mode ready! If you don't want to give API access, you can try basic mode.
 - i18n support: Completely translation ready!
 
+### Особенности ###
+
+- Легкая настройка параметров отслеживания.
+- Отслеживание пользователей по ролям
+- Виджет в панели управления сайтом для графического отображения статистики, посещений сайтов, самых посещаемых страниц и т.д.
+- Доступ пользователей по ролям для просмотра виджета в панели управления
+- Доступен стандартный режим! Если Вы не хотите давать доступ по API, то Вы можете использовать обычный режим (вставка кода счетчика).
+- Поддержка локализации. Готовые переводы на английский, турецкий и русский языки.
+
 
 ### Translations ###
 
-* English (en\_US), built-in
-* Turkish (tr\_TR), native support
+* English (en_US), built-in
+* Turkish (tr_TR), native support
+* Russian (ru_RU), [oleg0789](https://profiles.wordpress.org/oleg0789) and Ксения Рыбка
 
 ## Installation ##
 

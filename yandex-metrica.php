@@ -82,7 +82,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 
 	public function admin_menu() {
-		add_options_page( 'Yandex Metrica', 'Yandex Metrica', 'manage_options', self::MENU_SLUG, array( $this, 'metrica_settings_page' ) );
+		add_options_page( __('Yandex Metrica', 'yandex_metrica'), __('Yandex Metrica', 'yandex_metrica'), 'manage_options', self::MENU_SLUG, array( $this, 'metrica_settings_page' ) );
 	}
 
 

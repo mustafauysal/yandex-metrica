@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) or die(); ?>
 <!-- Yandex.Metrika counter by Yandex Metrica Plugin -->
 <script type="text/javascript">
     (function (d, w, c) {

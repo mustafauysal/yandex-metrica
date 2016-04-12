@@ -146,6 +146,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		echo '<ol><li>' . __( 'If selected a new counter (recently created), please give a few hours for verification. Please be patient.', 'yandex_metrica' ) . '</li>';
 		echo '<li>' . __( 'Did you save options? You need to save options at least once after account confirmation.', 'yandex_metrica' ) . '</li>';
 		echo '<li>' . __( 'Are you sure you selected the correct counter? Please confirm.', 'yandex_metrica' ) . '</li>';
+		echo '<li>' . __( 'Did you change your Yandex password? If changed, you need to re-authorize this plugin.', 'yandex_metrica' ) . '</li>';
 		echo '<li>' . __( 'Temporary, connectivity problem!', 'yandex_metrica' ) . '</li><ol>';
 	}
 

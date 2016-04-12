@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Yandex Metrica 1.x\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yandex-metrica\n"
 "POT-Creation-Date: 2015-11-22 17:06:56+00:00\n"
-"PO-Revision-Date: 2015-11-22 19:18+0200\n"
+"PO-Revision-Date: 2016-04-13 02:21+0200\n"
 "Last-Translator: Mustafa Uysal <mustafa@lettoblog.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -322,6 +322,14 @@ msgstr ""
 "internet adresinin doğru olduğundan emin olunuz."
 
 #: yandex-metrica.php:149
+msgid ""
+"Did you change your Yandex password? If changed, you need to re-authorize "
+"this plugin."
+msgstr ""
+"Yandex şifrenizi mi değiştirdiniz? Şifre değişimlerinde eklenti yeniden "
+"yetkilendirilmelidir."
+
+#: yandex-metrica.php:150
 msgid "Temporary, connectivity problem!"
 msgstr ""
 "Düşük bir olasılıkta olsa, geçici bir bağlantı sorunu yaşamış olabilirsiniz."

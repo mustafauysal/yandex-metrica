@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Yandex Metrica 1.x\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yandex-metrica\n"
 "POT-Creation-Date: 2015-11-22 17:06:56+00:00\n"
-"PO-Revision-Date: 2015-11-22 19:19+0200\n"
+"PO-Revision-Date: 2016-04-13 02:23+0200\n"
 "Last-Translator: Mustafa Uysal <mustafa@lettoblog.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -321,6 +321,14 @@ msgid "Are you sure you selected the correct counter? Please confirm."
 msgstr "Вы уверены, что выбрали правильный счетчик? Пожалуйста, подтвердите."
 
 #: yandex-metrica.php:149
+msgid ""
+"Did you change your Yandex password? If changed, you need to re-authorize "
+"this plugin."
+msgstr ""
+"Вы изменили пароль Яндекса? Если изменилось, то необходимо повторно "
+"разрешить этот плагин."
+
+#: yandex-metrica.php:150
 msgid "Temporary, connectivity problem!"
 msgstr "Временная проблема с подключением!"
 

@@ -5,12 +5,13 @@ msgstr ""
 "Project-Id-Version: Yandex Metrica 1.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yandex-metrica\n"
 "POT-Creation-Date: 2015-11-22 17:06:56+00:00\n"
+"PO-Revision-Date: 2016-04-13 02:29+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: Poedit 1.6.7\n"
 
 #: libs/widget.php:27
 msgid "Display statistics within selected period."
@@ -169,7 +170,6 @@ msgstr ""
 msgid "All options cleared!"
 msgstr ""
 
-#. #-#-#-#-#  plugin.pot (Yandex Metrica 1.1.1)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: templates/settings.php:59 yandex-metrica.php:85
 msgid "Yandex Metrica"
@@ -304,6 +304,12 @@ msgid "Are you sure you selected the correct counter? Please confirm."
 msgstr ""
 
 #: yandex-metrica.php:149
+msgid ""
+"Did you change your Yandex password? If changed, you need to re-authorize "
+"this plugin."
+msgstr ""
+
+#: yandex-metrica.php:150
 msgid "Temporary, connectivity problem!"
 msgstr ""
 

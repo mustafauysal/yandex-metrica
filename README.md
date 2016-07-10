@@ -3,8 +3,8 @@
 Contributors: m_uysl			
 Tags: yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika	
 Requires at least: 3.0		
-Tested up to: 4.5	
-Stable tag: 1.2	
+Tested up to: 4.6	
+Stable tag: 1.3	
 License: GPLv2 (or later)	
 
 Easy way to use Yandex Metrica in your WordPress site.
@@ -72,6 +72,10 @@ Extract the zip file and just drop the contents in the `wp-content/plugins/` dir
 3. Settings page.
 
 ## Changelog ##
+
+### 1.3 ###
+ - Updated metrica tracking code
+ - New hash tracking option added
 
 ### 1.2 ###
  - Improved error checking for API request

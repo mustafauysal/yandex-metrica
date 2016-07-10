@@ -241,6 +241,10 @@ msgstr ""
 msgid "Accurate Track Bounce"
 msgstr ""
 
+#. templates/settings.php:115
+msgid "Hash tracking in the browser's address bar"
+msgstr ""
+
 #: templates/settings.php:119
 msgid "Track logged in users"
 msgstr ""
@@ -332,3 +336,4 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "http://uysalmustafa.com"
 msgstr ""
+

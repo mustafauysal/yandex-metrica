@@ -23,6 +23,7 @@ if ( isset( $_POST["yandex-metrica-save"] ) ) {
 	$this->options['clickmap']       = empty ( $_POST['metrica_clickmap'] ) ? false : true;
 	$this->options['tracklinks']     = empty( $_POST['metrica_tracklinks'] ) ? false : true;
 	$this->options['accurate_track'] = empty( $_POST['metrica_accurate_track'] ) ? false : true;
+	$this->options['track_hash']     = empty( $_POST['track_hash'] ) ? false : true;
 
 	$this->options['track-logged-in']     = ( $_POST['track-logged-in'] == "no" ) ? false : true;
 	$this->options["untrack-roles"]       = ! empty( $_POST["tracker_role"] ) ? array_map( 'esc_attr', $_POST["tracker_role"] ) : "";
@@ -110,6 +111,8 @@ if ( isset( $_POST["reset"] ) ) {
 						<label><input type="checkbox" <?php checked( $this->options['tracklinks'] ); ?>   name="metrica_tracklinks" value="1">  <?php _e( 'Track Links, social sharing, file requests...', 'yandex_metrica' ); ?>
 						</label><br>
 						<label><input type="checkbox" <?php checked( $this->options['accurate_track'] ); ?>   name="metrica_accurate_track" value="1">  <?php _e( 'Accurate Track Bounce', 'yandex_metrica' ); ?>
+						</label><br>
+						<label><input type="checkbox" <?php checked( $this->options['track_hash'] ); ?>   name="track_hash" value="1">  <?php _e( "Hash tracking in the browser's address bar", 'yandex_metrica' ); ?>
 						</label><br>
 					</td>
 				</tr>

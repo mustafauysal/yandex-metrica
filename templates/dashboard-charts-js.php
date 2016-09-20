@@ -7,13 +7,13 @@
 				type: 'line'
 			},
 			title   : {
-				text: '<?php echo __('Metrica Traffic','yandex_metrica');?>'
+				text: '<?php echo __('Metrica Traffic','yandex-metrica');?>'
 			},
 			credits : {
 				enabled: false
 			},
 			subtitle: {
-				text: '<?php echo __('Source','yandex_metrica');?>:<?php echo self::$metrica_api->get_counter_name( $this->options["counter_id"] );?>'
+				text: '<?php echo __('Source','yandex-metrica');?>:<?php echo self::$metrica_api->get_counter_name( $this->options["counter_id"] );?>'
 			},
 			xAxis   : {
 				type      : 'datetime',
@@ -35,7 +35,7 @@
 			},
 			yAxis   : {
 				title: {
-					text: '<?php echo __('Visits','yandex_metrica');?>'
+					text: '<?php echo __('Visits','yandex-metrica');?>'
 				},
 				min  : 0
 			},
@@ -49,7 +49,7 @@
 
 			series: [
 				{
-					name: '<?php echo __('Visits','yandex_metrica');?>',
+					name: '<?php echo __('Visits','yandex-metrica');?>',
 					data: [
 						<?php foreach( $statical_data as $item){
 							 echo $item["visits"].",";
@@ -57,7 +57,7 @@
 					]
 				},
 				{
-					name: '<?php echo __('Unique','yandex_metrica');?>',
+					name: '<?php echo __('Unique','yandex-metrica');?>',
 					data: [
 						<?php foreach( $statical_data as $item){
 							 echo $item["visitors"].',';

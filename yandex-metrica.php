@@ -5,7 +5,7 @@ Plugin URI: http://uysalmustafa.com/plugins/yandex-metrica
 Description: Best metrica plugin for the use Yandex Metrica in your WordPress site.
 Author: Mustafa Uysal
 Version: 1.3
-Text Domain: yandex_metrica
+Text Domain: yandex-metrica
 Domain Path: /languages/
 Author URI: http://uysalmustafa.com
 License: GPLv2 (or later)
@@ -47,7 +47,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 	public function init() {
 		// Load langauge pack
-		load_plugin_textdomain( 'yandex_metrica', false, basename( dirname( __FILE__ ) ) . '/languages' );
+		load_plugin_textdomain( 'yandex-metrica', false, basename( dirname( __FILE__ ) ) . '/languages' );
 
 		$this->hook( 'admin_menu' );
 		$this->hook( 'wp_footer' ); // using wp_footer for adding tracking code. If you theme don't have it, this plugin can't track your site.
@@ -85,7 +85,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 
 	public function admin_menu() {
-		add_options_page( __('Yandex Metrica', 'yandex_metrica'), __('Yandex Metrica', 'yandex_metrica'), 'manage_options', self::MENU_SLUG, array( $this, 'metrica_settings_page' ) );
+		add_options_page( __('Yandex Metrica', 'yandex-metrica'), __('Yandex Metrica', 'yandex-metrica'), 'manage_options', self::MENU_SLUG, array( $this, 'metrica_settings_page' ) );
 	}
 
 
@@ -122,7 +122,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		global $wp_roles;
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( __( 'You do not have sufficient permissions to access this page.', 'yandex_metrica' ) );
+			wp_die( __( 'You do not have sufficient permissions to access this page.', 'yandex-metrica' ) );
 		}
 		include( dirname( __FILE__ ) . '/templates/settings.php' );
 	}
@@ -135,22 +135,22 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		if ( self::$metrica_api->is_valid_counter( $this->options["counter_id"] ) ) {
 
 			$this->hook( 'admin_head', 'dashboard_chart_js' ); // add neccessary jsc
-			wp_add_dashboard_widget( 'yandex_metrica_widget', __( 'Metrica Statistics', 'yandex_metrica' ), array( $this, 'metrica_dashboard_widget' ) );
+			wp_add_dashboard_widget( 'yandex_metrica_widget', __( 'Metrica Statistics', 'yandex-metrica' ), array( $this, 'metrica_dashboard_widget' ) );
 		}
 		else {
-			wp_add_dashboard_widget( 'yandex_metrica_widget', __( 'Metrica Statistics', 'yandex_metrica' ), array( $this, 'temporary_dashboard_widget' ) );
+			wp_add_dashboard_widget( 'yandex_metrica_widget', __( 'Metrica Statistics', 'yandex-metrica' ), array( $this, 'temporary_dashboard_widget' ) );
 		}
 
 	}
 
 
 	public function temporary_dashboard_widget() {
-		echo '<p><b>' . __( 'Oh no! There is nothing to display. Here Are the Possible Causes', 'yandex_metrica' ) . '</b></p>';
-		echo '<ol><li>' . __( 'If selected a new counter (recently created), please give a few hours for verification. Please be patient.', 'yandex_metrica' ) . '</li>';
-		echo '<li>' . __( 'Did you save options? You need to save options at least once after account confirmation.', 'yandex_metrica' ) . '</li>';
-		echo '<li>' . __( 'Are you sure you selected the correct counter? Please confirm.', 'yandex_metrica' ) . '</li>';
-		echo '<li>' . __( 'Did you change your Yandex password? If changed, you need to re-authorize this plugin.', 'yandex_metrica' ) . '</li>';
-		echo '<li>' . __( 'Temporary, connectivity problem!', 'yandex_metrica' ) . '</li><ol>';
+		echo '<p><b>' . __( 'Oh no! There is nothing to display. Here Are the Possible Causes', 'yandex-metrica' ) . '</b></p>';
+		echo '<ol><li>' . __( 'If selected a new counter (recently created), please give a few hours for verification. Please be patient.', 'yandex-metrica' ) . '</li>';
+		echo '<li>' . __( 'Did you save options? You need to save options at least once after account confirmation.', 'yandex-metrica' ) . '</li>';
+		echo '<li>' . __( 'Are you sure you selected the correct counter? Please confirm.', 'yandex-metrica' ) . '</li>';
+		echo '<li>' . __( 'Did you change your Yandex password? If changed, you need to re-authorize this plugin.', 'yandex-metrica' ) . '</li>';
+		echo '<li>' . __( 'Temporary, connectivity problem!', 'yandex-metrica' ) . '</li><ol>';
 	}
 
 
@@ -168,7 +168,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		?>
 		<script type="text/javascript">
 			jQuery(document).ready(function ($) {
-				jQuery('#yandex_metrica_widget h3.hndle span').append('<span class="postbox-title-action"><a href="http://metrica.yandex.com" class="edit-box open-box"><?php _e('View Full Report', 'yandex_metrica');?></a></span>');
+				jQuery('#yandex_metrica_widget h3.hndle span').append('<span class="postbox-title-action"><a href="http://metrica.yandex.com" class="edit-box open-box"><?php _e('View Full Report', 'yandex-metrica');?></a></span>');
 
 				$(document).on("change", "#period", function () {
 

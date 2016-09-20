@@ -17,9 +17,6 @@ Best Metrica plugin for the using Yandex Metrica in your WordPress site.
 
 Metrica is an analytics tool like as google analytics.If you didn't hear metrica yet, you can [check official metrica](http://metrica.yandex.com/) page.
 
-### Что такое Метрика ###
-
-Яндекс Метрика - это система аналитики сайтов, так же как и Гугл Аналиткс. Вы можете посмотреть официальную страницу Яндекс Метрики (http://metrica.yandex.ru/)
 
 ### Features ###
 
@@ -29,15 +26,6 @@ Metrica is an analytics tool like as google analytics.If you didn't hear metrica
 - Role based user access for the displaying dashboard widget
 - Basic mode ready! If you don't want to give API access, you can try basic mode.
 - i18n support: Completely translation ready!
-
-### Особенности ###
-
-- Легкая настройка параметров отслеживания.
-- Отслеживание пользователей по ролям
-- Виджет в панели управления сайтом для графического отображения статистики, посещений сайтов, самых посещаемых страниц и т.д.
-- Доступ пользователей по ролям для просмотра виджета в панели управления
-- Доступен стандартный режим! Если Вы не хотите давать доступ по API, то Вы можете использовать обычный режим (вставка кода счетчика).
-- Поддержка локализации. Готовые переводы на английский, турецкий и русский языки.
 
 
 ### Translations ###

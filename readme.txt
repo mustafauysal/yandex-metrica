@@ -34,7 +34,7 @@ Metrica is an analytics tool like as google analytics.If you didn't hear metrica
 
 * English (en_US), built-in
 * Turkish (tr_TR), native support
-* Russian (ru_RU), [oleg0789](https://profiles.wordpress.org/oleg0789) and ÐšÑÐµÐ½Ð¸Ñ Ð Ñ‹Ð±ÐºÐ°
+* Russian (ru_RU), [oleg0789](https://profiles.wordpress.org/oleg0789) and Ксения Рыбка
 
 == Installation ==
 

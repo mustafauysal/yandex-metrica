@@ -78,7 +78,7 @@ Extract the zip file and just drop the contents in the `wp-content/plugins/` dir
  - Minor tweaks
 
 = 1.1.2 =
- - Russian language pack added. Props ÐšÑÐµÐ½Ð¸Ñ Ð Ñ‹Ð±ÐºÐ° and oleg0789
+ - Russian language pack added. Props Ксения Рыбка and oleg0789
  - API connectivity check improved
  - Minor fixes
 

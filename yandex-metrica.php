@@ -75,10 +75,11 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 			'clickmap'            => true,
 			'tracklinks'          => true,
 			'accurate_track'      => false,
+			'track_hash'          => false,
 			'track-logged-in'     => true,
 			'untrack-roles'       => array( "administrator" ),
 			'widget-access-roles' => array( "administrator" ),
-			'backward'            => false
+			'backward'            => false,
 		);
 		return wp_parse_args( get_option( self::OPTION ), $defaults );
 	}

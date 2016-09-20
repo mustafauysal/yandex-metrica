@@ -9,7 +9,7 @@
                     clickmap:<?php echo $this->options["clickmap"]?"true":"false";?>,
                     trackLinks:<?php echo $this->options["tracklinks"]?"true":"false";?>,
                     accurateTrackBounce:<?php echo $this->options["accurate_track"]?"true":"false";?>,
-                    trackHash:<?php echo $this->options["hash_track"]?"true":"false";?>});
+                    trackHash:<?php echo $this->options["track_hash"]?"true":"false";?>});
             } catch(e) { }
         });
 

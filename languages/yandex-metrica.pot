@@ -1,17 +1,16 @@
-# Copyright (C) 2015 Yandex Metrica
+# Copyright (C) 2016 Yandex Metrica
 # This file is distributed under the same license as the Yandex Metrica package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Yandex Metrica 1.1.1\n"
+"Project-Id-Version: Yandex Metrica 1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yandex-metrica\n"
-"POT-Creation-Date: 2015-11-22 17:06:56+00:00\n"
-"PO-Revision-Date: 2016-04-13 02:29+0200\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2016-09-20 21:59:12+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.7\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 
 #: libs/widget.php:27
 msgid "Display statistics within selected period."
@@ -150,174 +149,179 @@ msgstr[1] ""
 msgid "Search Terms"
 msgstr ""
 
-#: templates/settings.php:8
+#: templates/settings.php:6
+msgid "Cheatin, uh?"
+msgstr ""
+
+#: templates/settings.php:14
 msgid "Successfully connected to Yandex Server"
 msgstr ""
 
-#: templates/settings.php:11
+#: templates/settings.php:17
 msgid "Something went wrong. Please check your confirmation code!"
 msgstr ""
 
-#: templates/settings.php:33
+#: templates/settings.php:40
 msgid "Options Saved!"
 msgstr ""
 
-#: templates/settings.php:36
+#: templates/settings.php:43
 msgid "Please enter a valid counter code!"
 msgstr ""
 
-#: templates/settings.php:49
+#: templates/settings.php:56
 msgid "All options cleared!"
 msgstr ""
 
+#. #-#-#-#-#  plugin.pot (Yandex Metrica 1.3)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
-#: templates/settings.php:59 yandex-metrica.php:85
+#: templates/settings.php:67 yandex-metrica.php:89
 msgid "Yandex Metrica"
 msgstr ""
 
-#: templates/settings.php:62
+#: templates/settings.php:70
 msgid ""
 "You need sign in to Yandex and grant this plugin access to your Yandex "
 "Metrica account."
 msgstr ""
 
-#: templates/settings.php:63
+#: templates/settings.php:71
 msgid "https://oauth.yandex.com/"
 msgstr ""
 
-#: templates/settings.php:64
+#: templates/settings.php:72
 msgid "Click here to getting confirmation code"
 msgstr ""
 
-#: templates/settings.php:68
+#: templates/settings.php:76
 msgid "Enter Confirmation code here"
 msgstr ""
 
-#: templates/settings.php:69 templates/settings.php:172
+#: templates/settings.php:77 templates/settings.php:182
 msgid "Save"
 msgstr ""
 
-#: templates/settings.php:73
+#: templates/settings.php:81
 msgid "If you don't want to use API, you can use basic mode."
 msgstr ""
 
-#: templates/settings.php:74
+#: templates/settings.php:82
 msgid "Basic Mode (Compatible with Backward)"
 msgstr ""
 
-#: templates/settings.php:80
+#: templates/settings.php:88
 msgid "Counter:"
 msgstr ""
 
-#: templates/settings.php:87
+#: templates/settings.php:95
 msgid "Temporary, getting connectivity problem.!"
 msgstr ""
 
-#: templates/settings.php:92
+#: templates/settings.php:100
 msgid "Enter counter number"
 msgstr ""
 
-#: templates/settings.php:95
+#: templates/settings.php:103
 msgid "Tracking Settings"
 msgstr ""
 
-#: templates/settings.php:103
+#: templates/settings.php:111
 msgid "Select tracking options"
 msgstr ""
 
-#: templates/settings.php:106
+#: templates/settings.php:114
 msgid "Webvisor"
 msgstr ""
 
-#: templates/settings.php:108
+#: templates/settings.php:116
 msgid "Track Clickmap"
 msgstr ""
 
-#: templates/settings.php:110
+#: templates/settings.php:118
 msgid "Track Links, social sharing, file requests..."
 msgstr ""
 
-#: templates/settings.php:112
+#: templates/settings.php:120
 msgid "Accurate Track Bounce"
 msgstr ""
 
-#. templates/settings.php:115
+#: templates/settings.php:122
 msgid "Hash tracking in the browser's address bar"
 msgstr ""
 
-#: templates/settings.php:119
+#: templates/settings.php:129
 msgid "Track logged in users"
 msgstr ""
 
-#: templates/settings.php:123
+#: templates/settings.php:133
 msgid "Yes"
 msgstr ""
 
-#: templates/settings.php:124
+#: templates/settings.php:134
 msgid "No"
 msgstr ""
 
-#: templates/settings.php:131
+#: templates/settings.php:141
 msgid "User roles to not track"
 msgstr ""
 
-#: templates/settings.php:144
+#: templates/settings.php:154
 msgid ""
 "If a user is logged into with one of these roles, they won't track by "
 "metrica."
 msgstr ""
 
-#: templates/settings.php:150
+#: templates/settings.php:160
 msgid "User roles to display dashboard widget"
 msgstr ""
 
-#: templates/settings.php:164
+#: templates/settings.php:174
 msgid "Selected roles can display metrica statistic on the dashboard."
 msgstr ""
 
-#: templates/settings.php:173
+#: templates/settings.php:183
 msgid "Reset"
 msgstr ""
 
-#: yandex-metrica.php:122
+#: yandex-metrica.php:126
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: yandex-metrica.php:135 yandex-metrica.php:138
+#: yandex-metrica.php:139 yandex-metrica.php:142
 msgid "Metrica Statistics"
 msgstr ""
 
-#: yandex-metrica.php:145
+#: yandex-metrica.php:149
 msgid "Oh no! There is nothing to display. Here Are the Possible Causes"
 msgstr ""
 
-#: yandex-metrica.php:146
+#: yandex-metrica.php:150
 msgid ""
 "If selected a new counter (recently created), please give a few hours for "
 "verification. Please be patient."
 msgstr ""
 
-#: yandex-metrica.php:147
+#: yandex-metrica.php:151
 msgid ""
 "Did you save options? You need to save options at least once after account "
 "confirmation."
 msgstr ""
 
-#: yandex-metrica.php:148
+#: yandex-metrica.php:152
 msgid "Are you sure you selected the correct counter? Please confirm."
 msgstr ""
 
-#: yandex-metrica.php:149
+#: yandex-metrica.php:153
 msgid ""
 "Did you change your Yandex password? If changed, you need to re-authorize "
 "this plugin."
 msgstr ""
 
-#: yandex-metrica.php:150
+#: yandex-metrica.php:154
 msgid "Temporary, connectivity problem!"
 msgstr ""
 
-#: yandex-metrica.php:167
+#: yandex-metrica.php:172
 msgid "View Full Report"
 msgstr ""
 
@@ -336,4 +340,3 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "http://uysalmustafa.com"
 msgstr ""
-

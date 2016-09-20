@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Yandex Metrica 1.x\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yandex-metrica\n"
-"POT-Creation-Date: 2015-11-22 17:06:56+00:00\n"
-"PO-Revision-Date: 2016-07-10 18:18+0200\n"
+"POT-Creation-Date: 2016-09-20 21:59:12+00:00\n"
+"PO-Revision-Date: 2016-09-21 01:01+0200\n"
 "Last-Translator: Mustafa Uysal <mustafa@lettoblog.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -154,33 +154,37 @@ msgstr[1] "%d Ziyaret"
 msgid "Search Terms"
 msgstr "En İyi Aramalar"
 
-#: templates/settings.php:8
+#: templates/settings.php:6
+msgid "Cheatin, uh?"
+msgstr "Hile mi yapıyorsunuz?"
+
+#: templates/settings.php:14
 msgid "Successfully connected to Yandex Server"
 msgstr "Başarılı bir şekilde Yandex Servisine bağlanıldı."
 
-#: templates/settings.php:11
+#: templates/settings.php:17
 msgid "Something went wrong. Please check your confirmation code!"
 msgstr ""
 "Olamaz! Bi' şeyler ters gitti! Doğrulama kodunu kontrol edebilir misiniz?"
 
-#: templates/settings.php:33
+#: templates/settings.php:40
 msgid "Options Saved!"
 msgstr "Ayarlar Kaydedildi!"
 
-#: templates/settings.php:36
+#: templates/settings.php:43
 msgid "Please enter a valid counter code!"
 msgstr "Lütfen geçerli bir sayaç kodu giriniz!"
 
-#: templates/settings.php:49
+#: templates/settings.php:56
 msgid "All options cleared!"
 msgstr "Tüm ayarlar sıfırlandı!"
 
 #. Plugin Name of the plugin/theme
-#: templates/settings.php:59 yandex-metrica.php:85
+#: templates/settings.php:67 yandex-metrica.php:89
 msgid "Yandex Metrica"
 msgstr "Yandex Metrika"
 
-#: templates/settings.php:62
+#: templates/settings.php:70
 msgid ""
 "You need sign in to Yandex and grant this plugin access to your Yandex "
 "Metrica account."
@@ -188,88 +192,88 @@ msgstr ""
 "Yandex hesabınıza giriş yapmanız ve bu eklentinin Yandex Metrica hesabınıza "
 "bağlanmasına izin vermelisiniz."
 
-#: templates/settings.php:63
+#: templates/settings.php:71
 msgid "https://oauth.yandex.com/"
 msgstr ""
 
-#: templates/settings.php:64
+#: templates/settings.php:72
 msgid "Click here to getting confirmation code"
 msgstr "Aktivasyon kodu almak için tıklayınız."
 
-#: templates/settings.php:68
+#: templates/settings.php:76
 msgid "Enter Confirmation code here"
 msgstr "Doğrulama kodunu buraya giriniz"
 
-#: templates/settings.php:69 templates/settings.php:172
+#: templates/settings.php:77 templates/settings.php:182
 msgid "Save"
 msgstr "Kaydet"
 
-#: templates/settings.php:73
+#: templates/settings.php:81
 msgid "If you don't want to use API, you can use basic mode."
 msgstr ""
 "Eğer metrica API kullanmak istemiyorsanız, temel modu deneyebilirsiniz."
 
-#: templates/settings.php:74
+#: templates/settings.php:82
 msgid "Basic Mode (Compatible with Backward)"
 msgstr "Temel Mod (Geri uyumlu)"
 
-#: templates/settings.php:80
+#: templates/settings.php:88
 msgid "Counter:"
 msgstr "Sayaç:"
 
-#: templates/settings.php:87
+#: templates/settings.php:95
 msgid "Temporary, getting connectivity problem.!"
 msgstr "API erişiminde geçici bir bağlantı sorunu var!"
 
-#: templates/settings.php:92
+#: templates/settings.php:100
 msgid "Enter counter number"
 msgstr "Sayaç numarasını giriniz"
 
-#: templates/settings.php:95
+#: templates/settings.php:103
 msgid "Tracking Settings"
 msgstr "Takip Ayarları"
 
-#: templates/settings.php:103
+#: templates/settings.php:111
 msgid "Select tracking options"
 msgstr "Sayaç özellikleri"
 
-#: templates/settings.php:106
+#: templates/settings.php:114
 msgid "Webvisor"
 msgstr "Webvisor"
 
-#: templates/settings.php:108
+#: templates/settings.php:116
 msgid "Track Clickmap"
 msgstr "Tıklama Haritası"
 
-#: templates/settings.php:110
+#: templates/settings.php:118
 msgid "Track Links, social sharing, file requests..."
 msgstr "Dış bağlantılar, dosya yüklemeleri ve Paylaş butonu raporu"
 
-#: templates/settings.php:112
+#: templates/settings.php:120
 msgid "Accurate Track Bounce"
 msgstr "Hemen çıkma oranı"
 
-#. templates/settings.php:115
+#: templates/settings.php:122
 msgid "Hash tracking in the browser's address bar"
 msgstr "Tarayıcının adres satırında hash'in takip edilmesi"
 
-#: templates/settings.php:119
+#: templates/settings.php:129
 msgid "Track logged in users"
 msgstr "Giriş yapmış kullanıcıları dahil et"
 
-#: templates/settings.php:123
+#: templates/settings.php:133
 msgid "Yes"
 msgstr "Evet"
 
-#: templates/settings.php:124
+#: templates/settings.php:134
 msgid "No"
 msgstr "Hayır"
 
-#: templates/settings.php:131
+#: templates/settings.php:141
 msgid "User roles to not track"
 msgstr "Takip edilmeyecek kullanıcı seviyesi"
 
-#: templates/settings.php:144
+#: templates/settings.php:154
 msgid ""
 "If a user is logged into with one of these roles, they won't track by "
 "metrica."
@@ -277,33 +281,33 @@ msgstr ""
 "Bu yetkiye sahip kullanıcılar, metrica servisi tarafından takip "
 "edilmeyecektir."
 
-#: templates/settings.php:150
+#: templates/settings.php:160
 msgid "User roles to display dashboard widget"
 msgstr "Yönetim panelinde istatistikleri görüntüleyebilecek kullanıcı seviyesi"
 
-#: templates/settings.php:164
+#: templates/settings.php:174
 msgid "Selected roles can display metrica statistic on the dashboard."
 msgstr ""
 "Bu yetkiye sahip kullanıcılar, istatistikleri yönetim panelinden "
 "görüntüleyebilecektir."
 
-#: templates/settings.php:173
+#: templates/settings.php:183
 msgid "Reset"
 msgstr "Sıfırla"
 
-#: yandex-metrica.php:122
+#: yandex-metrica.php:126
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Bu sayfayı görüntüleme yetkiniz bulunmamaktadır."
 
-#: yandex-metrica.php:135 yandex-metrica.php:138
+#: yandex-metrica.php:139 yandex-metrica.php:142
 msgid "Metrica Statistics"
 msgstr "Metrika İstatistikleri"
 
-#: yandex-metrica.php:145
+#: yandex-metrica.php:149
 msgid "Oh no! There is nothing to display. Here Are the Possible Causes"
 msgstr "Olamaz :( Yayınlayacak bi'şey bulamadık. Muhtemel sebepler şöyle;"
 
-#: yandex-metrica.php:146
+#: yandex-metrica.php:150
 msgid ""
 "If selected a new counter (recently created), please give a few hours for "
 "verification. Please be patient."
@@ -311,7 +315,7 @@ msgstr ""
 "Seçtiğiniz sayacı yeni mi oluşturdunuz? Eğer yeni oluşturmuşsanız "
 "doğrulamamız için bir kaç saat bekleyiniz."
 
-#: yandex-metrica.php:147
+#: yandex-metrica.php:151
 msgid ""
 "Did you save options? You need to save options at least once after account "
 "confirmation."
@@ -319,13 +323,13 @@ msgstr ""
 "Ayarları kaydettiniz mi? Api izni verdikten sonra en az bir kere ayarları "
 "kaydetmeniz gerekmektedir."
 
-#: yandex-metrica.php:148
+#: yandex-metrica.php:152
 msgid "Are you sure you selected the correct counter? Please confirm."
 msgstr ""
 "Seçtiğiniz sayaç doğru mu? Lütfen sayacı yada sayacı kurarken belirttiğiniz "
 "internet adresinin doğru olduğundan emin olunuz."
 
-#: yandex-metrica.php:149
+#: yandex-metrica.php:153
 msgid ""
 "Did you change your Yandex password? If changed, you need to re-authorize "
 "this plugin."
@@ -333,12 +337,12 @@ msgstr ""
 "Yandex şifrenizi mi değiştirdiniz? Şifre değişimlerinde eklenti yeniden "
 "yetkilendirilmelidir."
 
-#: yandex-metrica.php:150
+#: yandex-metrica.php:154
 msgid "Temporary, connectivity problem!"
 msgstr ""
 "Düşük bir olasılıkta olsa, geçici bir bağlantı sorunu yaşamış olabilirsiniz."
 
-#: yandex-metrica.php:167
+#: yandex-metrica.php:172
 msgid "View Full Report"
 msgstr "Tüm Raporu Görüntüle"
 

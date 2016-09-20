@@ -1,6 +1,12 @@
 <?php if ( ! defined( 'ABSPATH' ) ) die(); ?>
 
 <?php
+
+if ( ! empty( $_POST )  && ( ! current_user_can( 'manage_options' ) || empty( $_REQUEST['metrica_settings_nonce'] )  || ! wp_verify_nonce( $_REQUEST['metrica_settings_nonce'], 'metrica_update_settings' ) ) ) {
+	wp_die( esc_html__( 'Cheatin, uh?', 'yandex-metrica' ) );
+}
+
+
 if ( isset( $_POST['yandex-metrica-authorize'] ) ) {
 	$this->options['authcode'] = intval( $_POST['auth-code'] );
 
@@ -56,6 +62,7 @@ if ( isset( $_POST["reset"] ) ) {
 
 <div class="wrap">
 	<form method="post" action="">
+		<?php wp_nonce_field( 'metrica_update_settings', 'metrica_settings_nonce' ); ?>
 
 		<h2><?php _e( 'Yandex Metrica', 'yandex-metrica' ); ?></h2>
 

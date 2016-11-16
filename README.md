@@ -63,6 +63,10 @@ Extract the zip file and just drop the contents in the `wp-content/plugins/` dir
 
 ## Changelog ##
 
+### 1.4.1 ###
+  - array-multisort bug fix. Props Николай Астраханцев
+
+
 ### 1.4 ###
   - Text Domain changed
   - Nonces added to settings page

@@ -4,7 +4,7 @@ Contributors: m_uysl
 Tags: yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika
 Requires at least: 3.0
 Tested up to: 4.6
-Stable tag: 1.4
+Stable tag: 1.4.1
 License: GPLv2 (or later)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,9 @@ Extract the zip file and just drop the contents in the `wp-content/plugins/` dir
 3. Settings page.
 
 == Changelog ==
+
+= 1.4.1 =
+ - array-multisort bug fix. Props Николай Астраханцев
 
 = 1.4 =
  - Text Domain changed

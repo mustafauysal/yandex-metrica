@@ -2,6 +2,9 @@
 
 <script type="text/javascript">
 	jQuery(document).ready(function ($) {
+		<?php if( ! is_array( $statical_data ) ) { ?>
+		$('#metrica-graph').html("<p><?php _e('Sorry, couldn\'t draw graph for selected period, please try different time period.','yandex-metrica');?></p>");
+		<?php } else { ?>
 		$('#metrica-graph').highcharts({
 			chart   : {
 				type: 'line'
@@ -85,8 +88,8 @@
             });
         });
 
+		<?php } ?>
 
     });
-
 
 </script>

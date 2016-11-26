@@ -207,6 +207,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		$statical_data =  self::$metrica_api->get_counter_statistics( $this->options["counter_id"], $this->start_date, $this->end_date, "data" );
 
 		if ( is_array( $statical_data ) ) {
+			$days = array();
 			foreach ( $statical_data as $key => $row ) {
 				$days[ $key ] = $row['date'];
 			}

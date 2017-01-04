@@ -48,6 +48,9 @@ class Yandex_Oauth {
 			)
 		);
 
+		if ( is_wp_error( $data ) ) {
+			return false;
+		}
 
 		$http_code = $data["response"]["code"];
 

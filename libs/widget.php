@@ -66,8 +66,8 @@ class Metrica_Widget extends WP_Widget {
 			printf( __( 'Page Views: <b>%d</b> <br/>', 'yandex-metrica' ), $instance['page_views'] );
 		if ( $instance['show_visits'] === true && ! empty( $instance["visits"] ) )
 			printf( __( 'Visits: <b>%d</b> </br>', 'yandex-metrica' ), $instance['visits'] );
-		if ( $instance['show_visitors'] === true && ! empty( $instance["visits"] ) )
-			printf( __( 'Visitors: <b>%d</b> </br>', 'yandex-metrica' ), $instance['visits'] );
+		if ( $instance['show_visitors'] === true && ! empty( $instance["visitors"] ) )
+			printf( __( 'Visitors: <b>%d</b> </br>', 'yandex-metrica' ), $instance['visitors'] );
 
 		echo $args['after_widget'];
 	}

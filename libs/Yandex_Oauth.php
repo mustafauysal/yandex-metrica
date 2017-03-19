@@ -1,5 +1,8 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 class Yandex_Oauth {
 
@@ -8,6 +11,7 @@ class Yandex_Oauth {
 	private $app_secret;
 	public $error;
 	private $access_token;
+	const OAUTH_SERVER = 'https://oauth.yandex.com/token';
 
 
 	/**
@@ -28,49 +32,44 @@ class Yandex_Oauth {
 	 * @return bool
 	 */
 	public function connect_oauth_server( $confirmation_code ) {
-		$param = 'grant_type=authorization_code&code=' . $confirmation_code . '&client_id=' . $this->app_id . '&client_secret=' . $this->app_secret . '';
-		$url   = "https://oauth.yandex.com/token";
 
-		$header = array(
-			'POST /token HTTP/1.1',
-			'Host: oauth.yandex.com',
-			'Content-type:  application/json',
-			'Content-Length: ' . strlen( $param ),
-		);
-
-		$data = wp_remote_post( $url, array(
+		$response = wp_remote_post( self::OAUTH_SERVER, array(
 				'method'      => 'POST',
 				'timeout'     => 45,
 				'httpversion' => '1.1',
-				'header'      => $header,
-				'body'        => $param,
-				'sslverify'   => false
-			)
-		);
+				'body'        => array(
+					'grant_type'    => 'authorization_code',
+					'code'          => $confirmation_code,
+					'client_id'     => $this->app_id,
+					'client_secret' => $this->app_secret,
+				),
+				'sslverify'   => true,
+			) );
 
-		if ( is_wp_error( $data ) ) {
+		if ( is_wp_error( $response ) ) {
 			return false;
 		}
 
-		$http_code = $data["response"]["code"];
+		$http_code = $response["response"]["code"];
 
 		if ( ( $http_code != '200' ) && ( $http_code != '400' ) ) {
 			$this->error = $http_code;
+
 			return false;
 		}
 
-		$result = json_decode( $data["body"], true );
+		$result = json_decode( $response["body"], true );
 
 		if ( empty( $result['error'] ) ) {
 			$this->access_token = $result['access_token'];
+
 			return true;
 		}
-		else {
-			$this->error = $result['error'];
-			return false;
-		}
 
 
+		$this->error = $result['error'];
+
+		return false;
 	}
 
 	/**
@@ -79,15 +78,16 @@ class Yandex_Oauth {
 	public function check_access() {
 		if ( ! empty( $this->access_token ) && ( empty( $this->error ) ) ) {
 			return true;
-		}
-		else {
+		} else {
 			$this->error = 'expired_token';
+
 			return false;
 		}
 	}
 
 	/**
 	 * What is the problem?
+	 *
 	 * @return string
 	 */
 	public function get_error() {

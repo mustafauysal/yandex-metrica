@@ -23,15 +23,11 @@
 				categories: [
 					<?php
 					// use WordPress' date function date_i18n instead of the php's date. Because localization matters...
-							if($this->period != "monthly"){
-							foreach(  $statical_data as $item){
-									echo "'" .date_i18n('D', strtotime($item["date"])). "',";
-							 };
-							} else {
-							foreach(  $statical_data as $item){
-									echo "'" .date_i18n('d M', strtotime($item["date"])). "',";
-							 };
-							}
+					$date_format = ( $this->period != "monthly" ? 'D' : 'd M' );
+					foreach(  $statical_data as $date => $stats_item ){
+						echo "'" .date_i18n($date_format, strtotime( $date ) ). "',";
+					}
+
 					?>
 				]
 
@@ -52,6 +48,14 @@
 
 			series: [
 				{
+					name: '<?php echo __('Pageviews','yandex-metrica');?>',
+					data: [
+						<?php foreach( $statical_data as $item){
+							 echo $item["pageviews"].",";
+						 };?>
+					]
+				},
+				{
 					name: '<?php echo __('Visits','yandex-metrica');?>',
 					data: [
 						<?php foreach( $statical_data as $item){
@@ -70,23 +74,19 @@
 			]
 		});
 
-        $( "#toggle-popular-pages" ).click(function() {
-            $( ".metrica-popular-pages" ).toggle(  function() {
+		$("#toggle-metrica-popular-pages").click(function () {
+			$(".metrica-popular-pages").toggle();
+		});
 
-            });
-        });
+		$("#toggle-metrica-top-referrers").click(function () {
+			$(".metrica-top-referrers").toggle();
+		});
 
-        $( "#toggle-top-referrers" ).click(function() {
-            $( ".metrica-top-referrers" ).toggle(  function() {
+		$("#toggle-metrica-top-searches").click(function () {
+			$(".metrica-top-searches").toggle();
+		});
 
-            });
-        });
-
-        $( "#toggle-top-searches" ).click(function() {
-            $( ".metrica-top-searches" ).toggle(  function() {
-
-            });
-        });
+		$(".postbox.closed > .metrica-inside").hide();
 
 		<?php } ?>
 

@@ -1,10 +1,8 @@
-<?php if ( ! defined( 'ABSPATH' ) ) die(); ?>
 <?php
-/**
- * @package   : WordPress
- * @subpackage: Yandex Metrica
- */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 class Metrica_Widget extends WP_Widget {
 	protected $defaults;
@@ -55,15 +53,15 @@ class Metrica_Widget extends WP_Widget {
 		printf( __( '<h3>Metrica statistics for %s </h3>', 'yandex-metrica' ), __( ucfirst( $instance["time"] ), 'yandex-metrica' ) );
 		$main_options = get_option( 'metrica_options' );
 		$metrica_api  = new Yandex_Metrica( $main_options['access_token'] );
-		$results      = $metrica_api->get_counter_statistics( $main_options['counter_id'], $start_date, $end_date, "totals" );
+		$results      = $metrica_api->get_counter_statistics( $main_options['counter_id'], $start_date, $end_date, "total" );
 
-		$instance["page_views"] = $results["page_views"];
+		$instance["pageviews"] = $results["pageviews"];
 		$instance["visits"]     = $results["visits"];
 		$instance["visitors"]   = $results["visitors"];
 
 
-		if ( $instance['show_page_views'] === true && ( ! empty( $instance["page_views"] ) ) )
-			printf( __( 'Page Views: <b>%d</b> <br/>', 'yandex-metrica' ), $instance['page_views'] );
+		if ( $instance['show_page_views'] === true && ( ! empty( $instance["pageviews"] ) ) )
+			printf( __( 'Page Views: <b>%d</b> <br/>', 'yandex-metrica' ), $instance['pageviews'] );
 		if ( $instance['show_visits'] === true && ! empty( $instance["visits"] ) )
 			printf( __( 'Visits: <b>%d</b> </br>', 'yandex-metrica' ), $instance['visits'] );
 		if ( $instance['show_visitors'] === true && ! empty( $instance["visitors"] ) )

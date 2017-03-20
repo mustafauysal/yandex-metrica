@@ -135,7 +135,10 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		 */
 		if ( self::$metrica_api->is_valid_counter( $this->options["counter_id"] ) ) {
 
-			$this->hook( 'admin_head', 'dashboard_chart_js' ); // add neccessary jsc
+			/**
+			 * add inline chart js
+			 */
+			$this->hook( 'admin_head', 'dashboard_chart_js' );
 			wp_add_dashboard_widget( 'yandex_metrica_widget', __( 'Metrica Statistics', 'yandex-metrica' ), array( $this, 'metrica_dashboard_widget' ) );
 		}
 		else {
@@ -156,7 +159,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 
 	public function metrica_dashboard_widget() {
-		$total_values  = self::$metrica_api->get_counter_statistics( $this->options["counter_id"], $this->start_date, $this->end_date, "totals" );
+		$total_values  = self::$metrica_api->get_counter_statistics( $this->options["counter_id"], $this->start_date, $this->end_date, 'total' );
 		$popular_posts = self::$metrica_api->get_popular_content( $this->options["counter_id"], $this->start_date, $this->end_date );
 		$top_referrers = self::$metrica_api->get_referal_sites( $this->options["counter_id"], $this->start_date, $this->end_date );
 		$top_searches  = self::$metrica_api->get_search_terms( $this->options["counter_id"], $this->start_date, $this->end_date );
@@ -204,15 +207,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 	public function dashboard_chart_js() {
 		wp_enqueue_script( 'jquery' );
-		$statical_data =  self::$metrica_api->get_counter_statistics( $this->options["counter_id"], $this->start_date, $this->end_date, "data" );
-
-		if ( is_array( $statical_data ) ) {
-			$days = array();
-			foreach ( $statical_data as $key => $row ) {
-				$days[ $key ] = $row['date'];
-			}
-			array_multisort( $days, SORT_ASC, $statical_data );
-		}
+		$statical_data =  self::$metrica_api->get_counter_statistics( $this->options["counter_id"], $this->start_date, $this->end_date, "daily" );
 
         include( dirname( __FILE__ ) . '/templates/dashboard-charts-js.php' );
 	}
@@ -256,16 +251,16 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 		switch ( $period ) {
 			case "monthly":
-				$this->start_date = date( 'Ymd', strtotime( "-1 month" ) );
-				$this->end_date   = date( 'Ymd' );
+				$this->start_date = date( 'Y-m-d', strtotime( "-1 month" ) );
+				$this->end_date   = date( 'Y-m-d' );
 				break;
 			case "weekly":
-				$this->start_date = date( 'Ymd', strtotime( "-6 days" ) );
-				$this->end_date   = date( 'Ymd' );
+				$this->start_date = date( 'Y-m-d', strtotime( "-6 days" ) );
+				$this->end_date   = date( 'Y-m-d' );
 				break;
 			case "daily":
-				$this->start_date = date( 'Ymd' );
-				$this->end_date   = date( 'Ymd' );
+				$this->start_date = date( 'Y-m-d' );
+				$this->end_date   = date( 'Y-m-d' );
 				break;
 		}
 
@@ -308,7 +303,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 
 	public function metrica_informer() {
-		echo '<img src="http://bs.yandex.ru/informer/' . $this->options['counter_id'] . '/3_1_FFFFFFFF_EFEFEFFF_0_pageviews" style="width:80px; height:31px; border:0;" />';
+		echo '<img src="https://informer.yandex.ru/informer/' . esc_attr( $this->options['counter_id'] ) . '/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"  class="ym-advanced-informer" data-cid="' . esc_attr( $this->options['counter_id'] ) . '"  style="width:80px; height:31px; border:0;" />';
 	}
 
 	/**
@@ -323,7 +318,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		wp_register_sidebar_widget(
 			'metrica_informer',
 			'Metrica Informer',
-			array( &$this, 'metrica_informer' ),
+			array( $this, 'metrica_informer' ),
 			array(
 				'description' => 'Add metrica Informer to your sidebar, share daily statistics'
 			)

@@ -1,12 +1,12 @@
 # Yandex Metrica #
 
-Contributors: m_uysl
-Tags: yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika
-Requires at least: 3.0
-Tested up to: 4.7
-Stable tag: 1.4.3
-License: GPLv2 (or later)
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Contributors:  m_uysl   
+Tags:  yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika  
+Requires at least:  3.7  
+Tested up to:  4.7  
+Stable tag:  1.4.3  
+License: GPLv2 (or later)  
+License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
 
 Easy way to use Yandex Metrica in your WordPress site.
@@ -63,6 +63,14 @@ Extract the zip file and just drop the contents in the `wp-content/plugins/` dir
 
 ## Changelog ##
 
+### 1.5 ###
+  - Metrica API upgraded, fixes api related problems
+  - `sslverify` parameter set to true
+  - UI improvements
+  - Informer widget address update
+  - Widget: showing visitors fix. Props Эльвира Капитонова
+  - requires at least WordPress 3.7
+  
 ### 1.4.3 ###
   - minor bug fix about HTTP request
   
@@ -132,3 +140,7 @@ Extract the zip file and just drop the contents in the `wp-content/plugins/` dir
 ### 1.0 ###
 
 Including major changes, recommended update!
+
+### 1.5 ###
+
+Metrica api upgraded, if you get authentication related problems reset plugin settings and connect to API again (that will generate new token)

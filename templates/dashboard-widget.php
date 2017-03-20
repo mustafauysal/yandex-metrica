@@ -112,7 +112,8 @@
         <h2 class="hndle"><?php _e( 'Popular Pages', 'yandex-metrica' ); ?></h2>
 
         <div class="metrica-inside">
-            <ol class="metrica-popular-pages">
+            <ol class="metrica-popular-pages <?php echo postbox_classes('popular-posts', 'dashboard');?>">
+
                 <?php if ( ! empty( $popular_posts ) ): ?>
                     <?php foreach ( $popular_posts as $post ): ?>
                         <li>
@@ -138,7 +139,7 @@
         <h2 class="hndle"><?php _e( 'Top Referrers', 'yandex-metrica' ); ?></h2>
 
         <div class="metrica-inside">
-            <ol class="metrica-top-referrers">
+            <ol class="metrica-top-referrers <?php echo postbox_classes('metrica-incoming', 'dashboard');?>">
 
                 <?php if ( ! empty( $top_referrers ) ): ?>
                     <?php foreach ( $top_referrers as $referrer ): ?>
@@ -150,6 +151,7 @@
                 <?php else: ?>
                     <?php _e( 'None', 'yandex-metrica' ); ?>
                 <?php endif; ?>
+
             </ol>
         </div>
     </div>
@@ -163,7 +165,7 @@
         <h2 class="hndle"><?php _e( 'Search Terms', 'yandex-metrica' ); ?></h2>
 
         <div class="metrica-inside">
-            <ol class="metrica-top-searches">
+            <ol class="metrica-top-searches <?php echo postbox_classes('top-searches', 'dashboard');?>">
 
                 <?php if ( ! empty( $top_searches ) ) : ?>
                     <?php foreach ( $top_searches as $search_term ): ?>
@@ -183,4 +185,9 @@
 
 </div>
 
+<style>
+    .metrica-inside .closed{
+        display: none;
+    }
+</style>
 

@@ -86,8 +86,6 @@
 			$(".metrica-top-searches").toggle();
 		});
 
-		$(".postbox.closed > .metrica-inside").hide();
-
 		<?php } ?>
 
     });

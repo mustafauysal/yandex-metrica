@@ -42,18 +42,20 @@ Extract the zip file and just drop the contents in the `wp-content/plugins/` dir
 
 == Frequently Asked Questions ==
 
-* What is metrica?
- - Metrica is a powerful analytics tool that provided by Yandex.
-* Is it free?
- - Definitely, metrica service and this plugin totally  free.
-* Can I see statistics on the WordPress dashboard?
-	- Yes, version 1.0 or higher versions support dashboard widget. But you need to use advanced mode. (Because this feature needs API access)
-* I can see dashboard widget but no graph?
-	- If your counter hasn't any visitors or visits value it could be empty, but probably your counter not working correctly, Check counter status from official metrica site.
-* Localization issue?
-	- Yandex Metrica plugin is using native WordPress localization of the some piece of code. For example date, user roles etc...
-*	Everything done, but metrica service doesn't work for me?
-	- Yandex Metrica plugin uses wp_footer hook for the adds necessary trancking code. Please, check your theme has wp_footer hook?
+= What is metrica? =
+Metrica is a powerful analytics tool that provided by Yandex.
+
+=  Is it free? =
+Definitely, metrica service and this plugin are totally free.
+
+= Can I see statistics on the WordPress dashboard? =
+Yes! (You have to use advanced mode, this feature needs API access)
+
+= I can see dashboard widget but no graph? =
+Probably your counter is not working correctly, please check counter status on the official metrica website. Sometimes we can't retrieve the statistical data via API, especially on the fresh counters.
+
+= Everything done, but metrica service doesn't work for me? =
+Yandex Metrica plugin uses wp_footer hook for the adds necessary tracking code. Please, ensure your theme has wp_footer hook?
 
 == Screenshots ==
 

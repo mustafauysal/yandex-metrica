@@ -3,76 +3,82 @@
 <script type="text/javascript">
 	jQuery(document).ready(function ($) {
 		<?php if( ! is_array( $statical_data ) || empty( $statical_data ) ) { ?>
-		$('#metrica-graph').html("<p><?php _e('Sorry, couldn\'t draw graph for selected period, please try different time period.','yandex-metrica');?></p>");
+		$('#metrica-graph').hide();
+		$('#metrica-graph-warning').html("<p><?php _e('Sorry, couldn\'t draw graph for selected period, please try different time period.','yandex-metrica');?></p>");
 		<?php } else { ?>
-		$('#metrica-graph').highcharts({
-			chart   : {
-				type: 'line'
-			},
-			title   : {
-				text: '<?php echo __('Metrica Traffic','yandex-metrica');?>'
-			},
-			credits : {
-				enabled: false
-			},
-			subtitle: {
-				text: '<?php echo __('Source','yandex-metrica');?>:<?php echo self::$metrica_api->get_counter_name( $this->options["counter_id"] );?>'
-			},
-			xAxis   : {
-				type      : 'datetime',
-				categories: [
-					<?php
-					// use WordPress' date function date_i18n instead of the php's date. Because localization matters...
-					$date_format = ( $this->period != "monthly" ? 'D' : 'd M' );
-					foreach(  $statical_data as $date => $stats_item ){
-						echo "'" .date_i18n($date_format, strtotime( $date ) ). "',";
-					}
 
-					?>
-				]
+		window.chartColors = {
+			red: 'rgb(255, 99, 132)',
+			orange: 'rgb(255, 159, 64)',
+			yellow: 'rgb(255, 205, 86)',
+			green: 'rgb(75, 192, 192)',
+			blue: 'rgb(54, 162, 235)',
+			purple: 'rgb(153, 102, 255)',
+			grey: 'rgb(201, 203, 207)'
+		};
 
-			},
-			yAxis   : {
-				title: {
-					text: '<?php echo __('Visits','yandex-metrica');?>'
-				},
-				min  : 0
-			},
-			tooltip : {
-
-				formatter: function () {
-					return '<b>' + this.series.name + '</b><br/>' +
-							this.x + ': ' + this.y;
+		var data = {
+			labels: [
+				<?php
+				// use WordPress' date function date_i18n instead of the php's date. Because localization matters...
+				$date_format = ( $this->period != "monthly" ? 'D' : 'd M' );
+				foreach(  $statical_data as $date => $stats_item ){
+					echo "'" .date_i18n($date_format, strtotime( $date ) ). "',";
 				}
-			},
+				?>
+			],
 
-			series: [
+			datasets: [
 				{
-					name: '<?php echo __('Pageviews','yandex-metrica');?>',
-					data: [
+					label: "<?php echo __('Pageviews','yandex-metrica');?>",
+					backgroundColor: window.chartColors.blue,
+					borderColor: window.chartColors.blue,
+					fill: false,
+					data : [
 						<?php foreach( $statical_data as $item){
-							 echo $item["pageviews"].",";
-						 };?>
+						echo $item["pageviews"].",";
+					};?>
 					]
 				},
 				{
-					name: '<?php echo __('Visits','yandex-metrica');?>',
+					label: "<?php echo __('Visits','yandex-metrica');?>",
+					backgroundColor: window.chartColors.orange,
+					borderColor: window.chartColors.orange,
+					fill: false,
 					data: [
 						<?php foreach( $statical_data as $item){
-							 echo $item["visits"].",";
-						 };?>
+						echo $item["visits"].",";
+					};?>
 					]
 				},
 				{
-					name: '<?php echo __('Unique','yandex-metrica');?>',
-					data: [
+					label: "<?php echo __('Unique','yandex-metrica');?>",
+					backgroundColor: window.chartColors.green,
+					borderColor: window.chartColors.green,
+					fill: false,
+					data : [
 						<?php foreach( $statical_data as $item){
-							 echo $item["visitors"].',';
-						};?>
+						echo $item["visitors"].',';
+					};?>
 					]
 				}
 			]
+		};
+
+		var context = document.querySelector('#metrica-graph').getContext('2d');
+
+		new Chart(context, {
+			type   : 'line',
+			data   : data,
+			options: {
+				responsive: true,
+				title     : {
+					display: true,
+					text   : '<?php echo __( 'Metrica Traffic', 'yandex-metrica' );?>'
+				},
+			}
 		});
+
 
 		$("#toggle-metrica-popular-pages").click(function () {
 			$(".metrica-popular-pages").toggle();

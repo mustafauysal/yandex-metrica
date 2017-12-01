@@ -14,7 +14,8 @@
 <span id="metricaloading"></span>
 
 <?php if ( ! empty( $total_values["visits"] ) || ! empty( $total_values["visitors"] ) ): ?>
-    <div id="metrica-graph" style="width:100%; height: 400px;"></div>
+    <canvas id="metrica-graph" style="width:100%; height: 400px;"></canvas>
+    <div id="metrica-graph-warning"></div>
 <?php endif; ?>
 
 <div id="metrica-widget-data">

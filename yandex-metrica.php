@@ -4,7 +4,7 @@ Plugin Name: Yandex Metrica
 Plugin URI: http://uysalmustafa.com/plugins/yandex-metrica
 Description: Best metrica plugin for the use Yandex Metrica in your WordPress site.
 Author: Mustafa Uysal
-Version: 1.5
+Version: 1.6-alpha
 Text Domain: yandex-metrica
 Domain Path: /languages/
 Author URI: http://uysalmustafa.com
@@ -230,8 +230,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 	public function enqueue() {
 		if ( self::$metrica_api->is_valid_counter( $this->options["counter_id"] ) ) {
-			wp_enqueue_script( 'highcharts', plugins_url( "js/highcharts/highcharts.js", __FILE__ ) );
-			wp_enqueue_script( 'highcharts-exporting', plugins_url( "js/highcharts/modules/exporting.js", __FILE__ ) );
+			wp_enqueue_script( 'chart', plugins_url( "js/Chart.min.js", __FILE__ ) );
 		}
 	}
 

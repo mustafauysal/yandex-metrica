@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Yandex Metrica 1.x\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yandex-metrica\n"
 "POT-Creation-Date: 2016-09-20 21:59:12+00:00\n"
-"PO-Revision-Date: 2016-09-21 01:01+0200\n"
+"PO-Revision-Date: 2017-12-01 22:53+0300\n"
 "Last-Translator: Mustafa Uysal <mustafa@lettoblog.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -76,6 +76,10 @@ msgstr "Metrika Trafiği"
 #: templates/dashboard-charts-js.php:16
 msgid "Source"
 msgstr "Kaynak"
+
+#, fuzzy
+msgid "Pageviews"
+msgstr "Sayfa Gösterimleri"
 
 #: templates/dashboard-charts-js.php:38 templates/dashboard-charts-js.php:52
 #: templates/dashboard-widget.php:20

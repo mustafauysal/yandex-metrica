@@ -72,6 +72,9 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
+msgid "Pageviews"
+msgstr ""
+
 #: templates/dashboard-charts-js.php:38 templates/dashboard-charts-js.php:52
 #: templates/dashboard-widget.php:20
 msgid "Visits"

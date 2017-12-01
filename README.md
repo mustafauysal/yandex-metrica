@@ -61,8 +61,14 @@ Extract the zip file and just drop the contents in the `wp-content/plugins/` dir
 ## Screenshots ##
 
 1. Select mode, basic mode for who don't want to use metrica api. But advanced mode recommended!
+![Multiple Mode](https://ps.w.org/yandex-metrica/assets/screenshot-1.png)
+
 2. Displaying graph with metrica results.
+![Dashboard widget](https://ps.w.org/yandex-metrica/assets/screenshot-2.png)
+
 3. Settings page.
+![Settings page](https://ps.w.org/yandex-metrica/assets/screenshot-3.png)
+
 
 ## Changelog ##
 

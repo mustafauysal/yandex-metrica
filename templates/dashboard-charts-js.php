@@ -68,7 +68,7 @@
 		var context = document.querySelector('#metrica-graph').getContext('2d');
 
 		new Chart(context, {
-			type   : 'line',
+			type: '<?php echo( $this->period == "daily" ? 'bar' : 'line' );?>',
 			data   : data,
 			options: {
 				responsive: true,

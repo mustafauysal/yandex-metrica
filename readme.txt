@@ -2,9 +2,9 @@
 
 Contributors: m_uysl
 Tags: yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika
-Requires at least: 3.7
-Tested up to: 4.7
-Stable tag: 1.5
+Requires at least: 3.8
+Tested up to: 4.9
+Stable tag: 1.6
 License: GPLv2 (or later)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,11 @@ Yandex Metrica plugin uses wp_footer hook for the adds necessary tracking code. 
 3. Settings page.
 
 == Changelog ==
+
+= 1.6 =
+  - charting library changed. (Switched to Chart.js)
+  - daily stats using bar type
+  - minor tweaks
 
 = 1.5 =
   - Metrica API upgraded, fixes api related problems

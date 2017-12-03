@@ -4,7 +4,7 @@ Contributors:  m_uysl
 Tags:  yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika  
 Requires at least:  3.8  
 Tested up to:  4.9  
-Stable tag:  1.6.1  
+Stable tag:  1.6.2  
 License: GPLv2 (or later)  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -72,6 +72,9 @@ Extract the zip file and just drop the contents in the `wp-content/plugins/` dir
 
 ## Changelog ##
 
+###  1.6.2 ### 
+  - prevent (possible) chart.js conflict with page builder plugins. Props @zzsnowballzz
+  
 ### 1.6.1 ###
   - prevent inline js loading globally. Props Makaka Games
   - script handler renamed

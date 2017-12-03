@@ -94,6 +94,29 @@
 
 		<?php } ?>
 
+		$('#yandex_metrica_widget h3.hndle span').append('<span class="postbox-title-action"><a href="http://metrica.yandex.com" class="edit-box open-box"><?php _e('View Full Report', 'yandex-metrica');?></a></span>');
+
+		$(document).on("change", "#period", function () {
+			jQuery.ajax({
+				type : 'post',
+				url  : 'admin-ajax.php',
+				cache: false,
+				data : {
+					action     : 'metrica_actions',
+					period     : $(this).val(),
+					_ajax_nonce: '<?php echo wp_create_nonce("yandex-metrica-nonce");?>'
+				},
+				beforeSend: function () {
+					jQuery("#metricaloading").html('<img src="<?php echo admin_url("images/wpspin_light.gif")?>" />').show();
+				},
+				success: function (html) {
+					jQuery("#metricaloading").hide();
+					jQuery('#yandex_metrica_widget .inside').html(html);
+					return true;
+				}
+			});
+		});
+
     });
 
 </script>

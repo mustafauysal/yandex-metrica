@@ -51,7 +51,6 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 		$this->hook( 'admin_menu' );
 		$this->hook( 'wp_footer' ); // using wp_footer for adding tracking code. If you theme don't have it, this plugin can't track your site.
-		$this->hook( 'admin_head', 'yandex_metrica_js' );
 
 		if ( $this->is_authorized() ) {
 			self::$metrica_api = new Yandex_Metrica( $this->options["access_token"] );
@@ -167,43 +166,6 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		include( dirname( __FILE__ ) . '/templates/dashboard-widget.php' );
 	}
 
-
-	public function yandex_metrica_js() {
-		?>
-		<script type="text/javascript">
-			jQuery(document).ready(function ($) {
-				jQuery('#yandex_metrica_widget h3.hndle span').append('<span class="postbox-title-action"><a href="http://metrica.yandex.com" class="edit-box open-box"><?php _e('View Full Report', 'yandex-metrica');?></a></span>');
-
-				$(document).on("change", "#period", function () {
-
-					jQuery.ajax({
-						type : 'post',
-						url  : 'admin-ajax.php',
-						cache: false,
-						data : {
-							action     : 'metrica_actions',
-							period     : $(this).val(),
-							_ajax_nonce: '<?php echo wp_create_nonce("yandex-metrica-nonce");?>'
-
-						},
-
-						beforeSend: function () {
-							jQuery("#metricaloading").html('<img src="<?php echo admin_url("images/wpspin_light.gif")?>" />').show();
-						},
-
-						success: function (html) {
-							//console.log(html);
-							jQuery("#metricaloading").hide();
-							jQuery('#yandex_metrica_widget .inside').html(html);
-							return true;
-						}
-
-					});
-				});
-			});
-		</script>
-	<?php
-	}
 
 	public function dashboard_chart_js() {
 		wp_enqueue_script( 'jquery' );

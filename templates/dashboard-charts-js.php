@@ -76,6 +76,18 @@
 					display: true,
 					text   : '<?php echo __( 'Metrica Traffic', 'yandex-metrica' );?>'
 				},
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				},
+				<?php if('daily' !== $this->period):?>
+				tooltips: {
+					mode: 'index'
+				}
+				<?php endif;?>
 			}
 		});
 

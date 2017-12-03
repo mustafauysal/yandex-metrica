@@ -58,7 +58,6 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
             $this->hook( 'wp_ajax_metrica_actions', 'ajax_listener' );
 			if ( $this->current_user_has_access( $this->options["widget-access-roles"] ) )
 				$this->hook( 'wp_dashboard_setup' );
-			$this->hook( 'in_admin_footer', 'enqueue' ); // footer probably is the best place for speed matters...
 
 		}
 
@@ -169,6 +168,8 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 	public function dashboard_chart_js() {
 		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'yandex-metrica-chart', plugins_url( "js/Chart.min.js", __FILE__ ) );
+
 		$statical_data =  self::$metrica_api->get_counter_statistics( $this->options["counter_id"], $this->start_date, $this->end_date, "daily" );
 
         include( dirname( __FILE__ ) . '/templates/dashboard-charts-js.php' );
@@ -187,13 +188,6 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		}
 
 		die();
-	}
-
-
-	public function enqueue() {
-		if ( self::$metrica_api->is_valid_counter( $this->options["counter_id"] ) ) {
-			wp_enqueue_script( 'yandex-metrica-chart', plugins_url( "js/Chart.min.js", __FILE__ ) );
-		}
 	}
 
 	private function update_options( $options ) {

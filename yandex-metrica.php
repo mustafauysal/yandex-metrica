@@ -192,7 +192,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 	public function enqueue() {
 		if ( self::$metrica_api->is_valid_counter( $this->options["counter_id"] ) ) {
-			wp_enqueue_script( 'chart', plugins_url( "js/Chart.min.js", __FILE__ ) );
+			wp_enqueue_script( 'yandex-metrica-chart', plugins_url( "js/Chart.min.js", __FILE__ ) );
 		}
 	}
 

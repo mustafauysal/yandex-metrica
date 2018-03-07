@@ -34,7 +34,7 @@ if ( isset( $_POST["yandex-metrica-save"] ) ) {
 	$this->options['track-logged-in']     = ( $_POST['track-logged-in'] == "no" ) ? false : true;
 	$this->options["untrack-roles"]       = ! empty( $_POST["tracker_role"] ) ? array_map( 'esc_attr', $_POST["tracker_role"] ) : "";
 	$this->options["widget-access-roles"] = ! empty( $_POST["widget_access"] ) ? array_map( 'esc_attr', $_POST["widget_access"] ) : "";
-
+	$this->options["tracker-address"] = ! empty( $_POST["tracker-address"] ) ? esc_url_raw( $_POST['tracker-address'] ) : "https://mc.yandex.ru/metrika/watch.js";
 
 	if ( is_numeric( $_POST["metrica-counter"] ) ) {
 		echo '<div class="updated"><p>' . __( 'Options Saved!', 'yandex-metrica' ) . '</p></div>';
@@ -164,7 +164,7 @@ if ( isset( $_POST["reset"] ) ) {
 							$widget_roles = $this->options["widget-access-roles"]; // get roles that not tracking if logged users track tuned on
 							if ( ! is_array( $widget_roles ) ) $widget_roles = array();
 
-							foreach ( $roles AS $role => $name ): ?>
+							foreach ( $roles as $role => $name ): ?>
 
 								<input type="checkbox" <?php if ( in_array( $role, $widget_roles ) ) echo "checked"; ?>  name="widget_access[]" value="<?php echo $role; ?>" /> <?php echo translate_user_role( $name ); ?>
 								<br />
@@ -174,6 +174,16 @@ if ( isset( $_POST["reset"] ) ) {
 							<p class="setting-description"><?php _e( 'Selected roles can display metrica statistic on the dashboard.', 'yandex-metrica' ); ?></p>
 						</td>
 					</tr>
+					<tr>
+						<th>
+							<label><?php _e( 'Tracker JS', 'yandex-metrica' ); ?></label>
+						</th>
+						<td>
+							<input type="text" style="min-width: 300px;" placeholder="https://mc.yandex.ru/metrika/watch.js" name="tracker-address" value="<?php echo $this->options["tracker-address"]; ?>">
+							<p class="setting-description"><?php _e( 'If you want to change watcher js address, use the field above.', 'yandex-metrica' ); ?></p>
+						</td>
+					</tr>
+
 				<?php endif; ?>
 				</tbody>
 			</table>

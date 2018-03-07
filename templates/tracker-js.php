@@ -18,12 +18,14 @@
             f = function () { n.parentNode.insertBefore(s, n); };
         s.type = "text/javascript";
         s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        s.src = <?php echo( $this->options["tracker-address"] ? $this->options["tracker-address"] : "https://mc.yandex.ru/metrika/watch.js" ); ?>;
 
         if (w.opera == "[object Opera]") {
             d.addEventListener("DOMContentLoaded", f, false);
         } else { f(); }
     })(document, window, "yandex_metrika_callbacks");
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/<?php echo $this->options["counter_id"];?>" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript>
+	<div><img src="<?php printf( "%s%s", apply_filters( 'yandex_metrica_noscript_img_base', "https://mc.yandex.ru/watch/" ), $this->options["counter_id"] ); ?>" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
 <!-- /Yandex.Metrika counter  -->

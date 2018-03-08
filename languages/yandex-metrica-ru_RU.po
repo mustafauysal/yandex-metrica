@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Yandex Metrica 1.x\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yandex-metrica\n"
 "POT-Creation-Date: 2016-09-20 21:59:12+00:00\n"
-"PO-Revision-Date: 2016-09-21 01:01+0200\n"
+"PO-Revision-Date: 2018-03-09 00:52+0300\n"
 "Last-Translator: Mustafa Uysal <mustafa@lettoblog.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -77,6 +77,9 @@ msgstr "Трафик Метрики"
 #: templates/dashboard-charts-js.php:16
 msgid "Source"
 msgstr "Источник"
+
+msgid "Pageviews"
+msgstr "Просмотры страниц"
 
 #: templates/dashboard-charts-js.php:38 templates/dashboard-charts-js.php:52
 #: templates/dashboard-widget.php:20
@@ -358,4 +361,12 @@ msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "http://uysalmustafa.com"
+msgstr ""
+
+#: ../templates/settings.php:179
+msgid "Tracker JS"
+msgstr ""
+
+#: ../templates/settings.php:183
+msgid "If you want to change watcher js address, use the field above."
 msgstr ""

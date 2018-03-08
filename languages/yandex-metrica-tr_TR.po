@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Yandex Metrica 1.x\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yandex-metrica\n"
 "POT-Creation-Date: 2016-09-20 21:59:12+00:00\n"
-"PO-Revision-Date: 2017-12-01 22:53+0300\n"
+"PO-Revision-Date: 2018-03-09 00:51+0300\n"
 "Last-Translator: Mustafa Uysal <mustafa@lettoblog.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -77,7 +77,6 @@ msgstr "Metrika Trafiği"
 msgid "Source"
 msgstr "Kaynak"
 
-#, fuzzy
 msgid "Pageviews"
 msgstr "Sayfa Gösterimleri"
 
@@ -198,7 +197,7 @@ msgstr ""
 
 #: templates/settings.php:71
 msgid "https://oauth.yandex.com/"
-msgstr ""
+msgstr "https://oauth.yandex.com/"
 
 #: templates/settings.php:72
 msgid "Click here to getting confirmation code"
@@ -352,7 +351,7 @@ msgstr "Tüm Raporu Görüntüle"
 
 #. Plugin URI of the plugin/theme
 msgid "http://uysalmustafa.com/plugins/yandex-metrica"
-msgstr ""
+msgstr "http://uysalmustafa.com/plugins/yandex-metrica"
 
 #. Description of the plugin/theme
 msgid "Best metrica plugin for the use Yandex Metrica in your WordPress site."
@@ -361,8 +360,23 @@ msgstr ""
 
 #. Author of the plugin/theme
 msgid "Mustafa Uysal"
-msgstr ""
+msgstr "Mustafa Uysal"
 
 #. Author URI of the plugin/theme
 msgid "http://uysalmustafa.com"
-msgstr ""
+msgstr "http://uysalmustafa.com"
+
+#: ../templates/settings.php:179
+msgid "Tracker JS"
+msgstr "Takipçi JS"
+
+#: ../templates/settings.php:183
+msgid "If you want to change watcher js address, use the field above."
+msgstr "JS adresini değiştirmek isterseniz yukarıdaki alanı kullanın."
+
+#~ msgid ""
+#~ "Sorry, couldn't draw graph for selected period, please try different time "
+#~ "period."
+#~ msgstr ""
+#~ "Üzgünüz, seçitiğiniz aralık için grafik oluşturamadık, lütfen farklı bir "
+#~ "periyot seçin."

@@ -343,3 +343,13 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "http://uysalmustafa.com"
 msgstr ""
+
+
+#: ../templates/settings.php:179
+msgid "Tracker JS"
+msgstr ""
+
+#: ../templates/settings.php:183
+msgid "If you want to change watcher js address, use the field above."
+msgstr ""
+

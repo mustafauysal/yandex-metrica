@@ -174,17 +174,19 @@ if ( isset( $_POST["reset"] ) ) {
 							<p class="setting-description"><?php _e( 'Selected roles can display metrica statistic on the dashboard.', 'yandex-metrica' ); ?></p>
 						</td>
 					</tr>
-					<tr>
-						<th>
-							<label><?php _e( 'Tracker JS', 'yandex-metrica' ); ?></label>
-						</th>
-						<td>
-							<input type="text" style="min-width: 300px;" placeholder="https://mc.yandex.ru/metrika/watch.js" name="tracker-address" value="<?php echo $this->options["tracker-address"]; ?>">
-							<p class="setting-description"><?php _e( 'If you want to change watcher js address, use the field above.', 'yandex-metrica' ); ?></p>
-						</td>
-					</tr>
 
 				<?php endif; ?>
+
+				<tr>
+					<th>
+						<label><?php _e( 'Tracker JS', 'yandex-metrica' ); ?></label>
+					</th>
+					<td>
+						<input type="text" style="min-width: 300px;" placeholder="https://mc.yandex.ru/metrika/watch.js" name="tracker-address" value="<?php echo $this->options["tracker-address"]; ?>">
+						<p class="setting-description"><?php _e( 'If you want to change watcher js address, use the field above.', 'yandex-metrica' ); ?></p>
+					</td>
+				</tr>
+
 				</tbody>
 			</table>
 

@@ -4,7 +4,7 @@ Contributors: m_uysl
 Tags: yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika
 Requires at least: 3.8
 Tested up to: 4.9
-Stable tag: 1.6.2
+Stable tag: 1.6.3
 License: GPLv2 (or later)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,10 @@ Yandex Metrica plugin uses wp_footer hook for the adds necessary tracking code. 
 3. Settings page.
 
 == Changelog ==
+
+= 1.6.3 =
+  - now users are able to change Tracker JS address
+  - new filter `yandex_metrica_noscript_img_base` added
 
 = 1.6.2 =
   - prevent (possible) chart.js conflict with page builder plugins. Props @zzsnowballzz

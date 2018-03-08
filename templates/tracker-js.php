@@ -18,7 +18,7 @@
             f = function () { n.parentNode.insertBefore(s, n); };
         s.type = "text/javascript";
         s.async = true;
-        s.src = <?php echo( $this->options["tracker-address"] ? $this->options["tracker-address"] : "https://mc.yandex.ru/metrika/watch.js" ); ?>;
+        s.src = "<?php echo( $this->options["tracker-address"] ? $this->options["tracker-address"] : "https://mc.yandex.ru/metrika/watch.js" ); ?>";
 
         if (w.opera == "[object Opera]") {
             d.addEventListener("DOMContentLoaded", f, false);

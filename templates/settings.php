@@ -123,7 +123,7 @@ if ( isset( $_POST["reset"] ) ) {
 						<label><input type="checkbox" <?php checked( $this->options['track_hash'] ); ?>   name="track_hash" value="1">  <?php _e( "Hash tracking in the browser's address bar", 'yandex-metrica' ); ?>
 						</label><br>
                         <label><input type="checkbox" <?php checked( $this->options['new_yandex_code'] ); ?>   name="new_yandex_code" value="1">  <?php _e( "Use new counter code", 'yandex-metrica' ); ?>
-						</label><br>
+						</label>(<a href="https://yandex.com/support/metrika/code/counter-initialize.html" target="_blank">?</a>)<br>
 					</td>
 				</tr>
 

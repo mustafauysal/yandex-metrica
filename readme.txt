@@ -1,10 +1,10 @@
 === Yandex Metrica ===
 
-Contributors: m_uysl
+Contributors: m_uysl, [ildar r. khasanshin](https://10021987.ru)
 Tags: yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika
 Requires at least: 3.8
-Tested up to: 4.9
-Stable tag: 1.6.3
+Tested up to: 5.0
+Stable tag: 1.6.4
 License: GPLv2 (or later)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,7 @@ Best Metrica plugin for the using Yandex Metrica in your WordPress site.
 
 = What is Metrica =
 
-Metrica is an analytics tool like as google analytics.If you didn't hear metrica yet, you can [check official metrica](http://metrica.yandex.com/) page.
+Metrica is an analytics tool like as google analytics.If you didn't hear metrica yet, you can [check official metrica](https://metrica.yandex.com/) page.
 
 
 = Features =
@@ -64,6 +64,9 @@ Yandex Metrica plugin uses wp_footer hook for the adds necessary tracking code. 
 3. Settings page.
 
 == Changelog ==
+
+= 1.6.4 =
+  - add option for new yandex's counter code (https://yandex.ru/support/metrika/code/counter-initialize.html)
 
 = 1.6.3 =
   - now users are able to change Tracker JS address

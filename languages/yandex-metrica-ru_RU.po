@@ -370,3 +370,7 @@ msgstr ""
 #: ../templates/settings.php:183
 msgid "If you want to change watcher js address, use the field above."
 msgstr ""
+
+#: ../templates/settings.php:126
+msgid "Use new counter code"
+msgstr "Использовать новый код счетчика"

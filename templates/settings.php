@@ -34,7 +34,8 @@ if ( isset( $_POST["yandex-metrica-save"] ) ) {
 	$this->options['track-logged-in']     = ( $_POST['track-logged-in'] == "no" ) ? false : true;
 	$this->options["untrack-roles"]       = ! empty( $_POST["tracker_role"] ) ? array_map( 'esc_attr', $_POST["tracker_role"] ) : "";
 	$this->options["widget-access-roles"] = ! empty( $_POST["widget_access"] ) ? array_map( 'esc_attr', $_POST["widget_access"] ) : "";
-	$this->options["tracker-address"] = ! empty( $_POST["tracker-address"] ) ? esc_url_raw( $_POST['tracker-address'] ) : "https://mc.yandex.ru/metrika/watch.js";
+	$this->options['new_yandex_code']     = empty( $_POST['new_yandex_code'] ) ? false : true;
+	$this->options["tracker-address"]     = ! empty( $_POST["tracker-address"] ) ? esc_url_raw( $_POST['tracker-address'] ) : ($this->options['new_yandex_code'] ? "https://mc.yandex.ru/metrika/tag.js" : "https://mc.yandex.ru/metrika/watch.js");
 
 	if ( is_numeric( $_POST["metrica-counter"] ) ) {
 		echo '<div class="updated"><p>' . __( 'Options Saved!', 'yandex-metrica' ) . '</p></div>';
@@ -120,6 +121,8 @@ if ( isset( $_POST["reset"] ) ) {
 						<label><input type="checkbox" <?php checked( $this->options['accurate_track'] ); ?>   name="metrica_accurate_track" value="1">  <?php _e( 'Accurate Track Bounce', 'yandex-metrica' ); ?>
 						</label><br>
 						<label><input type="checkbox" <?php checked( $this->options['track_hash'] ); ?>   name="track_hash" value="1">  <?php _e( "Hash tracking in the browser's address bar", 'yandex-metrica' ); ?>
+						</label><br>
+                        <label><input type="checkbox" <?php checked( $this->options['new_yandex_code'] ); ?>   name="new_yandex_code" value="1">  <?php _e( "Use new counter code", 'yandex-metrica' ); ?>
 						</label><br>
 					</td>
 				</tr>

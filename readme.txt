@@ -66,7 +66,7 @@ Yandex Metrica plugin uses wp_footer hook for the adds necessary tracking code. 
 == Changelog ==
 
 = 1.6.4 =
-  - add option for new yandex's counter code (https://yandex.ru/support/metrika/code/counter-initialize.html)
+  - add option for new yandex's counter code (https://yandex.com/support/metrika/code/counter-initialize.html)
 
 = 1.6.3 =
   - now users are able to change Tracker JS address

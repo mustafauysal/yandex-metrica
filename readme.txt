@@ -1,6 +1,6 @@
 === Yandex Metrica ===
 
-Contributors: m_uysl, [ildar r. khasanshin](https://10021987.ru)
+Contributors: m_uysl, ildarkhasanshin
 Tags: yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika
 Requires at least: 3.8
 Tested up to: 5.0

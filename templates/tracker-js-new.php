@@ -13,5 +13,5 @@
         webvisor:<?php echo $this->options["webvisor"]?"true":"false";?>
     });
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/<?php echo $this->options["counter_id"];?>" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="<?php printf( "%s%s", apply_filters( 'yandex_metrica_noscript_img_base', "https://mc.yandex.ru/watch/" ), $this->options["counter_id"] ); ?>" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->

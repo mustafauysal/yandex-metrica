@@ -78,6 +78,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 			'untrack-roles'       => array( "administrator" ),
 			'widget-access-roles' => array( "administrator" ),
 			'backward'            => false,
+			'new_yandex_code'     => true // @since 1.7
 		);
 		return wp_parse_args( get_option( self::OPTION ), $defaults );
 	}

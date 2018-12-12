@@ -248,7 +248,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 	public function wp_footer() {
 		if ( ! empty( $this->options['counter_id'] ) ) {
 
-			$tracker_file = $this->options["track-logged-in"] === true ? "tracker-js-new.php" : "tracker-js.php";
+			$tracker_file = $this->options["new_yandex_code"] === true ? "tracker-js-new.php" : "tracker-js.php";
 
 			if ( $this->options["track-logged-in"] === true && ( is_user_logged_in() && ! $this->current_user_has_access( $this->options["untrack-roles"] ) ) || ( ! is_user_logged_in() ) ) {
 				include( dirname( __FILE__ ) . '/templates/' . $tracker_file );

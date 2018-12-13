@@ -35,13 +35,16 @@ if ( isset( $_POST["yandex-metrica-save"] ) ) {
 	$this->options["untrack-roles"]       = ! empty( $_POST["tracker_role"] ) ? array_map( 'esc_attr', $_POST["tracker_role"] ) : "";
 	$this->options["widget-access-roles"] = ! empty( $_POST["widget_access"] ) ? array_map( 'esc_attr', $_POST["widget_access"] ) : "";
 	$this->options['new_yandex_code']     = empty( $_POST['new_yandex_code'] ) ? false : true;
+	$this->options["tracker-address"] = ! empty( $_POST["tracker-address"] ) ? esc_url_raw( $_POST['tracker-address'] ) : "";
 
-	$default_tracker_url = 'https://mc.yandex.ru/metrika/watch.js';
-	if ( $this->options['new_yandex_code'] ) {
-		$default_tracker_url = 'https://mc.yandex.ru/metrika/tag.js';
+	$default_trackers[] = 'https://mc.yandex.ru/metrika/watch.js';
+	$default_trackers[] = 'https://mc.yandex.ru/metrika/tag.js';
+
+	// don't save when it's default address
+	if ( in_array( $this->options["tracker-address"], $default_trackers ) ) {
+		$this->options["tracker-address"] = "";
 	}
 
-	$this->options["tracker-address"] = ! empty( $_POST["tracker-address"] ) ? esc_url_raw( $_POST['tracker-address'] ) : $default_tracker_url;
 
 	if ( is_numeric( $_POST["metrica-counter"] ) ) {
 		echo '<div class="updated"><p>' . __( 'Options Saved!', 'yandex-metrica' ) . '</p></div>';

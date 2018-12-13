@@ -3,8 +3,8 @@
 Contributors: m_uysl, ildarkhasanshin
 Tags: yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika
 Requires at least: 3.8
-Tested up to: 5.0
-Stable tag: 1.6.4
+Tested up to: 5.0.1
+Stable tag: 1.7
 License: GPLv2 (or later)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,8 +65,11 @@ Yandex Metrica plugin uses wp_footer hook for the adds necessary tracking code. 
 
 == Changelog ==
 
-= 1.6.4 =
-  - add option for new yandex's counter code (https://yandex.com/support/metrika/code/counter-initialize.html)
+= 1.7 =
+  - switched to new metrica tracking code by default
+  - added an option for [new Yandex's tracking code](https://yandex.com/support/metrika/code/counter-initialize.html) (props @ildarkhasanshin)
+  - Better tracker-address handling. (Don't save default addresses.)
+  - tested with WordPress 5.x
 
 = 1.6.3 =
   - now users are able to change Tracker JS address
@@ -166,3 +169,7 @@ Including major changes, recommended update!
 = 1.5 =
 
 Metrica api upgraded, if you get authentication related problems reset plugin settings and connect to API again (that will generate new token)
+
+= 1.7 =
+
+Switched to the new tracking code by default. You can turn off from the options.

@@ -1,10 +1,10 @@
 # Yandex Metrica #
 
-Contributors:  m_uysl, ildarkhasanshin
+Contributors:  m_uysl, ildarkhasanshin  
 Tags:  yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika  
 Requires at least:  3.8  
-Tested up to:  5.0.1  
-Stable tag:  1.7  
+Tested up to:  5.1  
+Stable tag:  1.8  
 License: GPLv2 (or later)  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -55,7 +55,7 @@ Extract the zip file and just drop the contents in the `wp-content/plugins/` dir
 	- Probably your counter is not working correctly, please check counter status on the official metrica website. Sometimes we can't retrieve the statistical data via API, especially on the fresh counters.
 
 * Everything done, but metrica service doesn't work for me?
-	- Yandex Metrica plugin uses wp_footer hook for the adds necessary tracking code. Please, ensure your theme has wp_footer hook?
+	- Yandex Metrica plugin uses wp_head hook for the adds necessary tracking code. Please, ensure your theme has wp_footer hook?
 
 	
 ## Screenshots ##
@@ -71,6 +71,11 @@ Extract the zip file and just drop the contents in the `wp-content/plugins/` dir
 
 
 ## Changelog ##
+
+### 1.8 ### 
+  - Authorization method changed, URL parameters no longer acccepted
+  - use wp_head instead wp_footer for the tracking code
+  - tested with WordPress 5.1.x
 
 ### 1.7 ### 
   - switched to new metrica tracking code by default

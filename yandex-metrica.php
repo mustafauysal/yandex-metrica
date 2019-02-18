@@ -50,7 +50,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		load_plugin_textdomain( 'yandex-metrica', false, basename( dirname( __FILE__ ) ) . '/languages' );
 
 		$this->hook( 'admin_menu' );
-		$this->hook( 'wp_footer' ); // using wp_footer for adding tracking code. If you theme don't have it, this plugin can't track your site.
+		$this->hook( 'wp_head' ); // using wp_head for adding tracking code. If your theme doesn't have it, this plugin can't track your site.
 
 		if ( $this->is_authorized() ) {
 			self::$metrica_api = new Yandex_Metrica( $this->options["access_token"] );
@@ -246,7 +246,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 	}
 
 
-	public function wp_footer() {
+	public function wp_head() {
 		if ( ! empty( $this->options['counter_id'] ) ) {
 
 			$tracker_file = $this->options["new_yandex_code"] === true ? "tracker-js-new.php" : "tracker-js.php";

@@ -27,7 +27,17 @@ class Yandex_Metrica {
 	 * @return mixed
 	 */
 	public function fetch_data( $url ) {
-		$response = wp_remote_get( $url, array( 'timeout' => 7, 'httpversion' => '1.1', 'sslverify' => true ) );
+
+		$args = array(
+			'timeout'     => 7,
+			'httpversion' => '1.1',
+			'sslverify'   => true,
+			'headers'     => array(
+				'Authorization' => 'OAuth '.$this->access_token
+			)
+		);
+
+		$response = wp_remote_get( $url, $args );
 
 		if ( is_wp_error( $response ) ) {
 			$this->error = "HTTP Request problem";
@@ -54,7 +64,6 @@ class Yandex_Metrica {
 	public function get_all_counters() {
 
 		$url = esc_url_raw( add_query_arg( array(
-			'oauth_token' => $this->access_token,
 		), 'https://api-metrika.yandex.com/management/v1/counters' ) );
 
 		$response = $this->fetch_data( $url );
@@ -118,7 +127,7 @@ class Yandex_Metrica {
 		$results = get_transient( 'metrica_counter_' . self::TRANSIENT_VERSION . '_' . $counter_id );
 
 		if ( ! $results ) {
-			$counter_url = 'https://api-metrika.yandex.com/management/v1/counter/' . $counter_id . '?oauth_token=' . $this->access_token;
+			$counter_url = 'https://api-metrika.yandex.com/management/v1/counter/' . $counter_id;
 			$data        = $this->fetch_data( $counter_url );
 			$results     = json_decode( $data, true );
 			set_transient( 'metrica_counter_' . self::TRANSIENT_VERSION . '_' . $counter_id, $results, 720 );
@@ -145,7 +154,6 @@ class Yandex_Metrica {
 				'metrics'     => 'ym:s:pageviews,ym:s:visits,ym:s:users,ym:s:percentNewVisitors,ym:s:pageDepth,ym:s:avgVisitDurationSeconds',
 				'group'       => 'day',
 				'ids'         => $counter_id,
-				'oauth_token' => $this->access_token,
 			), 'https://api-metrika.yandex.com/stat/v1/data/bytime' ) );
 
 
@@ -209,7 +217,6 @@ class Yandex_Metrica {
 				'group'       => 'day',
 				'ids'         => $counter_id,
 				'limit'       => $per_page, // @todo this parameter is not works, take a look later
-				'oauth_token' => $this->access_token,
 			), 'https://api-metrika.yandex.com/stat/v1/data/bytime' ) );
 
 
@@ -246,7 +253,6 @@ class Yandex_Metrica {
 				'group'       => 'day',
 				'ids'         => $counter_id,
 				'limit'       => $per_page,
-				'oauth_token' => $this->access_token,
 			), 'https://api-metrika.yandex.com/stat/v1/data/bytime' ) );
 
 
@@ -285,7 +291,6 @@ class Yandex_Metrica {
 				'group'       => 'day',
 				'ids'         => $counter_id,
 				'limit'       => $per_page,
-				'oauth_token' => $this->access_token,
 			), 'https://api-metrika.yandex.com/stat/v1/data/bytime' );
 
 

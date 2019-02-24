@@ -68,18 +68,20 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 	private function get_options() {
 		// default options
 		$defaults = array(
-			'counter_id'          => "",
-			'webvisor'            => true,
-			'clickmap'            => true,
-			'tracklinks'          => true,
-			'accurate_track'      => false,
-			'track_hash'          => false,
-			'track-logged-in'     => true,
-			'untrack-roles'       => array( "administrator" ),
-			'widget-access-roles' => array( "administrator" ),
-			'backward'            => false,
-			'new_yandex_code'     => true, // @since 1.7,
-			'tracker-address'     => ""
+			'counter_id'               => "",
+			'webvisor'                 => true,
+			'clickmap'                 => true,
+			'tracklinks'               => true,
+			'accurate_track'           => false,
+			'track_hash'               => false,
+			'track-logged-in'          => true,
+			'untrack-roles'            => array( "administrator" ),
+			'widget-access-roles'      => array( "administrator" ),
+			'backward'                 => false,
+			'new_yandex_code'          => true, // @since 1.7,
+			'dispatch_ecommerce'       => false, // @since 1.8.1
+			'ecommerce_container_name' => 'dataLayer', // @since 1.8.1
+			'tracker-address'          => ""
 		);
 		return wp_parse_args( get_option( self::OPTION ), $defaults );
 	}
@@ -125,6 +127,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_die( __( 'You do not have sufficient permissions to access this page.', 'yandex-metrica' ) );
 		}
+		wp_enqueue_script( 'jquery' );
 		include( dirname( __FILE__ ) . '/templates/settings.php' );
 	}
 

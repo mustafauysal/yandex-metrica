@@ -10,7 +10,10 @@
         clickmap:<?php echo $this->options["clickmap"]?"true":"false";?>,
         trackLinks:<?php echo $this->options["tracklinks"]?"true":"false";?>,
         accurateTrackBounce:<?php echo $this->options["accurate_track"]?"true":"false";?>,
-        webvisor:<?php echo $this->options["webvisor"]?"true":"false";?>
+        webvisor:<?php echo $this->options["webvisor"] ? "true" : "false";?>,
+	    <?php if($this->options['dispatch_ecommerce']):?>
+        ecommerce: "<?php echo apply_filters( 'yandex_metrica_ecommerce_container_name', $this->options['ecommerce_container_name'] )?>"
+	    <?php endif;?>
     });
 </script>
 <noscript><div><img src="<?php printf( "%s%s", apply_filters( 'yandex_metrica_noscript_img_base', "https://mc.yandex.ru/watch/" ), $this->options["counter_id"] ); ?>" style="position:absolute; left:-9999px;" alt="" /></div></noscript>

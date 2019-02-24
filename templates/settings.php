@@ -35,6 +35,8 @@ if ( isset( $_POST["yandex-metrica-save"] ) ) {
 	$this->options["untrack-roles"]       = ! empty( $_POST["tracker_role"] ) ? array_map( 'esc_attr', $_POST["tracker_role"] ) : "";
 	$this->options["widget-access-roles"] = ! empty( $_POST["widget_access"] ) ? array_map( 'esc_attr', $_POST["widget_access"] ) : "";
 	$this->options['new_yandex_code']     = empty( $_POST['new_yandex_code'] ) ? false : true;
+	$this->options['dispatch_ecommerce'] = empty( $_POST['dispatch_ecommerce'] ) ? false : true;
+	$this->options["ecommerce_container_name"] = ! empty( $_POST["ecommerce_container_name"] ) ? sanitize_text_field( $_POST['ecommerce_container_name'] ) : "dataLayer";
 	$this->options["tracker-address"] = ! empty( $_POST["tracker-address"] ) ? esc_url_raw( $_POST['tracker-address'] ) : "";
 
 	$default_trackers[] = 'https://mc.yandex.ru/metrika/watch.js';
@@ -133,6 +135,18 @@ if ( isset( $_POST["reset"] ) ) {
 						</label><br>
                         <label><input type="checkbox" <?php checked( $this->options['new_yandex_code'] ); ?>   name="new_yandex_code" value="1">  <?php _e( "Use new counter code", 'yandex-metrica' ); ?>
 						</label>(<a href="https://yandex.com/support/metrika/code/counter-initialize.html" target="_blank">?</a>)<br>
+						<label><input type="checkbox" <?php checked( $this->options['dispatch_ecommerce'] ); ?> id="dispatch_ecommerce"  name="dispatch_ecommerce" value="1">  <?php _e( "Dispatch ecommerce data to Metrica", 'yandex-metrica' ); ?>
+						</label><br>
+					</td>
+				</tr>
+
+				<tr id="ecommerce-container-row" valign="top" style="display:<?php echo ( $this->options['dispatch_ecommerce'] ) ? 'table-row' : 'none' ?>;">
+					<th>
+						<label><?php _e( 'Ecommerce Container', 'yandex-metrica' ); ?></label>
+					</th>
+					<td>
+						<input type="text" style="min-width: 300px;" name="ecommerce_container_name" value="<?php echo $this->options["ecommerce_container_name"]; ?>">
+						<p class="setting-description"><?php _e( 'Data container name for the collecting data from', 'yandex-metrica' ); ?></p>
 					</td>
 				</tr>
 
@@ -210,3 +224,13 @@ if ( isset( $_POST["reset"] ) ) {
 		<?php endif; ?>
 	</form>
 </div>
+
+<script>
+    jQuery('#dispatch_ecommerce').on('change', function () {
+        if (jQuery(this).is(':checked')) {
+            jQuery("#ecommerce-container-row").css("display", "table-row");
+        } else {
+            jQuery("#ecommerce-container-row").css("display", "none");
+        }
+    });
+</script>

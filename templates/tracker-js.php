@@ -9,7 +9,11 @@
                     clickmap:<?php echo $this->options["clickmap"]?"true":"false";?>,
                     trackLinks:<?php echo $this->options["tracklinks"]?"true":"false";?>,
                     accurateTrackBounce:<?php echo $this->options["accurate_track"]?"true":"false";?>,
-                    trackHash:<?php echo $this->options["track_hash"]?"true":"false";?>});
+                    trackHash:<?php echo $this->options["track_hash"]?"true":"false";?>,
+	                <?php if($this->options['dispatch_ecommerce']):?>
+                    ecommerce: "<?php echo apply_filters( 'yandex_metrica_ecommerce_container_name', $this->options['ecommerce_container_name'] )?>"
+	                <?php endif;?>
+                });
             } catch(e) { }
         });
 

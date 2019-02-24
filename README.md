@@ -4,7 +4,7 @@ Contributors:  m_uysl, ildarkhasanshin
 Tags:  yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika  
 Requires at least:  3.8  
 Tested up to:  5.1  
-Stable tag:  1.8  
+Stable tag:  1.8.1  
 License: GPLv2 (or later)  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -72,6 +72,9 @@ Extract the zip file and just drop the contents in the `wp-content/plugins/` dir
 
 ## Changelog ##
 
+### 1.8.1 ### 
+  - an option added for the dispatching e-commerce data
+  
 ### 1.8 ### 
   - Authorization method changed, URL parameters no longer acccepted
   - use wp_head instead wp_footer for the tracking code

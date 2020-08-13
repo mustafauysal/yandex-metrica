@@ -1,0 +1,10 @@
+{
+    "name"       : "mustafauysal/yandex-metrica",
+    "description": "Best Metrica plugin for the using Yandex Metrica in your WordPress site.",
+    "homepage"   : "https://wordpress.org/plugins/yandex-metrica/",
+    "type"       : "wordpress-plugin",
+    "license"    : "GPL-2.0+",
+    "require"    : {
+        "composer/installers": "~1.0"
+    }
+}

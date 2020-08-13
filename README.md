@@ -3,8 +3,8 @@
 Contributors:  m_uysl, ildarkhasanshin  
 Tags:  yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika  
 Requires at least:  3.8  
-Tested up to:  5.2  
-Stable tag:  1.8.1  
+Tested up to:  5.5  
+Stable tag:  1.8.2  
 License: GPLv2 (or later)  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -71,6 +71,10 @@ Extract the zip file and just drop the contents in the `wp-content/plugins/` dir
 
 
 ## Changelog ##
+
+### 1.8.2 ###
+  - Add composer support
+  - tested with WordPress 5.5
 
 ### 1.8.1 ### 
   - an option added for the dispatching e-commerce data

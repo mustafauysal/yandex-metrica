@@ -3,8 +3,8 @@
 Contributors:  m_uysl, ildarkhasanshin  
 Tags:  yandex,metrica,stats,statistics,tools,analytics,analytics tool,metrika  
 Requires at least:  3.8  
-Tested up to:  5.5  
-Stable tag:  1.8.2  
+Tested up to:  5.8  
+Stable tag:  1.8.3  
 License: GPLv2 (or later)  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -72,6 +72,10 @@ Extract the zip file and just drop the contents in the `wp-content/plugins/` dir
 
 ## Changelog ##
 
+### 1.8.3 ###
+  - fixed an XSS
+  - tested with WordPress 5.8
+  
 ### 1.8.2 ###
   - Add composer support
   - tested with WordPress 5.5
@@ -192,3 +196,7 @@ Metrica api upgraded, if you get authentication related problems reset plugin se
 ### 1.7 ###
 
 Switched to the new tracking code by default. You can turn off from the options.
+
+### 1.8.3 ###
+
+Security release. Update the plugin ASAP!

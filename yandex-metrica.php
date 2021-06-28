@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: Yandex Metrica
-Plugin URI: http://uysalmustafa.com/plugins/yandex-metrica
+Plugin URI: https://github.com/mustafauysal/yandex-metrica
 Description: Best metrica plugin for the use Yandex Metrica in your WordPress site.
 Author: Mustafa Uysal
-Version: 1.8.2
+Version: 1.8.3
 Text Domain: yandex-metrica
 Domain Path: /languages/
 Author URI: http://uysalmustafa.com

@@ -186,7 +186,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 	public function ajax_listener() {
 
 		if ( isset( $_POST["period"] ) && check_ajax_referer( "yandex-metrica-nonce" ) ) {
-			$period = stripslashes( $_POST["period"] );
+			$period = sanitize_text_field( stripslashes( $_POST["period"] ) );
 			$this->set_period( $period );
 			$this->dashboard_chart_js();
 			$this->metrica_dashboard_widget();

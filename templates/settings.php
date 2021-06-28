@@ -31,13 +31,13 @@ if ( isset( $_POST["yandex-metrica-save"] ) ) {
 	$this->options['accurate_track'] = empty( $_POST['metrica_accurate_track'] ) ? false : true;
 	$this->options['track_hash']     = empty( $_POST['track_hash'] ) ? false : true;
 
-	$this->options['track-logged-in']     = ( $_POST['track-logged-in'] == "no" ) ? false : true;
-	$this->options["untrack-roles"]       = ! empty( $_POST["tracker_role"] ) ? array_map( 'esc_attr', $_POST["tracker_role"] ) : "";
-	$this->options["widget-access-roles"] = ! empty( $_POST["widget_access"] ) ? array_map( 'esc_attr', $_POST["widget_access"] ) : "";
-	$this->options['new_yandex_code']     = empty( $_POST['new_yandex_code'] ) ? false : true;
-	$this->options['dispatch_ecommerce'] = empty( $_POST['dispatch_ecommerce'] ) ? false : true;
+	$this->options['track-logged-in']          = ( $_POST['track-logged-in'] == "no" ) ? false : true;
+	$this->options["untrack-roles"]            = ! empty( $_POST["tracker_role"] ) ? array_map( 'sanitize_text_field', $_POST["tracker_role"] ) : "";
+	$this->options["widget-access-roles"]      = ! empty( $_POST["widget_access"] ) ? array_map( 'sanitize_text_field', $_POST["widget_access"] ) : "";
+	$this->options['new_yandex_code']          = empty( $_POST['new_yandex_code'] ) ? false : true;
+	$this->options['dispatch_ecommerce']       = empty( $_POST['dispatch_ecommerce'] ) ? false : true;
 	$this->options["ecommerce_container_name"] = ! empty( $_POST["ecommerce_container_name"] ) ? sanitize_text_field( $_POST['ecommerce_container_name'] ) : "dataLayer";
-	$this->options["tracker-address"] = ! empty( $_POST["tracker-address"] ) ? esc_url_raw( $_POST['tracker-address'] ) : "";
+	$this->options["tracker-address"]          = ! empty( $_POST["tracker-address"] ) ? esc_url_raw( $_POST['tracker-address'] ) : "";
 
 	$default_trackers[] = 'https://mc.yandex.ru/metrika/watch.js';
 	$default_trackers[] = 'https://mc.yandex.ru/metrika/tag.js';

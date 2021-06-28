@@ -36,7 +36,7 @@
 					fill: false,
 					data : [
 						<?php foreach( $statical_data as $item){
-						echo $item["pageviews"].",";
+						echo absint( $item["pageviews"] ) . ",";
 					};?>
 					]
 				},
@@ -47,7 +47,7 @@
 					fill: false,
 					data: [
 						<?php foreach( $statical_data as $item){
-						echo $item["visits"].",";
+						echo absint( $item["visits"] ) . ",";
 					};?>
 					]
 				},
@@ -58,7 +58,7 @@
 					fill: false,
 					data : [
 						<?php foreach( $statical_data as $item){
-						echo $item["visitors"].',';
+						echo absint( $item["visitors"] ) . ',';
 					};?>
 					]
 				}

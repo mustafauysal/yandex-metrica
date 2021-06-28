@@ -32,9 +32,10 @@ class Metrica_Widget extends WP_Widget {
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
 
-		echo $args['before_widget'];
-		if ( ! empty( $title ) )
-			echo $args['before_title'] . $title . $args['after_title'];
+		echo wp_kses_post( $args['before_widget'] );
+		if ( ! empty( $title ) ) {
+			echo wp_kses_post( $args['before_title'] . $title . $args['after_title'] );
+		}
 
 
 		if ( $instance['time'] == "week" ) {
@@ -60,14 +61,17 @@ class Metrica_Widget extends WP_Widget {
 		$instance["visitors"]   = $results["visitors"];
 
 
-		if ( $instance['show_page_views'] === true && ( ! empty( $instance["pageviews"] ) ) )
+		if ( $instance['show_page_views'] === true && ( ! empty( $instance["pageviews"] ) ) ) {
 			printf( __( 'Page Views: <b>%d</b> <br/>', 'yandex-metrica' ), $instance['pageviews'] );
-		if ( $instance['show_visits'] === true && ! empty( $instance["visits"] ) )
+		}
+		if ( $instance['show_visits'] === true && ! empty( $instance["visits"] ) ) {
 			printf( __( 'Visits: <b>%d</b> </br>', 'yandex-metrica' ), $instance['visits'] );
-		if ( $instance['show_visitors'] === true && ! empty( $instance["visitors"] ) )
+		}
+		if ( $instance['show_visitors'] === true && ! empty( $instance["visitors"] ) ) {
 			printf( __( 'Visitors: <b>%d</b> </br>', 'yandex-metrica' ), $instance['visitors'] );
+		}
 
-		echo $args['after_widget'];
+		echo wp_kses_post( $args['after_widget'] );
 	}
 
 
@@ -80,23 +84,23 @@ class Metrica_Widget extends WP_Widget {
 		?>
 
 		<p>
-			<label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+			<label for="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"><?php _e( 'Title:' ); ?></label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_name( 'time' ); ?>"><?php _e( 'Statistics for:', 'yandex-metrica' ); ?></label>
-			<select id="<?php echo $this->get_field_id( 'time' ); ?>" name="<?php echo $this->get_field_name( 'time' ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_name( 'time' ) ); ?>"><?php _e( 'Statistics for:', 'yandex-metrica' ); ?></label>
+			<select id="<?php echo esc_attr( $this->get_field_id( 'time' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'time' ) ); ?>">
 				<option <?php selected( $instance['time'], 'today' ); ?> value="today"><?php _e( 'Today', 'yandex-metrica' ); ?></option>
 				<option <?php selected( $instance['time'], 'week' ); ?> value="week"><?php _e( 'Week', 'yandex-metrica' ); ?></option>
 				<option <?php selected( $instance['time'], 'month' ); ?> value="month"><?php _e( 'Month', 'yandex-metrica' ); ?></option>
 			</select>
 		</p>
 		<p>
-			<label><input type="checkbox" <?php checked( $instance['show_page_views'] ); ?>     name="<?php echo $this->get_field_name( 'show_page_views' ); ?>" value="1">  <?php _e( 'Show Pageview', 'yandex-metrica' ) ?>
+			<label><input type="checkbox" <?php checked( $instance['show_page_views'] ); ?> name="<?php echo esc_attr( $this->get_field_name( 'show_page_views' ) ); ?>" value="1"> <?php _e( 'Show Pageview', 'yandex-metrica' ) ?>
 			</label><br>
-			<label><input type="checkbox" <?php checked( $instance['show_visits'] ); ?>     name="<?php echo $this->get_field_name( 'show_visits' ); ?>" value="1">  <?php _e( 'Show Visits', 'yandex-metrica' ) ?>
+			<label><input type="checkbox" <?php checked( $instance['show_visits'] ); ?> name="<?php echo esc_attr( $this->get_field_name( 'show_visits' ) ); ?>" value="1"> <?php _e( 'Show Visits', 'yandex-metrica' ) ?>
 			</label><br>
-			<label><input type="checkbox" <?php checked( $instance['show_visitors'] ); ?>     name="<?php echo $this->get_field_name( 'show_visitors' ); ?>" value="1">  <?php _e( 'Show Visitors', 'yandex-metrica' ) ?>
+			<label><input type="checkbox" <?php checked( $instance['show_visitors'] ); ?> name="<?php echo esc_attr( $this->get_field_name( 'show_visitors' ) ); ?>" value="1"> <?php _e( 'Show Visitors', 'yandex-metrica' ) ?>
 			</label><br>
 		</p>
 	<?php

@@ -100,7 +100,7 @@ if ( isset( $_POST["reset"] ) ) {
 					<label for="metrica-counter"><?php _e( 'Counter:', 'yandex-metrica' ); ?></label>
 					<select name="metrica-counter" id="metrica-counter">
 						<?php foreach ( self::$metrica_api->get_counters() as $counter ): ?>
-							<option <?php if ( ! empty( $this->options["counter_id"] ) ) selected( $this->options["counter_id"], $counter['id'] ); ?>   value="<?php echo $counter['id']; ?>"><?php echo $counter['site']; ?></option>
+							<option <?php if ( ! empty( $this->options["counter_id"] ) ) selected( $this->options["counter_id"], $counter['id'] ); ?> value="<?php echo esc_attr( $counter['id'] ); ?>"><?php echo esc_attr( $counter['site'] ); ?></option>
 						<?php endforeach; ?>
 					</select>
 				<?php else:
@@ -145,7 +145,7 @@ if ( isset( $_POST["reset"] ) ) {
 						<label><?php _e( 'Ecommerce Container', 'yandex-metrica' ); ?></label>
 					</th>
 					<td>
-						<input type="text" style="min-width: 300px;" name="ecommerce_container_name" value="<?php echo $this->options["ecommerce_container_name"]; ?>">
+						<input type="text" style="min-width: 300px;" name="ecommerce_container_name" value="<?php echo esc_attr( $this->options["ecommerce_container_name"] ); ?>">
 						<p class="setting-description"><?php _e( 'Data container name for the collecting data from', 'yandex-metrica' ); ?></p>
 					</td>
 				</tr>
@@ -173,7 +173,7 @@ if ( isset( $_POST["reset"] ) ) {
 						if ( ! is_array( $untrack_roles ) ) $untrack_roles = array();
 
 						foreach ( $roles as $role => $name ): ?>
-							<input type="checkbox" <?php if ( in_array( $role, $untrack_roles ) ) echo "checked"; ?>  name="tracker_role[]" value="<?php echo $role; ?>" /> <?php echo translate_user_role( $name ); ?>
+							<input type="checkbox" <?php if ( in_array( $role, $untrack_roles ) ) echo "checked"; ?>  name="tracker_role[]" value="<?php echo esc_attr( $role ); ?>" /> <?php echo translate_user_role( $name ); ?>
 							<br />
 						<?php endforeach; ?>
 
@@ -192,7 +192,7 @@ if ( isset( $_POST["reset"] ) ) {
 
 							foreach ( $roles as $role => $name ): ?>
 
-								<input type="checkbox" <?php if ( in_array( $role, $widget_roles ) ) echo "checked"; ?>  name="widget_access[]" value="<?php echo $role; ?>" /> <?php echo translate_user_role( $name ); ?>
+								<input type="checkbox" <?php if ( in_array( $role, $widget_roles ) ) echo "checked"; ?>  name="widget_access[]" value="<?php echo esc_attr( $role ); ?>" /> <?php echo translate_user_role( $name ); ?>
 								<br />
 
 							<?php endforeach; ?>
@@ -208,7 +208,7 @@ if ( isset( $_POST["reset"] ) ) {
 						<label><?php _e( 'Tracker JS', 'yandex-metrica' ); ?></label>
 					</th>
 					<td>
-						<input type="text" style="min-width: 300px;" placeholder="https://mc.yandex.ru/metrika/watch.js" name="tracker-address" value="<?php echo $this->options["tracker-address"]; ?>">
+						<input type="text" style="min-width: 300px;" placeholder="https://mc.yandex.ru/metrika/watch.js" name="tracker-address" value="<?php echo esc_url_raw( $this->options["tracker-address"] ); ?>">
 						<p class="setting-description"><?php _e( 'If you want to change watcher js address, use the field above.', 'yandex-metrica' ); ?></p>
 					</td>
 				</tr>

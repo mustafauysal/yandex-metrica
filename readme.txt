@@ -9,15 +9,15 @@ License: GPLv2 (or later)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
-Easy way to use Yandex Metrica in your WordPress site.
+Easy way to use Yandex Metrica on your WordPress site.
 
 == Description ==
 
-Best Metrica plugin for the using Yandex Metrica in your WordPress site.
+The best Yandex Metrica plugin for WordPress.
 
 = What is Metrica =
 
-Metrica is an analytics tool like as google analytics.If you didn't hear metrica yet, you can [check official metrica](https://metrica.yandex.com/) page.
+Metrica is an analytics tool like just like google analytics. You can learn more about from [official website] (https://metrica.yandex.com).
 
 
 = Features =

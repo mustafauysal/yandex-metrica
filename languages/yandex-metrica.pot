@@ -1,26 +1,50 @@
-# Copyright (C) 2016 Yandex Metrica
-# This file is distributed under the same license as the Yandex Metrica package.
+# Copyright (C) 2021 Mustafa Uysal
+# This file is distributed under the same license as the Yandex Metrica plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Yandex Metrica 1.3\n"
+"Project-Id-Version: Yandex Metrica 1.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yandex-metrica\n"
-"POT-Creation-Date: 2016-09-20 21:59:12+00:00\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2021-06-28T22:25:23+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: yandex-metrica\n"
 
-#: libs/widget.php:27
+#. Plugin Name of the plugin
+#: templates/settings.php:79
+#: yandex-metrica.php:91
+msgid "Yandex Metrica"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/mustafauysal/yandex-metrica"
+msgstr ""
+
+#. Description of the plugin
+msgid "The best Yandex Metrica plugin for WordPress."
+msgstr ""
+
+#. Author of the plugin
+msgid "Mustafa Uysal"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://uysalmustafa.com"
+msgstr ""
+
+#: libs/widget.php:25
 msgid "Display statistics within selected period."
 msgstr ""
 
-#: libs/widget.php:55
+#: libs/widget.php:54
 msgid "<h3>Metrica statistics for %s </h3>"
 msgstr ""
 
-#: libs/widget.php:66
+#: libs/widget.php:65
 msgid "Page Views: <b>%d</b> <br/>"
 msgstr ""
 
@@ -28,127 +52,133 @@ msgstr ""
 msgid "Visits: <b>%d</b> </br>"
 msgstr ""
 
-#: libs/widget.php:70
+#: libs/widget.php:71
 msgid "Visitors: <b>%d</b> </br>"
 msgstr ""
 
-#: libs/widget.php:85
-msgid "Title:"
-msgstr ""
-
-#: libs/widget.php:89
+#: libs/widget.php:91
 msgid "Statistics for:"
 msgstr ""
 
-#: libs/widget.php:91
+#: libs/widget.php:93
 msgid "Today"
 msgstr ""
 
-#: libs/widget.php:92
+#: libs/widget.php:94
 msgid "Week"
 msgstr ""
 
-#: libs/widget.php:93
+#: libs/widget.php:95
 msgid "Month"
 msgstr ""
 
-#: libs/widget.php:97
+#: libs/widget.php:99
 msgid "Show Pageview"
 msgstr ""
 
-#: libs/widget.php:99
+#: libs/widget.php:101
 msgid "Show Visits"
 msgstr ""
 
-#: libs/widget.php:101
+#: libs/widget.php:103
 msgid "Show Visitors"
 msgstr ""
 
-#: templates/dashboard-charts-js.php:10
-msgid "Metrica Traffic"
+#: templates/dashboard-charts-js.php:7
+msgid "Sorry, couldn't draw graph for selected period, please try different time period."
 msgstr ""
 
-#: templates/dashboard-charts-js.php:16
-msgid "Source"
-msgstr ""
-
+#: templates/dashboard-charts-js.php:33
 msgid "Pageviews"
 msgstr ""
 
-#: templates/dashboard-charts-js.php:38 templates/dashboard-charts-js.php:52
-#: templates/dashboard-widget.php:20
+#: templates/dashboard-charts-js.php:44
+#: templates/dashboard-widget.php:26
 msgid "Visits"
 msgstr ""
 
-#: templates/dashboard-charts-js.php:60
+#: templates/dashboard-charts-js.php:55
 msgid "Unique"
 msgstr ""
 
-#: templates/dashboard-widget.php:5
+#: templates/dashboard-charts-js.php:77
+msgid "Metrica Traffic"
+msgstr ""
+
+#: templates/dashboard-charts-js.php:109
+msgid "View Full Report"
+msgstr ""
+
+#: templates/dashboard-widget.php:6
 msgid "Daily"
 msgstr ""
 
-#: templates/dashboard-widget.php:8
+#: templates/dashboard-widget.php:9
 msgid "Weekly"
 msgstr ""
 
-#: templates/dashboard-widget.php:9
+#: templates/dashboard-widget.php:10
 msgid "Monthly"
 msgstr ""
 
-#: templates/dashboard-widget.php:16
+#: templates/dashboard-widget.php:22
 msgid "Site Usage"
 msgstr ""
 
-#: templates/dashboard-widget.php:27 templates/dashboard-widget.php:39
-#: templates/dashboard-widget.php:54 templates/dashboard-widget.php:65
-#: templates/dashboard-widget.php:80 templates/dashboard-widget.php:92
-#: templates/dashboard-widget.php:117 templates/dashboard-widget.php:139
-#: templates/dashboard-widget.php:161
+#: templates/dashboard-widget.php:33
+#: templates/dashboard-widget.php:45
+#: templates/dashboard-widget.php:60
+#: templates/dashboard-widget.php:71
+#: templates/dashboard-widget.php:86
+#: templates/dashboard-widget.php:98
+#: templates/dashboard-widget.php:126
+#: templates/dashboard-widget.php:153
+#: templates/dashboard-widget.php:179
 msgid "None"
 msgstr ""
 
-#: templates/dashboard-widget.php:32
+#: templates/dashboard-widget.php:38
 msgid "New Visitors"
 msgstr ""
 
-#: templates/dashboard-widget.php:48
+#: templates/dashboard-widget.php:54
 msgid "Page Views"
 msgstr ""
 
-#: templates/dashboard-widget.php:59
+#: templates/dashboard-widget.php:65
 msgid "Session depth"
 msgstr ""
 
-#: templates/dashboard-widget.php:74
+#: templates/dashboard-widget.php:80
 msgid "Visitors"
 msgstr ""
 
-#: templates/dashboard-widget.php:85
+#: templates/dashboard-widget.php:91
 msgid "Avg. Time on Site"
 msgstr ""
 
-#: templates/dashboard-widget.php:105
+#: templates/dashboard-widget.php:113
 msgid "Popular Pages"
 msgstr ""
 
-#: templates/dashboard-widget.php:113
+#: templates/dashboard-widget.php:122
 msgid "%d View"
 msgid_plural "%d Views"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/dashboard-widget.php:127
+#: templates/dashboard-widget.php:140
 msgid "Top Referrers"
 msgstr ""
 
-#: templates/dashboard-widget.php:135 templates/dashboard-widget.php:157
+#: templates/dashboard-widget.php:149
+#: templates/dashboard-widget.php:175
 msgid "%d Visit"
 msgid_plural "%d Visits"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/dashboard-widget.php:150
+#: templates/dashboard-widget.php:166
 msgid "Search Terms"
 msgstr ""
 
@@ -164,196 +194,172 @@ msgstr ""
 msgid "Something went wrong. Please check your confirmation code!"
 msgstr ""
 
-#: templates/settings.php:40
+#: templates/settings.php:52
 msgid "Options Saved!"
 msgstr ""
 
-#: templates/settings.php:43
+#: templates/settings.php:55
 msgid "Please enter a valid counter code!"
 msgstr ""
 
-#: templates/settings.php:56
+#: templates/settings.php:68
 msgid "All options cleared!"
 msgstr ""
 
-#. #-#-#-#-#  plugin.pot (Yandex Metrica 1.3)  #-#-#-#-#
-#. Plugin Name of the plugin/theme
-#: templates/settings.php:67 yandex-metrica.php:89
-msgid "Yandex Metrica"
+#: templates/settings.php:82
+msgid "You need sign in to Yandex and grant this plugin access to your Yandex Metrica account."
 msgstr ""
 
-#: templates/settings.php:70
-msgid ""
-"You need sign in to Yandex and grant this plugin access to your Yandex "
-"Metrica account."
-msgstr ""
-
-#: templates/settings.php:71
+#: templates/settings.php:83
 msgid "https://oauth.yandex.com/"
 msgstr ""
 
-#: templates/settings.php:72
+#: templates/settings.php:84
 msgid "Click here to getting confirmation code"
 msgstr ""
 
-#: templates/settings.php:76
+#: templates/settings.php:88
 msgid "Enter Confirmation code here"
 msgstr ""
 
-#: templates/settings.php:77 templates/settings.php:182
+#: templates/settings.php:89
+#: templates/settings.php:220
 msgid "Save"
 msgstr ""
 
-#: templates/settings.php:81
+#: templates/settings.php:93
 msgid "If you don't want to use API, you can use basic mode."
 msgstr ""
 
-#: templates/settings.php:82
+#: templates/settings.php:94
 msgid "Basic Mode (Compatible with Backward)"
 msgstr ""
 
-#: templates/settings.php:88
+#: templates/settings.php:100
 msgid "Counter:"
 msgstr ""
 
-#: templates/settings.php:95
+#: templates/settings.php:107
 msgid "Temporary, getting connectivity problem.!"
 msgstr ""
 
-#: templates/settings.php:100
+#: templates/settings.php:112
 msgid "Enter counter number"
 msgstr ""
 
-#: templates/settings.php:103
+#: templates/settings.php:115
 msgid "Tracking Settings"
 msgstr ""
 
-#: templates/settings.php:111
+#: templates/settings.php:123
 msgid "Select tracking options"
 msgstr ""
 
-#: templates/settings.php:114
+#: templates/settings.php:126
 msgid "Webvisor"
 msgstr ""
 
-#: templates/settings.php:116
+#: templates/settings.php:128
 msgid "Track Clickmap"
 msgstr ""
 
-#: templates/settings.php:118
+#: templates/settings.php:130
 msgid "Track Links, social sharing, file requests..."
 msgstr ""
 
-#: templates/settings.php:120
+#: templates/settings.php:132
 msgid "Accurate Track Bounce"
 msgstr ""
 
-#: templates/settings.php:122
+#: templates/settings.php:134
 msgid "Hash tracking in the browser's address bar"
 msgstr ""
 
-#: templates/settings.php:129
-msgid "Track logged in users"
-msgstr ""
-
-#: templates/settings.php:133
-msgid "Yes"
-msgstr ""
-
-#: templates/settings.php:134
-msgid "No"
-msgstr ""
-
-#: templates/settings.php:141
-msgid "User roles to not track"
-msgstr ""
-
-#: templates/settings.php:154
-msgid ""
-"If a user is logged into with one of these roles, they won't track by "
-"metrica."
-msgstr ""
-
-#: templates/settings.php:160
-msgid "User roles to display dashboard widget"
-msgstr ""
-
-#: templates/settings.php:174
-msgid "Selected roles can display metrica statistic on the dashboard."
-msgstr ""
-
-#: templates/settings.php:183
-msgid "Reset"
-msgstr ""
-
-#: yandex-metrica.php:126
-msgid "You do not have sufficient permissions to access this page."
-msgstr ""
-
-#: yandex-metrica.php:139 yandex-metrica.php:142
-msgid "Metrica Statistics"
-msgstr ""
-
-#: yandex-metrica.php:149
-msgid "Oh no! There is nothing to display. Here Are the Possible Causes"
-msgstr ""
-
-#: yandex-metrica.php:150
-msgid ""
-"If selected a new counter (recently created), please give a few hours for "
-"verification. Please be patient."
-msgstr ""
-
-#: yandex-metrica.php:151
-msgid ""
-"Did you save options? You need to save options at least once after account "
-"confirmation."
-msgstr ""
-
-#: yandex-metrica.php:152
-msgid "Are you sure you selected the correct counter? Please confirm."
-msgstr ""
-
-#: yandex-metrica.php:153
-msgid ""
-"Did you change your Yandex password? If changed, you need to re-authorize "
-"this plugin."
-msgstr ""
-
-#: yandex-metrica.php:154
-msgid "Temporary, connectivity problem!"
-msgstr ""
-
-#: yandex-metrica.php:172
-msgid "View Full Report"
-msgstr ""
-
-#. Plugin URI of the plugin/theme
-msgid "http://uysalmustafa.com/plugins/yandex-metrica"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid "Best metrica plugin for the use Yandex Metrica in your WordPress site."
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "Mustafa Uysal"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://uysalmustafa.com"
-msgstr ""
-
-
-#: ../templates/settings.php:179
-msgid "Tracker JS"
-msgstr ""
-
-#: ../templates/settings.php:183
-msgid "If you want to change watcher js address, use the field above."
-msgstr ""
-
-#: ../templates/settings.php:126
+#: templates/settings.php:136
 msgid "Use new counter code"
 msgstr ""
 
+#: templates/settings.php:138
+msgid "Dispatch ecommerce data to Metrica"
+msgstr ""
+
+#: templates/settings.php:145
+msgid "Ecommerce Container"
+msgstr ""
+
+#: templates/settings.php:149
+msgid "Data container name for the collecting data from"
+msgstr ""
+
+#: templates/settings.php:155
+msgid "Track logged in users"
+msgstr ""
+
+#: templates/settings.php:159
+msgid "Yes"
+msgstr ""
+
+#: templates/settings.php:160
+msgid "No"
+msgstr ""
+
+#: templates/settings.php:167
+msgid "User roles to not track"
+msgstr ""
+
+#: templates/settings.php:180
+msgid "If a user is logged into with one of these roles, they won't track by metrica."
+msgstr ""
+
+#: templates/settings.php:186
+msgid "User roles to display dashboard widget"
+msgstr ""
+
+#: templates/settings.php:200
+msgid "Selected roles can display metrica statistic on the dashboard."
+msgstr ""
+
+#: templates/settings.php:208
+msgid "Tracker JS"
+msgstr ""
+
+#: templates/settings.php:212
+msgid "If you want to change watcher js address, use the field above."
+msgstr ""
+
+#: templates/settings.php:221
+msgid "Reset"
+msgstr ""
+
+#: yandex-metrica.php:130
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: yandex-metrica.php:147
+#: yandex-metrica.php:150
+msgid "Metrica Statistics"
+msgstr ""
+
+#: yandex-metrica.php:157
+msgid "Oh no! There is nothing to display. Here Are the Possible Causes"
+msgstr ""
+
+#: yandex-metrica.php:158
+msgid "If selected a new counter (recently created), please give a few hours for verification. Please be patient."
+msgstr ""
+
+#: yandex-metrica.php:159
+msgid "Did you save options? You need to save options at least once after account confirmation."
+msgstr ""
+
+#: yandex-metrica.php:160
+msgid "Are you sure you selected the correct counter? Please confirm."
+msgstr ""
+
+#: yandex-metrica.php:161
+msgid "Did you change your Yandex password? If changed, you need to re-authorize this plugin."
+msgstr ""
+
+#: yandex-metrica.php:162
+msgid "Temporary, connectivity problem!"
+msgstr ""

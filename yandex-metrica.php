@@ -2,12 +2,12 @@
 /*
 Plugin Name: Yandex Metrica
 Plugin URI: https://github.com/mustafauysal/yandex-metrica
-Description: Best metrica plugin for the use Yandex Metrica in your WordPress site.
+Description: The best Yandex Metrica plugin for WordPress.
 Author: Mustafa Uysal
 Version: 1.8.3
 Text Domain: yandex-metrica
 Domain Path: /languages/
-Author URI: http://uysalmustafa.com
+Author URI: https://uysalmustafa.com
 License: GPLv2 (or later)
 */
 
@@ -27,8 +27,8 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 	private $options;
 	const OPTION            = 'metrica_options';
 	const MENU_SLUG         = 'yandex-metrica';
-	const YANDEX_APP_ID     = 'e1a0017805e24d7b9395f969b379b7bf';
-	const YANDEX_APP_SECRET = '410e753d1ab9478eaa21aa2c3f9a7d88'; // If you want to create your app? you can change app_id and app_secret!
+	const YANDEX_APP_ID     = 'e1a0017805e24d7b9395f969b379b7bf'; // filtered through `yandex_metrica_app_id`
+	const YANDEX_APP_SECRET = '410e753d1ab9478eaa21aa2c3f9a7d88'; // filtered through `yandex_metrica_app_secret`. In case you want to create your app?
 	public $period = "weekly", $start_date, $end_date;
 
 
@@ -93,18 +93,20 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 
 	/**
-	 * @param $code numeric confirmation code
+	 * @param int $code confirmation code
 	 *
 	 * @return bool
 	 */
 	public function authorize( $code ) {
-		$Auth = new Yandex_Oauth( self::YANDEX_APP_ID, self::YANDEX_APP_SECRET );
+		$Auth = new Yandex_Oauth( $this->get_app_id(), $this->get_app_secret() );
 		if ( $Auth->connect_oauth_server( $code ) ) {
 			$this->options['access_token'] = $Auth->get_access_token();
 			$this->update_options( $this->options );
 			$this->init();
+
 			return true;
 		}
+
 		return false;
 	}
 
@@ -288,6 +290,23 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 	}
 
+	/**
+	 * Get APP ID
+	 *
+	 * @return mixed|void
+	 */
+	private function get_app_id() {
+		return apply_filters( 'yandex_metrica_app_id', self::YANDEX_APP_ID );
+	}
+
+	/**
+	 * Get APP Secret
+	 *
+	 * @return mixed|void
+	 */
+	private function get_app_secret() {
+		return apply_filters( 'yandex_metrica_app_secret', self::YANDEX_APP_SECRET );
+	}
 
 }
 

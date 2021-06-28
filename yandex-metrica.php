@@ -173,11 +173,11 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 	public function dashboard_chart_js() {
 		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'yandex-metrica-chart', plugins_url( "js/Chart.min.js", __FILE__ ) );
+		wp_enqueue_script( 'yandex-metrica-chart', plugins_url( "js/chart.min.js", __FILE__ ), array(), '3.4.0' );
 
-		$statical_data =  self::$metrica_api->get_counter_statistics( $this->options["counter_id"], $this->start_date, $this->end_date, "daily" );
+		$statical_data = self::$metrica_api->get_counter_statistics( $this->options["counter_id"], $this->start_date, $this->end_date, "daily" );
 
-        include( dirname( __FILE__ ) . '/templates/dashboard-charts-js.php' );
+		include( dirname( __FILE__ ) . '/templates/dashboard-charts-js.php' );
 	}
 
 	/**

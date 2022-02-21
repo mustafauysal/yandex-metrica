@@ -106,11 +106,20 @@ class Yandex_Metrica {
 	public function is_valid_counter( $counter_id ) {
 		$current_counter = $this->fetch_counter( $counter_id );
 
-		if ( $current_counter["counter"]["code_status"] == "CS_OK" ) {
+		if ( isset( $current_counter["counter"]["code_status"] ) && 'CS_OK' === $current_counter["counter"]["code_status"] ) {
 			return true;
-		} else {
-			return false;
 		}
+
+		/**
+		 * The management API can return `CS_ERR_UNKNOWN` while counter is active.
+		 *
+		 * @since 1.9.2
+		 */
+		if ( isset( $current_counter["counter"]["status"] ) && 'Active' === $current_counter["counter"]["status"] ) {
+			return true;
+		}
+
+		return false;
 	}
 
 	/**

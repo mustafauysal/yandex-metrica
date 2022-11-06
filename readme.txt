@@ -1,10 +1,9 @@
 === Yandex Metrica ===
-
 Contributors: m_uysl
 Tags: yandex, metrica, stats, statistics, tools, analytics, analytics tool, metrika
 Requires at least: 3.8
-Tested up to: 5.9
-Stable tag: 1.9.2
+Tested up to: 6.1
+Stable tag: 1.9.3
 Requires PHP: 5.6
 License: GPLv2 (or later)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -65,6 +64,11 @@ Yandex Metrica plugin uses wp_head hook for the adds necessary tracking code. Pl
 3. Settings page.
 
 == Changelog ==
+
+= 1.9.3 (November 6, 2022) =
+  - minor tweaks & improvements
+  - Added uninstaller
+  - tested with WordPress 6.1
 
 = 1.9.2 =
   - fix valid counter control

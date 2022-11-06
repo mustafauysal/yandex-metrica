@@ -188,12 +188,12 @@ class Yandex_Metrica {
 			}
 
 			$total = array(
-				'pageviews'    => $response['totals'][0][0],
-				'visits'       => $response['totals'][0][1],
-				'visitors'     => $response['totals'][0][2],
-				'new_visitors' => $response['totals'][0][3],
-				'page_depth'   => $response['totals'][0][4],
-				'duration'     => $response['totals'][0][5],
+				'pageviews'    => ( isset( $response['totals'][0][0] ) ? absint( $response['totals'][0][0] ) : 0 ),
+				'visits'       => ( isset( $response['totals'][0][1] ) ? absint( $response['totals'][0][1] ) : 0 ),
+				'visitors'     => ( isset( $response['totals'][0][2] ) ? absint( $response['totals'][0][2] ) : 0 ),
+				'new_visitors' => ( isset( $response['totals'][0][3] ) ? absint( $response['totals'][0][3] ) : 0 ),
+				'page_depth'   => ( isset( $response['totals'][0][4] ) ? absint( $response['totals'][0][4] ) : 0 ),
+				'duration'     => ( isset( $response['totals'][0][5] ) ? absint( $response['totals'][0][5] ) : 0 ),
 			);
 
 			$stats = array(
@@ -236,7 +236,7 @@ class Yandex_Metrica {
 
 			foreach ( $popular_content_result['data'] as $data_key => $data ) {
 				$popular_content[ $data_key ]['url']       = $data['dimensions'][0]['name'];
-				$popular_content[ $data_key ]['pageviews'] = $popular_content_result['totals'][0][ $data_key ];
+				$popular_content[ $data_key ]['pageviews'] = ( isset( $popular_content_result['totals'][0][ $data_key ] ) ? $popular_content_result['totals'][0][ $data_key ] : 0 );
 				if ( count( $popular_content ) >= $per_page ) {
 					break;
 				}

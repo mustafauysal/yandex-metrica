@@ -5,6 +5,7 @@ Plugin URI: https://github.com/mustafauysal/yandex-metrica
 Description: The best Yandex Metrica plugin for WordPress.
 Author: Mustafa Uysal
 Version: 1.9.2
+Requires PHP: 5.6
 Text Domain: yandex-metrica
 Domain Path: /languages/
 Author URI: https://uysalmustafa.com

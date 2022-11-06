@@ -285,10 +285,9 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 			'Metrica Informer',
 			array( $this, 'metrica_informer' ),
 			array(
-				'description' => 'Add metrica Informer to your sidebar, share daily statistics'
+				'description' => esc_html__( 'Add metrica Informer to your sidebar, share daily statistics', 'yandex-metrica' )
 			)
 		);
-
 	}
 
 	/**

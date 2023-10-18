@@ -236,7 +236,7 @@ class Yandex_Metrica {
 
 			foreach ( $popular_content_result['data'] as $data_key => $data ) {
 				$popular_content[ $data_key ]['url']       = $data['dimensions'][0]['name'];
-				$popular_content[ $data_key ]['pageviews'] = ( isset( $popular_content_result['totals'][0][ $data_key ] ) ? $popular_content_result['totals'][0][ $data_key ] : 0 );
+				$popular_content[ $data_key ]['pageviews'] = ( isset( $data['metrics'][0] ) ? array_sum( $data['metrics'][0]) : 0 );
 				if ( count( $popular_content ) >= $per_page ) {
 					break;
 				}
@@ -272,7 +272,7 @@ class Yandex_Metrica {
 
 			foreach ( $top_referrers_result['data'] as $data_key => $data ) {
 				$top_referrers[ $data_key ]['url']    = $data['dimensions'][0]['name'];
-				$top_referrers[ $data_key ]['visits'] = $top_referrers_result['totals'][0][ $data_key ];
+				$top_referrers[ $data_key ]['visits'] = ( isset( $data['metrics'][0] ) ? array_sum( $data['metrics'][0]) : 0 );
 				if ( count( $top_referrers ) >= $per_page ) {
 					break;
 				}

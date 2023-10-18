@@ -1,22 +1,22 @@
-# Copyright (C) 2021 Mustafa Uysal
-# This file is distributed under the same license as the Yandex Metrica plugin.
+# Copyright (C) 2023 Mustafa Uysal
+# This file is distributed under the GPLv2 (or later).
 msgid ""
 msgstr ""
-"Project-Id-Version: Yandex Metrica 1.9\n"
+"Project-Id-Version: Yandex Metrica 2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yandex-metrica\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-06-28T22:25:23+00:00\n"
+"POT-Creation-Date: 2023-10-18T18:24:14+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
+"X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: yandex-metrica\n"
 
 #. Plugin Name of the plugin
 #: templates/settings.php:79
-#: yandex-metrica.php:91
+#: yandex-metrica.php:71
 msgid "Yandex Metrica"
 msgstr ""
 
@@ -36,51 +36,51 @@ msgstr ""
 msgid "https://uysalmustafa.com"
 msgstr ""
 
-#: libs/widget.php:25
+#: includes/widget.php:25
 msgid "Display statistics within selected period."
 msgstr ""
 
-#: libs/widget.php:54
+#: includes/widget.php:54
 msgid "<h3>Metrica statistics for %s </h3>"
 msgstr ""
 
-#: libs/widget.php:65
+#: includes/widget.php:65
 msgid "Page Views: <b>%d</b> <br/>"
 msgstr ""
 
-#: libs/widget.php:68
+#: includes/widget.php:68
 msgid "Visits: <b>%d</b> </br>"
 msgstr ""
 
-#: libs/widget.php:71
+#: includes/widget.php:71
 msgid "Visitors: <b>%d</b> </br>"
 msgstr ""
 
-#: libs/widget.php:91
+#: includes/widget.php:91
 msgid "Statistics for:"
 msgstr ""
 
-#: libs/widget.php:93
+#: includes/widget.php:93
 msgid "Today"
 msgstr ""
 
-#: libs/widget.php:94
+#: includes/widget.php:94
 msgid "Week"
 msgstr ""
 
-#: libs/widget.php:95
+#: includes/widget.php:95
 msgid "Month"
 msgstr ""
 
-#: libs/widget.php:99
+#: includes/widget.php:99
 msgid "Show Pageview"
 msgstr ""
 
-#: libs/widget.php:101
+#: includes/widget.php:101
 msgid "Show Visits"
 msgstr ""
 
-#: libs/widget.php:103
+#: includes/widget.php:103
 msgid "Show Visitors"
 msgstr ""
 
@@ -131,9 +131,9 @@ msgstr ""
 #: templates/dashboard-widget.php:71
 #: templates/dashboard-widget.php:86
 #: templates/dashboard-widget.php:98
-#: templates/dashboard-widget.php:126
-#: templates/dashboard-widget.php:153
-#: templates/dashboard-widget.php:179
+#: templates/dashboard-widget.php:130
+#: templates/dashboard-widget.php:159
+#: templates/dashboard-widget.php:188
 msgid "None"
 msgstr ""
 
@@ -157,11 +157,11 @@ msgstr ""
 msgid "Avg. Time on Site"
 msgstr ""
 
-#: templates/dashboard-widget.php:113
+#: templates/dashboard-widget.php:110
 msgid "Popular Pages"
 msgstr ""
 
-#: templates/dashboard-widget.php:122
+#: templates/dashboard-widget.php:126
 msgid "%d View"
 msgid_plural "%d Views"
 msgstr[0] ""
@@ -171,22 +171,22 @@ msgstr[1] ""
 msgid "Top Referrers"
 msgstr ""
 
-#: templates/dashboard-widget.php:149
-#: templates/dashboard-widget.php:175
+#: templates/dashboard-widget.php:155
+#: templates/dashboard-widget.php:184
 msgid "%d Visit"
 msgid_plural "%d Visits"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/dashboard-widget.php:166
+#: templates/dashboard-widget.php:169
 msgid "Search Terms"
 msgstr ""
 
-#: templates/settings.php:6
+#: templates/settings.php:8
 msgid "Cheatin, uh?"
 msgstr ""
 
-#: templates/settings.php:14
+#: templates/settings.php:15
 msgid "Successfully connected to Yandex Server"
 msgstr ""
 
@@ -331,35 +331,39 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: yandex-metrica.php:130
+#: yandex-metrica.php:115
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: yandex-metrica.php:147
-#: yandex-metrica.php:150
+#: yandex-metrica.php:132
+#: yandex-metrica.php:135
 msgid "Metrica Statistics"
 msgstr ""
 
-#: yandex-metrica.php:157
+#: yandex-metrica.php:142
 msgid "Oh no! There is nothing to display. Here Are the Possible Causes"
 msgstr ""
 
-#: yandex-metrica.php:158
+#: yandex-metrica.php:143
 msgid "If selected a new counter (recently created), please give a few hours for verification. Please be patient."
 msgstr ""
 
-#: yandex-metrica.php:159
+#: yandex-metrica.php:144
 msgid "Did you save options? You need to save options at least once after account confirmation."
 msgstr ""
 
-#: yandex-metrica.php:160
+#: yandex-metrica.php:145
 msgid "Are you sure you selected the correct counter? Please confirm."
 msgstr ""
 
-#: yandex-metrica.php:161
+#: yandex-metrica.php:146
 msgid "Did you change your Yandex password? If changed, you need to re-authorize this plugin."
 msgstr ""
 
-#: yandex-metrica.php:162
+#: yandex-metrica.php:147
 msgid "Temporary, connectivity problem!"
+msgstr ""
+
+#: yandex-metrica.php:274
+msgid "Add metrica Informer to your sidebar, share daily statistics"
 msgstr ""

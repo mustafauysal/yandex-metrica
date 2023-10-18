@@ -3,11 +3,11 @@
 } ?>
 <label>
     <select name="period" id="period">
-        <option <?php selected( $this->period, "daily" ); ?> value="daily"><?php _e( 'Daily', 'yandex-metrica' ); ?></option>
+        <option <?php selected( $this->period, "daily" ); ?> value="daily"><?php esc_html_e( 'Daily', 'yandex-metrica' ); ?></option>
         <option <?php selected( $this->period, "weekly" ); ?> <?php if ( empty ( $this->period ) ) {
             echo "selected";
-        } ?> value="weekly"><?php _e( 'Weekly', 'yandex-metrica' ); ?></option>
-        <option <?php selected( $this->period, "monthly" ); ?> value="monthly"><?php _e( 'Monthly', 'yandex-metrica' ); ?></option>
+        } ?> value="weekly"><?php esc_html_e( 'Weekly', 'yandex-metrica' ); ?></option>
+        <option <?php selected( $this->period, "monthly" ); ?> value="monthly"><?php esc_html_e( 'Monthly', 'yandex-metrica' ); ?></option>
     </select>
 </label>
 
@@ -19,30 +19,30 @@
 <?php endif; ?>
 
 <div id="metrica-widget-data">
-    <h3><?php _e( 'Site Usage', 'yandex-metrica' ); ?></h3>
+    <h3><?php esc_html_e( 'Site Usage', 'yandex-metrica' ); ?></h3>
     <table width="100%">
         <tr>
-            <td width="20%">
-                <b><?php _e( 'Visits', 'yandex-metrica' ); ?>:</b>
+            <td style="width:20%;">
+                <b><?php esc_html_e( 'Visits', 'yandex-metrica' ); ?>:</b>
             </td>
-            <td width="20%">
+            <td style="width:20%;">
                 <?php
                 if ( ! empty( $total_values["visits"] )) {
                     echo $total_values["visits"];
                 } else {
-                     _e( 'None', 'yandex-metrica' );
+                     esc_html_e( 'None', 'yandex-metrica' );
                 }
                 ?>
             </td>
-            <td width="20%">
-                <b><?php _e( 'New Visitors', 'yandex-metrica' ); ?>:</b>
+            <td style="width:20%;">
+                <b><?php esc_html_e( 'New Visitors', 'yandex-metrica' ); ?>:</b>
             </td>
-            <td width="20%">
+            <td style="width:20%;">
                 <?php
                 if ( ! empty( $total_values["new_visitors"] )) {
                     echo '% '.round($total_values["new_visitors"],2);
                 } else {
-                     _e( 'None', 'yandex-metrica' );
+                     esc_html_e( 'None', 'yandex-metrica' );
                 }
                 ?>
             </td>
@@ -51,24 +51,24 @@
 
         <tr>
             <td>
-                <b><?php  _e( 'Page Views', 'yandex-metrica' ); ?>:</b>
+                <b><?php  esc_html_e( 'Page Views', 'yandex-metrica' ); ?>:</b>
             </td>
             <td>
                 <?php if ( ! empty( $total_values["pageviews"] )) {
                     echo $total_values["pageviews"];
                 } else {
-                    _e( 'None', 'yandex-metrica' );
+                    esc_html_e( 'None', 'yandex-metrica' );
                 }
                 ?>
             </td>
             <td>
-                <b><?php  _e( 'Session depth', 'yandex-metrica' ); ?>:</b>
+                <b><?php  esc_html_e( 'Session depth', 'yandex-metrica' ); ?>:</b>
             </td>
             <td>
                 <?php if ( ! empty( $total_values["page_depth"] )) {
                     echo round( $total_values["page_depth"], 1 );
                 } else {
-                    _e( 'None', 'yandex-metrica' );
+	                esc_html_e( 'None', 'yandex-metrica' );
                 }
                 ?>
             </td>
@@ -77,7 +77,7 @@
 
         <tr>
             <td>
-                <b><?php _e( 'Visitors', 'yandex-metrica' ); ?>:</b>
+                <b><?php esc_html_e( 'Visitors', 'yandex-metrica' ); ?>:</b>
             </td>
             <td>
                 <?php if ( ! empty( $total_values["visitors"] )) {
@@ -88,14 +88,14 @@
                 ?>
             </td>
             <td>
-                <b><?php  _e( 'Avg. Time on Site', 'yandex-metrica' ); ?>:</b>
+                <b><?php  esc_html_e( 'Avg. Time on Site', 'yandex-metrica' ); ?>:</b>
             </td>
             <td>
                 <?php
-                if ( ! empty( $total_values["duration"] )) {
-                    echo gmdate( "H:i:s", $total_values["duration"] );
+                if ( ! empty( $total_values["duration"] ) ) {
+	                echo gmdate( "H:i:s", round( $total_values["duration"] ) );
                 } else {
-                    _e( 'None', 'yandex-metrica' );
+	                esc_html_e( 'None', 'yandex-metrica' );
                 }
                 ?>
             </td>
@@ -106,11 +106,15 @@
 
 
     <div id="popular-posts" class="postbox <?php echo postbox_classes('popular-posts', 'dashboard');?>">
-        <button type="button" class="handlediv button-link" >
-            <span class="toggle-indicator" id="toggle-metrica-popular-pages"></span>
-        </button>
+        <div class="postbox-header">
+            <h2 class="hndle not-sortable"><?php esc_html_e( 'Popular Pages', 'yandex-metrica' ); ?></h2>
+            <div class="handle-actions hide-if-no-js">
+                <button type="button" class="handlediv button-link" id="toggle-metrica-popular-pages">
+                    <span class="toggle-indicator" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
 
-        <h2 class="hndle"><?php _e( 'Popular Pages', 'yandex-metrica' ); ?></h2>
 
         <div class="metrica-inside">
             <ol class="metrica-popular-pages <?php echo postbox_classes('popular-posts', 'dashboard');?>">
@@ -123,7 +127,7 @@
                         </li>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <?php _e( 'None', 'yandex-metrica' ); ?>
+                    <?php esc_html_e( 'None', 'yandex-metrica' ); ?>
                 <?php endif; ?>
 
             </ol>
@@ -132,13 +136,15 @@
 
 
     <div id="metrica-incoming" class="postbox <?php echo postbox_classes('metrica-incoming', 'dashboard');?>">
-        <button type="button" class="handlediv button-link" >
-            <span class="toggle-indicator" id="toggle-metrica-top-referrers"></span>
-        </button>
-
-
-        <h2 class="hndle"><?php _e( 'Top Referrers', 'yandex-metrica' ); ?></h2>
-
+        <div class="postbox-header">
+            <h2 class="hndle not-sortable"><?php esc_html_e( 'Top Referrers', 'yandex-metrica' ); ?></h2>
+            <div class="handle-actions hide-if-no-js">
+                <button type="button" class="handlediv button-link" id="toggle-metrica-top-referrers">
+                    <span class="toggle-indicator" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+        
         <div class="metrica-inside">
             <ol class="metrica-top-referrers <?php echo postbox_classes('metrica-incoming', 'dashboard');?>">
 
@@ -150,7 +156,7 @@
                         </li>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <?php _e( 'None', 'yandex-metrica' ); ?>
+                    <?php esc_html_e( 'None', 'yandex-metrica' ); ?>
                 <?php endif; ?>
 
             </ol>
@@ -159,12 +165,15 @@
 
 
     <div id="top-searches" class="postbox <?php echo postbox_classes('top-searches', 'dashboard');?>">
-        <button type="button" class="handlediv button-link">
-            <span class="toggle-indicator" id="toggle-metrica-top-searches"></span>
-        </button>
-
-        <h2 class="hndle"><?php _e( 'Search Terms', 'yandex-metrica' ); ?></h2>
-
+        <div class="postbox-header">
+            <h2 class="hndle not-sortable"><?php esc_html_e( 'Search Terms', 'yandex-metrica' ); ?></h2>
+            <div class="handle-actions hide-if-no-js">
+                <button type="button" class="handlediv button-link" id="toggle-metrica-top-searches">
+                    <span class="toggle-indicator" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+        
         <div class="metrica-inside">
             <ol class="metrica-top-searches <?php echo postbox_classes('top-searches', 'dashboard');?>">
 
@@ -176,7 +185,7 @@
                         </li>
                     <?php endforeach ?>
                 <?php else: ?>
-                    <?php _e( 'None', 'yandex-metrica' ); ?>
+                    <?php esc_html_e( 'None', 'yandex-metrica' ); ?>
                 <?php endif; ?>
 
             </ol>
@@ -189,6 +198,14 @@
 <style>
     .metrica-inside .closed{
         display: none;
+    }
+    .not-sortable{
+        cursor:unset!important;
+    }
+    .metrica-popular-pages,
+    .metrica-top-referrers,
+	.metrica-top-searches{
+		word-wrap: break-word;
     }
 </style>
 

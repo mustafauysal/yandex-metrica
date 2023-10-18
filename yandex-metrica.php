@@ -16,13 +16,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-require_once( dirname( __FILE__ ) . '/libs/constants.php' );
-require_once( dirname( __FILE__ ) . '/libs/utils.php' );
-require_once( dirname( __FILE__ ) . '/libs/Encryption.php' );
-require_once( dirname( __FILE__ ) . '/libs/wp-stack-plugin.php' );
-require_once( dirname( __FILE__ ) . '/libs/Yandex_Oauth.php' );
-require_once( dirname( __FILE__ ) . '/libs/Yandex_Metrica.php' );
-require_once( dirname( __FILE__ ) . '/libs/widget.php' );
+require_once( dirname( __FILE__ ) . '/includes/constants.php' );
+require_once( dirname( __FILE__ ) . '/includes/utils.php' );
+require_once( dirname( __FILE__ ) . '/includes/Encryption.php' );
+require_once( dirname( __FILE__ ) . '/includes/wp-stack-plugin.php' );
+require_once( dirname( __FILE__ ) . '/includes/Yandex_Oauth.php' );
+require_once( dirname( __FILE__ ) . '/includes/Yandex_Metrica.php' );
+require_once( dirname( __FILE__ ) . '/includes/widget.php' );
 
 
 class WP_Yandex_Metrica extends WP_Stack_Plugin {

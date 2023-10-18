@@ -14,3 +14,4 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 require_once 'yandex-metrica.php';
 
 delete_option( 'metrica_options' );
+delete_option( 'yandex_metrica_db_version' );

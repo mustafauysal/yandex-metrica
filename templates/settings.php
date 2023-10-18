@@ -1,4 +1,6 @@
-<?php if ( ! defined( 'ABSPATH' ) ) die(); ?>
+<?php use YandexMetrica\Encryption;
+
+if ( ! defined( 'ABSPATH' ) ) die(); ?>
 
 <?php
 
@@ -8,12 +10,10 @@ if ( ! empty( $_POST )  && ( ! current_user_can( 'manage_options' ) || empty( $_
 
 
 if ( isset( $_POST['yandex-metrica-authorize'] ) ) {
-	$this->options['authcode'] = intval( $_POST['auth-code'] );
-
-	if ( $this->authorize( esc_attr( $this->options['authcode'] ) ) ) {
+	$auth_code = intval( $_POST['auth-code'] );
+	if ( $this->authorize( esc_attr( $auth_code ) ) ) {
 		echo '<div class="updated"><p>' . __( 'Successfully connected to Yandex Server', 'yandex-metrica' ) . '</p></div>';
-	}
-	else {
+	} else {
 		echo '<div class="error"><p>' . __( 'Something went wrong. Please check your confirmation code!', 'yandex-metrica' ) . '</p></div>';
 	}
 }
@@ -63,7 +63,7 @@ if ( isset( $_POST["yandex-metrica-save"] ) ) {
 
 if ( isset( $_POST["reset"] ) ) {
 	$this->update_options( null );
-	$this->options = $this->get_options(); // call default options
+	$this->options = \YandexMetrica\Utils\get_settings(); // call default options
 
 	echo ' <div class="updated"><p>' . __( 'All options cleared!', 'yandex-metrica' ) . '</p></div>';
 }
@@ -76,12 +76,12 @@ if ( isset( $_POST["reset"] ) ) {
 	<form method="post" action="">
 		<?php wp_nonce_field( 'metrica_update_settings', 'metrica_settings_nonce' ); ?>
 
-		<h2><?php _e( 'Yandex Metrica', 'yandex-metrica' ); ?></h2>
+		<h2><?php esc_html_e( 'Yandex Metrica', 'yandex-metrica' ); ?></h2>
 
 		<?php if ( ! $this->is_authorized() && $this->options["backward"] === false ) : ?>
-			<p><?php _e( 'You need sign in to Yandex and grant this plugin access to your Yandex Metrica account.', 'yandex-metrica' ); ?></p>
-			<p class="button" onclick="window.open('<?php printf('%sauthorize?response_type=code&client_id=%s&display=popup',__('https://oauth.yandex.com/','yandex-metrica'), self::YANDEX_APP_ID); ?>', 'activate','width=600, height=500, menubar=0, status=0, location=0, toolbar=0')">
-				<a style="text-decoration: none;" target="_blank" href="javascript:void(0);"><b><?php _e( 'Click here to getting confirmation code', 'yandex-metrica' ); ?></b></a>
+			<p><?php esc_html_e( 'You need sign in to Yandex and grant this plugin access to your Yandex Metrica account.', 'yandex-metrica' ); ?></p>
+			<p class="button" onclick="window.open('<?php printf('%sauthorize?response_type=code&client_id=%s&display=popup',__('https://oauth.yandex.com/','yandex-metrica'), \YandexMetrica\Constants\YANDEX_APP_ID); ?>', 'activate','width=600, height=500, menubar=0, status=0, location=0, toolbar=0')">
+				<a style="text-decoration: none;" target="_blank" href="javascript:void(0);"><b><?php esc_html_e( 'Click here to getting confirmation code', 'yandex-metrica' ); ?></b></a>
 			</p>
 
 			<div id="metrica-settings">
@@ -112,7 +112,7 @@ if ( isset( $_POST["reset"] ) ) {
 				<input type="text" name="metrica-counter" <?php if ( isset( $this->options["counter_id"] ) ) echo 'value="' . esc_attr( $this->options["counter_id"] ) . '"'; ?> placeholder="<?php _e( 'Enter counter number', 'yandex-metrica' ); ?>" style="width:300px;" metrica-counter" />
         <?php endif; ?>
 
-			<h3><?php _e( 'Tracking Settings', 'yandex-metrica' ); ?></h3>
+			<h3><?php esc_html_e( 'Tracking Settings', 'yandex-metrica' ); ?></h3>
 
 			<table class="form-table">
 
@@ -120,7 +120,7 @@ if ( isset( $_POST["reset"] ) ) {
 
 				<tr valign="top">
 					<th>
-						<label><?php _e( 'Select tracking options', 'yandex-metrica' ); ?></label>
+						<label><?php esc_html_e( 'Select tracking options', 'yandex-metrica' ); ?></label>
 					</th>
 					<td>
 						<label><input type="checkbox" <?php checked( $this->options['webvisor'] ); ?>     name="metrica_webvisor" value="1">  <?php _e( 'Webvisor', 'yandex-metrica' ) ?>
@@ -142,7 +142,7 @@ if ( isset( $_POST["reset"] ) ) {
 
 				<tr id="ecommerce-container-row" valign="top" style="display:<?php echo ( $this->options['dispatch_ecommerce'] ) ? 'table-row' : 'none' ?>;">
 					<th>
-						<label><?php _e( 'Ecommerce Container', 'yandex-metrica' ); ?></label>
+						<label><?php esc_html_e( 'Ecommerce Container', 'yandex-metrica' ); ?></label>
 					</th>
 					<td>
 						<input type="text" style="min-width: 300px;" name="ecommerce_container_name" value="<?php echo esc_attr( $this->options["ecommerce_container_name"] ); ?>">
@@ -152,19 +152,19 @@ if ( isset( $_POST["reset"] ) ) {
 
 				<tr valign="top">
 					<th>
-						<label><?php _e( 'Track logged in users', 'yandex-metrica' ); ?></label>
+						<label><?php esc_html_e( 'Track logged in users', 'yandex-metrica' ); ?></label>
 					</th>
 					<td>
 						<select name="track-logged-in">
-							<option <?php selected( $this->options["track-logged-in"] ); ?> value="yes"><?php _e( 'Yes', 'yandex-metrica' ); ?></option>
-							<option <?php selected( $this->options["track-logged-in"], false ); ?> value="no"><?php _e( 'No', 'yandex-metrica' ); ?></option>
+							<option <?php selected( $this->options["track-logged-in"] ); ?> value="yes"><?php esc_html_e( 'Yes', 'yandex-metrica' ); ?></option>
+							<option <?php selected( $this->options["track-logged-in"], false ); ?> value="no"><?php esc_html_e( 'No', 'yandex-metrica' ); ?></option>
 						</select>
 					</td>
 				</tr>
 
 				<tr valign="top">
 					<th>
-						<label><?php _e( 'User roles to not track', 'yandex-metrica' ); ?></label>
+						<label><?php esc_html_e( 'User roles to not track', 'yandex-metrica' ); ?></label>
 					</th>
 					<td>
 						<?php
@@ -197,7 +197,7 @@ if ( isset( $_POST["reset"] ) ) {
 
 							<?php endforeach; ?>
 
-							<p class="setting-description"><?php _e( 'Selected roles can display metrica statistic on the dashboard.', 'yandex-metrica' ); ?></p>
+							<p class="setting-description"><?php esc_html_e( 'Selected roles can display metrica statistic on the dashboard.', 'yandex-metrica' ); ?></p>
 						</td>
 					</tr>
 
@@ -205,11 +205,11 @@ if ( isset( $_POST["reset"] ) ) {
 
 				<tr>
 					<th>
-						<label><?php _e( 'Tracker JS', 'yandex-metrica' ); ?></label>
+						<label><?php esc_html_e( 'Tracker JS', 'yandex-metrica' ); ?></label>
 					</th>
 					<td>
 						<input type="text" style="min-width: 300px;" placeholder="https://mc.yandex.ru/metrika/watch.js" name="tracker-address" value="<?php echo esc_url_raw( $this->options["tracker-address"] ); ?>">
-						<p class="setting-description"><?php _e( 'If you want to change watcher js address, use the field above.', 'yandex-metrica' ); ?></p>
+						<p class="setting-description"><?php esc_html_e( 'If you want to change watcher js address, use the field above.', 'yandex-metrica' ); ?></p>
 					</td>
 				</tr>
 

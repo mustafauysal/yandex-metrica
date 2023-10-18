@@ -16,6 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+require_once( dirname( __FILE__ ) . '/libs/constants.php' );
+require_once( dirname( __FILE__ ) . '/libs/utils.php' );
+require_once( dirname( __FILE__ ) . '/libs/Encryption.php' );
 require_once( dirname( __FILE__ ) . '/libs/wp-stack-plugin.php' );
 require_once( dirname( __FILE__ ) . '/libs/Yandex_Oauth.php' );
 require_once( dirname( __FILE__ ) . '/libs/Yandex_Metrica.php' );
@@ -26,16 +29,12 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 	public static $instance;
 	public static $metrica_api;
 	private $options;
-	const OPTION            = 'metrica_options';
-	const MENU_SLUG         = 'yandex-metrica';
-	const YANDEX_APP_ID     = 'e1a0017805e24d7b9395f969b379b7bf'; // filtered through `yandex_metrica_app_id`
-	const YANDEX_APP_SECRET = '410e753d1ab9478eaa21aa2c3f9a7d88'; // filtered through `yandex_metrica_app_secret`. In case you want to create your app?
 	public $period = "weekly", $start_date, $end_date;
-
 
 	public function __construct() {
 		self::$instance = $this;
-		$this->options  = $this->get_options();
+		$this->options  = \YandexMetrica\Utils\get_settings();
+
 
 		$this->hook( 'init' );
 
@@ -47,6 +46,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 
 	public function init() {
+		$this->maybe_install();
 		// Load langauge pack
 		load_plugin_textdomain( 'yandex-metrica', false, basename( dirname( __FILE__ ) ) . '/languages' );
 
@@ -54,7 +54,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		$this->hook( 'wp_head' ); // using wp_head for adding tracking code. If your theme doesn't have it, this plugin can't track your site.
 
 		if ( $this->is_authorized() ) {
-			self::$metrica_api = new Yandex_Metrica( $this->options["access_token"] );
+			self::$metrica_api = new Yandex_Metrica( \YandexMetrica\Utils\get_decrypted_setting( 'access_token' ) );
             $this->set_period( $this->period );
             $this->hook( 'wp_ajax_metrica_actions', 'ajax_listener' );
 			if ( $this->current_user_has_access( $this->options["widget-access-roles"] ) )
@@ -66,30 +66,8 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 	}
 
-	private function get_options() {
-		// default options
-		$defaults = array(
-			'counter_id'               => "",
-			'webvisor'                 => true,
-			'clickmap'                 => true,
-			'tracklinks'               => true,
-			'accurate_track'           => false,
-			'track_hash'               => false,
-			'track-logged-in'          => true,
-			'untrack-roles'            => array( "administrator" ),
-			'widget-access-roles'      => array( "administrator" ),
-			'backward'                 => false,
-			'new_yandex_code'          => true, // @since 1.7,
-			'dispatch_ecommerce'       => false, // @since 1.8.1
-			'ecommerce_container_name' => 'dataLayer', // @since 1.8.1
-			'tracker-address'          => ""
-		);
-		return wp_parse_args( get_option( self::OPTION ), $defaults );
-	}
-
-
 	public function admin_menu() {
-		add_options_page( __('Yandex Metrica', 'yandex-metrica'), __('Yandex Metrica', 'yandex-metrica'), 'manage_options', self::MENU_SLUG, array( $this, 'metrica_settings_page' ) );
+		add_options_page( __('Yandex Metrica', 'yandex-metrica'), __('Yandex Metrica', 'yandex-metrica'), 'manage_options',  YandexMetrica\Constants\MENU_SLUG, array( $this, 'metrica_settings_page' ) );
 	}
 
 
@@ -101,7 +79,10 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 	public function authorize( $code ) {
 		$Auth = new Yandex_Oauth( $this->get_app_id(), $this->get_app_secret() );
 		if ( $Auth->connect_oauth_server( $code ) ) {
-			$this->options['access_token'] = $Auth->get_access_token();
+			$encryption   = new \YandexMetrica\Encryption();
+			$access_token = $Auth->get_access_token();
+			// save encrypted access token
+			$this->options['access_token'] = $encryption->encrypt( $access_token );
 			$this->update_options( $this->options );
 			$this->init();
 
@@ -114,12 +95,14 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 	/**
 	 * Check authorization status
+	 *
 	 * @return bool
 	 */
 	public function is_authorized() {
-		if ( ! empty( $this->options["access_token"] ) ) {
+		if ( ! empty( \YandexMetrica\Utils\get_decrypted_setting( 'access_token' ) ) ) {
 			return true;
 		}
+
 		return false;
 	}
 
@@ -170,6 +153,8 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		$top_referrers = self::$metrica_api->get_referal_sites( $this->options["counter_id"], $this->start_date, $this->end_date );
 		$top_searches  = self::$metrica_api->get_search_terms( $this->options["counter_id"], $this->start_date, $this->end_date );
 
+		
+		
 		include( dirname( __FILE__ ) . '/templates/dashboard-widget.php' );
 	}
 
@@ -200,7 +185,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 
 	private function update_options( $options ) {
 		$this->options = $options;
-		update_option( self::OPTION, $options );
+		update_option( YandexMetrica\Constants\OPTION, $options );
 	}
 
 	/**
@@ -296,7 +281,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 	 * @return mixed|void
 	 */
 	private function get_app_id() {
-		return apply_filters( 'yandex_metrica_app_id', self::YANDEX_APP_ID );
+		return apply_filters( 'yandex_metrica_app_id', YandexMetrica\Constants\YANDEX_APP_ID );
 	}
 
 	/**
@@ -305,8 +290,55 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 	 * @return mixed|void
 	 */
 	private function get_app_secret() {
-		return apply_filters( 'yandex_metrica_app_secret', self::YANDEX_APP_SECRET );
+		return apply_filters( 'yandex_metrica_app_secret', YandexMetrica\Constants\YANDEX_APP_SECRET );
 	}
+
+
+	/**
+	 * Run db installation routine
+	 */
+	public function maybe_install() {
+		if ( ! is_blog_installed() ) {
+			return;
+		}
+
+		// Check if we are not already running
+		if ( 'yes' === get_transient( 'yandex_metrica_installing' ) ) {
+			return;
+		}
+
+		// lets set the transient now.
+		set_transient( 'yandex_metrica_installing', 'yes', MINUTE_IN_SECONDS );
+
+		if ( version_compare( get_option( YandexMetrica\Constants\DB_VERSION_OPTION ), YandexMetrica\Constants\DB_VERSION, '<' ) ) {
+			$this->maybe_upgrade_20();
+			update_option( YandexMetrica\Constants\DB_VERSION_OPTION, YandexMetrica\Constants\DB_VERSION, false );
+			do_action( 'yandex_metrica_db_upgraded' );
+		}
+
+		delete_transient( 'yandex_metrica_installing' );
+	}
+
+	/**
+	 * Upgrade routine for 2.0
+	 *
+	 * @return void
+	 */
+	public function maybe_upgrade_20() {
+		$current_version = get_option( YandexMetrica\Constants\DB_VERSION );
+
+		if ( ! version_compare( $current_version, '2.0', '<' ) ) {
+			$encryption = new \YandexMetrica\Encryption();
+
+			if ( ! empty( $this->options['access_token'] ) && false === $encryption->decrypt( $this->options['access_token'] ) ) {
+				$this->options['access_token'] = $encryption->encrypt( $this->options['access_token'] );
+			}
+
+			$this->update_options( $this->options );
+		}
+	}
+
+
 
 }
 

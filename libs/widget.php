@@ -52,8 +52,8 @@ class Metrica_Widget extends WP_Widget {
 		}
 
 		printf( __( '<h3>Metrica statistics for %s </h3>', 'yandex-metrica' ), __( ucfirst( $instance["time"] ), 'yandex-metrica' ) );
-		$main_options = get_option( 'metrica_options' );
-		$metrica_api  = new Yandex_Metrica( $main_options['access_token'] );
+		$main_options = \YandexMetrica\Utils\get_settings();
+		$metrica_api  = new Yandex_Metrica( \YandexMetrica\Utils\get_decrypted_setting( 'access_token' ) );
 		$results      = $metrica_api->get_counter_statistics( $main_options['counter_id'], $start_date, $end_date, "total" );
 
 		$instance["pageviews"] = $results["pageviews"];

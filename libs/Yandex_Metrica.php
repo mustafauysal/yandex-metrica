@@ -7,7 +7,7 @@ class Yandex_Metrica {
 
 	private $access_token;
 	public $error;
-	const TRANSIENT_VERSION = '1.5';
+	const TRANSIENT_VERSION = '1.6';
 
 	/**
 	 * @param string $access_token

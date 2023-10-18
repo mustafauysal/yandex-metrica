@@ -78,11 +78,11 @@ class Yandex_Oauth {
 	public function check_access() {
 		if ( ! empty( $this->access_token ) && ( empty( $this->error ) ) ) {
 			return true;
-		} else {
-			$this->error = 'expired_token';
-
-			return false;
 		}
+
+		$this->error = 'expired_token';
+
+		return false;
 	}
 
 	/**

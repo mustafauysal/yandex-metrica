@@ -10,11 +10,10 @@ The best Yandex Metrica plugin for WordPress.
 
 - Easy to manage counter's  tracking options.
 - Role based user tracking
-- Dashboard widget that displaying metrica graphic, summary of site usage, top pages etc..
+- Dashboard widget that displays Metrica graphics,, summary of site usage, top pages etc..
 - Role based user access for the displaying dashboard widget
-- Basic mode ready! If you don't want to give API access, you can try basic mode.
+- Basic mode is ready! If you don't want to give API access, you can try basic mode.
 - i18n support: Completely translation ready!
-
 
 
 ## Support ##

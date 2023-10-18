@@ -96,31 +96,24 @@ class Yandex_Oauth {
 			switch ( $this->error ) {
 				case 'invalid_request':
 					return 'Incorrect request format.';
-					break;
 
 				case 'invalid_grant':
 					return 'Invalid or expired authorization code.';
-					break;
 
 				case 'unsupported_grant_type':
 					return 'Incorrect value for the grant_type parameter.';
-					break;
 
 				case 'invalid_client':
 					return 'Invalid app_id or app_secret';
-					break;
 
 				case '404':
 					return 'Requested url not found';
-					break;
 
 				case '403':
 					return 'Forbidden zone';
-					break;
 
 				case '500':
 					return 'The server encountered an unexpected condition that prevents it from fulfilling the request';
-					break;
 
 				default:
 					return 'ERROR: ' . $this->error;

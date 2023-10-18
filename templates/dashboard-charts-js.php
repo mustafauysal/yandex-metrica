@@ -92,15 +92,15 @@
 		});
 
 
-		$("#toggle-metrica-popular-pages").click(function () {
+		$("#toggle-metrica-popular-pages").on('click', function () {
 			$(".metrica-popular-pages").toggle();
 		});
 
-		$("#toggle-metrica-top-referrers").click(function () {
+		$("#toggle-metrica-top-referrers").on('click', function () {
 			$(".metrica-top-referrers").toggle();
 		});
 
-		$("#toggle-metrica-top-searches").click(function () {
+		$("#toggle-metrica-top-searches").on('click', function () {
 			$(".metrica-top-searches").toggle();
 		});
 

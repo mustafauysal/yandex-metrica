@@ -188,12 +188,12 @@ class Yandex_Metrica {
 			}
 
 			$total = array(
-				'pageviews'    => ( isset( $response['totals'][0][0] ) ? absint( $response['totals'][0][0] ) : 0 ),
-				'visits'       => ( isset( $response['totals'][0][1] ) ? absint( $response['totals'][0][1] ) : 0 ),
-				'visitors'     => ( isset( $response['totals'][0][2] ) ? absint( $response['totals'][0][2] ) : 0 ),
-				'new_visitors' => ( isset( $response['totals'][0][3] ) ? absint( $response['totals'][0][3] ) : 0 ),
-				'page_depth'   => ( isset( $response['totals'][0][4] ) ? absint( $response['totals'][0][4] ) : 0 ),
-				'duration'     => ( isset( $response['totals'][0][5] ) ? absint( $response['totals'][0][5] ) : 0 ),
+				'pageviews'    => ( isset( $response['totals'][0] ) ? absint( array_sum( $response['totals'][0] ) ) : 0 ),
+				'visits'       => ( isset( $response['totals'][1] ) ? absint( array_sum( $response['totals'][1] ) ) : 0 ),
+				'visitors'     => ( isset( $response['totals'][2] ) ? absint( array_sum( $response['totals'][2] ) ) : 0 ),
+				'new_visitors' => ( isset( $response['totals'][3] ) ? floatval( array_sum( $response['totals'][3] ) / count( $response['totals'][3] ) ) : 0 ),
+				'page_depth'   => ( isset( $response['totals'][4] ) ? floatval( array_sum( $response['totals'][4] ) / count( $response['totals'][4] ) ) : 0 ),
+				'duration'     => ( isset( $response['totals'][5] ) ? floatval( array_sum( $response['totals'][5] ) / count( $response['totals'][5] ) ) : 0 ),
 			);
 
 			$stats = array(

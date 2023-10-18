@@ -328,16 +328,17 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 		$current_version = get_option( YandexMetrica\Constants\DB_VERSION );
 
 		if ( ! version_compare( $current_version, '2.0', '<' ) ) {
-			$encryption = new \YandexMetrica\Encryption();
-
-			if ( ! empty( $this->options['access_token'] ) && false === $encryption->decrypt( $this->options['access_token'] ) ) {
-				$this->options['access_token'] = $encryption->encrypt( $this->options['access_token'] );
-			}
-
-			$this->update_options( $this->options );
+			return;
 		}
-	}
 
+		$encryption = new \YandexMetrica\Encryption();
+
+		if ( ! empty( $this->options['access_token'] ) && false === $encryption->decrypt( $this->options['access_token'] ) ) {
+			$this->options['access_token'] = $encryption->encrypt( $this->options['access_token'] );
+		}
+
+		$this->update_options( $this->options );
+	}
 
 
 }

@@ -1,9 +1,9 @@
 === Yandex Metrica ===
 Contributors: m_uysl
 Tags: yandex, metrica, stats, statistics, tools, analytics, analytics tool, metrika
-Requires at least: 3.8
-Tested up to: 6.1
-Stable tag: 1.9.3
+Requires at least: 5.0
+Tested up to: 6.4
+Stable tag: 2.0
 Requires PHP: 5.6
 License: GPLv2 (or later)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -17,16 +17,16 @@ The best Yandex Metrica plugin for WordPress.
 
 = What is Metrica =
 
-Metrica is an analytics tool like just like google analytics. You can learn more about from [official website] (https://metrica.yandex.com).
+Metrica is an analytics tool like just like google analytics. You can learn more about from [official website](https://metrica.yandex.com).
 
 
 = Features =
 
 - Easy to manage counter's  tracking options.
 - Role based user tracking
-- Dashboard widget that displaying metrica graphic, summary of site usage, top pages etc..
+- Dashboard widget that displays Metrica graphics,, summary of site usage, top pages etc..
 - Role based user access for the displaying dashboard widget
-- Basic mode ready! If you don't want to give API access, you can try basic mode.
+- Basic mode is ready! If you don't want to give API access, you can try basic mode.
 - i18n support: Completely translation ready!
 
 
@@ -36,9 +36,21 @@ Metrica is an analytics tool like just like google analytics. You can learn more
 * Turkish (tr_TR), native support
 * Russian (ru_RU), [oleg0789](https://profiles.wordpress.org/oleg0789) and Ксения Рыбка
 
+= Contributing =
+Pull requests are welcome on [Github](https://github.com/mustafauysal/yandex-metrica)
+
+__If you like Yandex Metrica, then consider checking out my other projects:__
+
+* <a href="https://poweredcache.com/" rel="friend">Powered Cache</a> – Caching and Optimization for WordPress – Easily Improve PageSpeed & Web Vitals Score
+* <a href="https://handyplugins.co/magic-login-pro/" rel="friend">Magic Login Pro</a> – Easy, secure, and passwordless authentication for WordPress.
+* <a href="https://handyplugins.co/easy-text-to-speech/" rel="friend">Easy Text-to-Speech for WordPress</a> – Transform your textual content into high-quality synthesized speech with Amazon Polly.
+* <a href="https://handyplugins.co/handywriter/" rel="friend">Handywriter</a> – AI-powered writing assistant that can help you create content for your WordPress.
+* <a href="https://handyplugins.co/paddlepress-pro/" rel="friend">PaddlePress PRO</a> – Paddle Plugin for WordPress
+
+
 == Installation ==
 
-Extract the zip file and just drop the contents in the `wp-content/plugins/` directory of your WordPress installation and then activate the Plugin from admin's Plugins page.
+Extract the zip file, and place the contents in the `wp-content/plugins/` directory of your WordPress installation and then activate the Plugin from admin's Plugins page.
 
 == Frequently Asked Questions ==
 
@@ -52,10 +64,10 @@ Definitely, metrica service and this plugin are totally free.
 Yes! (You have to use advanced mode, this feature needs API access)
 
 = I can see dashboard widget but no graph? =
-Probably your counter is not working correctly, please check counter status on the official metrica website. Sometimes we can't retrieve the statistical data via API, especially on the fresh counters.
+It's likely that your counter is not working correctly, please check counter status on the official metrica website. Sometimes we can't retrieve the statistical data via API, especially on the fresh counters.
 
 = Everything done, but metrica service doesn't work for me? =
-Yandex Metrica plugin uses wp_head hook for the adds necessary tracking code. Please, ensure your theme has wp_footer hook?
+Yandex Metrica plugin uses wp_head hook for the adds necessary tracking code. Please ensure that your theme has a wp_footer hook.
 
 == Screenshots ==
 
@@ -64,6 +76,14 @@ Yandex Metrica plugin uses wp_head hook for the adds necessary tracking code. Pl
 3. Settings page.
 
 == Changelog ==
+
+= 2.0 (October 18, 2023) =
+  - Dashboad widget improvements
+  - Improved accuracy of the stats
+  - Added encryption for the access token
+  - Fix jQuery deprecations
+  - Bump required WP version to 5.0
+  - Tested with WordPress 6.4
 
 = 1.9.3 (November 6, 2022) =
   - minor tweaks & improvements

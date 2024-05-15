@@ -1,6 +1,6 @@
 === Yandex Metrica ===
 Contributors: m_uysl
-Tags: yandex, metrica, stats, statistics, tools, analytics, analytics tool, metrika
+Tags: yandex, metrica, metrika, stats, analytics
 Requires at least: 5.0
 Tested up to: 6.5
 Stable tag: 2.0.1

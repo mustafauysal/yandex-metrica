@@ -10,7 +10,7 @@ if ( ! empty( $_POST )  && ( ! current_user_can( 'manage_options' ) || empty( $_
 
 
 if ( isset( $_POST['yandex-metrica-authorize'] ) ) {
-	$auth_code = intval( $_POST['auth-code'] );
+	$auth_code = sanitize_text_field( $_POST['auth-code'] );
 	if ( $this->authorize( esc_attr( $auth_code ) ) ) {
 		echo '<div class="updated"><p>' . __( 'Successfully connected to Yandex Server', 'yandex-metrica' ) . '</p></div>';
 	} else {

@@ -3,336 +3,85 @@ msgstr ""
 "Project-Id-Version: Yandex Metrica 1.x\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yandex-metrica\n"
 "POT-Creation-Date: 2016-09-20 21:59:12+00:00\n"
-"PO-Revision-Date: 2018-03-09 00:51+0300\n"
-"Last-Translator: Mustafa Uysal <mustafa@lettoblog.com>\n"
-"Language-Team: \n"
-"Language: en\n"
+"PO-Revision-Date: 2025-03-28 18:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: Turkish\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.7\n"
+"X-Generator: Loco https://localise.biz/\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;_n:1,2;_n_noop:1,2\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
+"\n"
+"X-Loco-Version: 2.7.1; wp-6.8-alpha-59312"
 
-#: libs/widget.php:27
-msgid "Display statistics within selected period."
-msgstr "Seçtiğim periyot için istatistikleri görüntüle."
-
-#: libs/widget.php:55
-msgid "<h3>Metrica statistics for %s </h3>"
-msgstr "<h3>%s için Metrika İstatistikleri </h3>"
-
-#: libs/widget.php:66
-msgid "Page Views: <b>%d</b> <br/>"
-msgstr "Sayfa Gösterimleri: <b>%d</b> <br/>"
-
-#: libs/widget.php:68
-msgid "Visits: <b>%d</b> </br>"
-msgstr "Ziyaretler: <b>%d</b> </br>"
-
-#: libs/widget.php:70
-msgid "Visitors: <b>%d</b> </br>"
-msgstr "Ziyaretçiler: <b>%d</b> </br>"
-
-#: libs/widget.php:85
-msgid "Title:"
-msgstr "Başlık:"
-
-#: libs/widget.php:89
-msgid "Statistics for:"
-msgstr "Zaman:"
-
-#: libs/widget.php:91
-msgid "Today"
-msgstr "Bugün"
-
-#: libs/widget.php:92
-msgid "Week"
-msgstr "Hafta"
-
-#: libs/widget.php:93
-msgid "Month"
-msgstr "Ay"
-
-#: libs/widget.php:97
-msgid "Show Pageview"
-msgstr "Sayfa Gösterimlerini Göster"
-
-#: libs/widget.php:99
-msgid "Show Visits"
-msgstr "Ziyaretleri Göster"
-
-#: libs/widget.php:101
-msgid "Show Visitors"
-msgstr "Ziyaretçileri Göster"
-
-#: templates/dashboard-charts-js.php:10
-msgid "Metrica Traffic"
-msgstr "Metrika Trafiği"
-
-#: templates/dashboard-charts-js.php:16
-msgid "Source"
-msgstr "Kaynak"
-
-msgid "Pageviews"
-msgstr "Sayfa Gösterimleri"
-
-#: templates/dashboard-charts-js.php:38 templates/dashboard-charts-js.php:52
-#: templates/dashboard-widget.php:20
-msgid "Visits"
-msgstr "Ziyaretler"
-
-#: templates/dashboard-charts-js.php:60
-msgid "Unique"
-msgstr "Ziyaretçiler"
-
-#: templates/dashboard-widget.php:5
-msgid "Daily"
-msgstr "Günlük"
-
-#: templates/dashboard-widget.php:8
-msgid "Weekly"
-msgstr "Haftalık"
-
-#: templates/dashboard-widget.php:9
-msgid "Monthly"
-msgstr "Aylık"
-
-#: templates/dashboard-widget.php:16
-msgid "Site Usage"
-msgstr "Site Kullanımı"
-
-#: templates/dashboard-widget.php:27 templates/dashboard-widget.php:39
-#: templates/dashboard-widget.php:54 templates/dashboard-widget.php:65
-#: templates/dashboard-widget.php:80 templates/dashboard-widget.php:92
-#: templates/dashboard-widget.php:117 templates/dashboard-widget.php:139
-#: templates/dashboard-widget.php:161
-msgid "None"
-msgstr "Gösterilecek veri yok"
-
-#: templates/dashboard-widget.php:32
-msgid "New Visitors"
-msgstr "Yeni Ziyaretçiler"
-
-#: templates/dashboard-widget.php:48
-msgid "Page Views"
-msgstr "Sayfa Gösterimleri"
-
-#: templates/dashboard-widget.php:59
-msgid "Session depth"
-msgstr "Ziyaret derinliği"
-
-#: templates/dashboard-widget.php:74
-msgid "Visitors"
-msgstr "Ziyaretçiler"
-
-#: templates/dashboard-widget.php:85
-msgid "Avg. Time on Site"
-msgstr "Sitede Geçirilen Ort. Süre"
-
-#: templates/dashboard-widget.php:105
-msgid "Popular Pages"
-msgstr "Popüler Sayfalar"
-
-#: templates/dashboard-widget.php:113
+#: templates/dashboard-widget.php:126
 msgid "%d View"
 msgid_plural "%d Views"
 msgstr[0] "%d Görüntülenme"
 msgstr[1] "%d Görüntülenme"
 
-#: templates/dashboard-widget.php:127
-msgid "Top Referrers"
-msgstr "En Çok Yönlendirenler"
-
-#: templates/dashboard-widget.php:135 templates/dashboard-widget.php:157
+#: templates/dashboard-widget.php:155 templates/dashboard-widget.php:184
 msgid "%d Visit"
 msgid_plural "%d Visits"
 msgstr[0] "%d Ziyaret"
 msgstr[1] "%d Ziyaret"
 
-#: templates/dashboard-widget.php:150
-msgid "Search Terms"
-msgstr "En İyi Aramalar"
+#: includes/widget.php:54
+msgid "<h3>Metrica statistics for %s </h3>"
+msgstr "<h3>%s için Metrika İstatistikleri </h3>"
 
-#: templates/settings.php:6
-msgid "Cheatin, uh?"
-msgstr "Hile mi yapıyorsunuz?"
-
-#: templates/settings.php:14
-msgid "Successfully connected to Yandex Server"
-msgstr "Başarılı bir şekilde Yandex Servisine bağlanıldı."
-
-#: templates/settings.php:17
-msgid "Something went wrong. Please check your confirmation code!"
-msgstr ""
-"Olamaz! Bi' şeyler ters gitti! Doğrulama kodunu kontrol edebilir misiniz?"
-
-#: templates/settings.php:40
-msgid "Options Saved!"
-msgstr "Ayarlar Kaydedildi!"
-
-#: templates/settings.php:43
-msgid "Please enter a valid counter code!"
-msgstr "Lütfen geçerli bir sayaç kodu giriniz!"
-
-#: templates/settings.php:56
-msgid "All options cleared!"
-msgstr "Tüm ayarlar sıfırlandı!"
-
-#. Plugin Name of the plugin/theme
-#: templates/settings.php:67 yandex-metrica.php:89
-msgid "Yandex Metrica"
-msgstr "Yandex Metrika"
-
-#: templates/settings.php:70
-msgid ""
-"You need sign in to Yandex and grant this plugin access to your Yandex "
-"Metrica account."
-msgstr ""
-"Yandex hesabınıza giriş yapmanız ve bu eklentinin Yandex Metrica hesabınıza "
-"bağlanmasına izin vermelisiniz."
-
-#: templates/settings.php:71
-msgid "https://oauth.yandex.com/"
-msgstr "https://oauth.yandex.com/"
-
-#: templates/settings.php:72
-msgid "Click here to getting confirmation code"
-msgstr "Aktivasyon kodu almak için tıklayınız."
-
-#: templates/settings.php:76
-msgid "Enter Confirmation code here"
-msgstr "Doğrulama kodunu buraya giriniz"
-
-#: templates/settings.php:77 templates/settings.php:182
-msgid "Save"
-msgstr "Kaydet"
-
-#: templates/settings.php:81
-msgid "If you don't want to use API, you can use basic mode."
-msgstr ""
-"Eğer metrica API kullanmak istemiyorsanız, temel modu deneyebilirsiniz."
-
-#: templates/settings.php:82
-msgid "Basic Mode (Compatible with Backward)"
-msgstr "Temel Mod (Geri uyumlu)"
-
-#: templates/settings.php:88
-msgid "Counter:"
-msgstr "Sayaç:"
-
-#: templates/settings.php:95
-msgid "Temporary, getting connectivity problem.!"
-msgstr "API erişiminde geçici bir bağlantı sorunu var!"
-
-#: templates/settings.php:100
-msgid "Enter counter number"
-msgstr "Sayaç numarasını giriniz"
-
-#: templates/settings.php:103
-msgid "Tracking Settings"
-msgstr "Takip Ayarları"
-
-#: templates/settings.php:111
-msgid "Select tracking options"
-msgstr "Sayaç özellikleri"
-
-#: templates/settings.php:114
-msgid "Webvisor"
-msgstr "Webvisor"
-
-#: templates/settings.php:116
-msgid "Track Clickmap"
-msgstr "Tıklama Haritası"
-
-#: templates/settings.php:118
-msgid "Track Links, social sharing, file requests..."
-msgstr "Dış bağlantılar, dosya yüklemeleri ve Paylaş butonu raporu"
-
-#: templates/settings.php:120
+#: templates/settings.php:132
 msgid "Accurate Track Bounce"
 msgstr "Hemen çıkma oranı"
 
-#: templates/settings.php:122
-msgid "Hash tracking in the browser's address bar"
-msgstr "Tarayıcının adres satırında hash'in takip edilmesi"
-
-#: templates/settings.php:129
-msgid "Track logged in users"
-msgstr "Giriş yapmış kullanıcıları dahil et"
-
-#: templates/settings.php:133
-msgid "Yes"
-msgstr "Evet"
-
-#: templates/settings.php:134
-msgid "No"
-msgstr "Hayır"
-
-#: templates/settings.php:141
-msgid "User roles to not track"
-msgstr "Takip edilmeyecek kullanıcı seviyesi"
-
-#: templates/settings.php:154
-msgid ""
-"If a user is logged into with one of these roles, they won't track by "
-"metrica."
+#: yandex-metrica.php:274
+msgid "Add metrica Informer to your sidebar, share daily statistics"
 msgstr ""
-"Bu yetkiye sahip kullanıcılar, metrica servisi tarafından takip "
-"edilmeyecektir."
 
-#: templates/settings.php:160
-msgid "User roles to display dashboard widget"
-msgstr "Yönetim panelinde istatistikleri görüntüleyebilecek kullanıcı seviyesi"
+#: templates/settings.php:68
+msgid "All options cleared!"
+msgstr "Tüm ayarlar sıfırlandı!"
 
-#: templates/settings.php:174
-msgid "Selected roles can display metrica statistic on the dashboard."
-msgstr ""
-"Bu yetkiye sahip kullanıcılar, istatistikleri yönetim panelinden "
-"görüntüleyebilecektir."
-
-#: templates/settings.php:183
-msgid "Reset"
-msgstr "Sıfırla"
-
-#: yandex-metrica.php:126
-msgid "You do not have sufficient permissions to access this page."
-msgstr "Bu sayfayı görüntüleme yetkiniz bulunmamaktadır."
-
-#: yandex-metrica.php:139 yandex-metrica.php:142
-msgid "Metrica Statistics"
-msgstr "Metrika İstatistikleri"
-
-#: yandex-metrica.php:149
-msgid "Oh no! There is nothing to display. Here Are the Possible Causes"
-msgstr "Olamaz :( Yayınlayacak bi'şey bulamadık. Muhtemel sebepler şöyle;"
-
-#: yandex-metrica.php:150
-msgid ""
-"If selected a new counter (recently created), please give a few hours for "
-"verification. Please be patient."
-msgstr ""
-"Seçtiğiniz sayacı yeni mi oluşturdunuz? Eğer yeni oluşturmuşsanız "
-"doğrulamamız için bir kaç saat bekleyiniz."
-
-#: yandex-metrica.php:151
-msgid ""
-"Did you save options? You need to save options at least once after account "
-"confirmation."
-msgstr ""
-"Ayarları kaydettiniz mi? Api izni verdikten sonra en az bir kere ayarları "
-"kaydetmeniz gerekmektedir."
-
-#: yandex-metrica.php:152
+#: yandex-metrica.php:145
 msgid "Are you sure you selected the correct counter? Please confirm."
 msgstr ""
 "Seçtiğiniz sayaç doğru mu? Lütfen sayacı yada sayacı kurarken belirttiğiniz "
 "internet adresinin doğru olduğundan emin olunuz."
 
-#: yandex-metrica.php:153
+#: templates/dashboard-widget.php:91
+msgid "Avg. Time on Site"
+msgstr "Sitede Geçirilen Ort. Süre"
+
+#: templates/settings.php:94
+msgid "Basic Mode (Compatible with Backward)"
+msgstr "Temel Mod (Geri uyumlu)"
+
+#: templates/settings.php:8
+msgid "Cheatin, uh?"
+msgstr "Hile mi yapıyorsunuz?"
+
+#: templates/settings.php:84
+msgid "Click here to getting confirmation code"
+msgstr "Aktivasyon kodu almak için tıklayınız."
+
+#: templates/settings.php:100
+msgid "Counter:"
+msgstr "Sayaç:"
+
+#: templates/dashboard-widget.php:6
+msgid "Daily"
+msgstr "Günlük"
+
+#: templates/settings.php:149
+msgid "Data container name for the collecting data from"
+msgstr ""
+
+#: yandex-metrica.php:146
 msgid ""
 "Did you change your Yandex password? If changed, you need to re-authorize "
 "this plugin."
@@ -340,43 +89,308 @@ msgstr ""
 "Yandex şifrenizi mi değiştirdiniz? Şifre değişimlerinde eklenti yeniden "
 "yetkilendirilmelidir."
 
-#: yandex-metrica.php:154
+#: yandex-metrica.php:144
+msgid ""
+"Did you save options? You need to save options at least once after account "
+"confirmation."
+msgstr ""
+"Ayarları kaydettiniz mi? Api izni verdikten sonra en az bir kere ayarları "
+"kaydetmeniz gerekmektedir."
+
+#: templates/settings.php:138
+msgid "Dispatch ecommerce data to Metrica"
+msgstr ""
+
+#: includes/widget.php:25
+msgid "Display statistics within selected period."
+msgstr "Seçtiğim periyot için istatistikleri görüntüle."
+
+#: templates/settings.php:145
+msgid "Ecommerce Container"
+msgstr ""
+
+#: templates/settings.php:88
+msgid "Enter Confirmation code here"
+msgstr "Doğrulama kodunu buraya giriniz"
+
+#: templates/settings.php:112
+msgid "Enter counter number"
+msgstr "Sayaç numarasını giriniz"
+
+#: templates/settings.php:134
+msgid "Hash tracking in the browser's address bar"
+msgstr "Tarayıcının adres satırında hash'in takip edilmesi"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/mustafauysal/yandex-metrica"
+msgstr ""
+
+#: templates/settings.php:83
+msgid "https://oauth.yandex.com/"
+msgstr "https://oauth.yandex.com/"
+
+#. Author URI of the plugin
+#, fuzzy
+#| msgid "http://uysalmustafa.com"
+msgid "https://uysalmustafa.com"
+msgstr "http://uysalmustafa.com"
+
+#: templates/settings.php:180
+msgid ""
+"If a user is logged into with one of these roles, they won't track by "
+"metrica."
+msgstr ""
+"Bu yetkiye sahip kullanıcılar, metrica servisi tarafından takip "
+"edilmeyecektir."
+
+#: yandex-metrica.php:143
+msgid ""
+"If selected a new counter (recently created), please give a few hours for "
+"verification. Please be patient."
+msgstr ""
+"Seçtiğiniz sayacı yeni mi oluşturdunuz? Eğer yeni oluşturmuşsanız "
+"doğrulamamız için bir kaç saat bekleyiniz."
+
+#: templates/settings.php:93
+msgid "If you don't want to use API, you can use basic mode."
+msgstr ""
+"Eğer metrica API kullanmak istemiyorsanız, temel modu deneyebilirsiniz."
+
+#: templates/settings.php:212
+msgid "If you want to change watcher js address, use the field above."
+msgstr "JS adresini değiştirmek isterseniz yukarıdaki alanı kullanın."
+
+#: yandex-metrica.php:132 yandex-metrica.php:135
+msgid "Metrica Statistics"
+msgstr "Metrika İstatistikleri"
+
+#: templates/dashboard-charts-js.php:77
+msgid "Metrica Traffic"
+msgstr "Metrika Trafiği"
+
+#: includes/widget.php:95
+msgid "Month"
+msgstr "Ay"
+
+#: templates/dashboard-widget.php:10
+msgid "Monthly"
+msgstr "Aylık"
+
+#. Author of the plugin
+msgid "Mustafa Uysal"
+msgstr "Mustafa Uysal"
+
+#: templates/dashboard-widget.php:38
+msgid "New Visitors"
+msgstr "Yeni Ziyaretçiler"
+
+#: templates/settings.php:160
+msgid "No"
+msgstr "Hayır"
+
+#: templates/dashboard-widget.php:33 templates/dashboard-widget.php:45
+#: templates/dashboard-widget.php:60 templates/dashboard-widget.php:71
+#: templates/dashboard-widget.php:86 templates/dashboard-widget.php:98
+#: templates/dashboard-widget.php:130 templates/dashboard-widget.php:159
+#: templates/dashboard-widget.php:188
+msgid "None"
+msgstr "Gösterilecek veri yok"
+
+#: yandex-metrica.php:142
+msgid "Oh no! There is nothing to display. Here Are the Possible Causes"
+msgstr "Olamaz :( Yayınlayacak bi'şey bulamadık. Muhtemel sebepler şöyle;"
+
+#: templates/settings.php:52
+msgid "Options Saved!"
+msgstr "Ayarlar Kaydedildi!"
+
+#: templates/dashboard-widget.php:54
+msgid "Page Views"
+msgstr "Sayfa Gösterimleri"
+
+#: includes/widget.php:65
+msgid "Page Views: <b>%d</b> <br/>"
+msgstr "Sayfa Gösterimleri: <b>%d</b> <br/>"
+
+#: templates/dashboard-charts-js.php:33
+msgid "Pageviews"
+msgstr "Sayfa Gösterimleri"
+
+#: templates/settings.php:55
+msgid "Please enter a valid counter code!"
+msgstr "Lütfen geçerli bir sayaç kodu giriniz!"
+
+#: templates/dashboard-widget.php:110
+msgid "Popular Pages"
+msgstr "Popüler Sayfalar"
+
+#: templates/settings.php:221
+msgid "Reset"
+msgstr "Sıfırla"
+
+#: templates/settings.php:89 templates/settings.php:220
+msgid "Save"
+msgstr "Kaydet"
+
+#: templates/dashboard-widget.php:169
+msgid "Search Terms"
+msgstr "En İyi Aramalar"
+
+#: templates/settings.php:123
+msgid "Select tracking options"
+msgstr "Sayaç özellikleri"
+
+#: templates/settings.php:200
+msgid "Selected roles can display metrica statistic on the dashboard."
+msgstr ""
+"Bu yetkiye sahip kullanıcılar, istatistikleri yönetim panelinden "
+"görüntüleyebilecektir."
+
+#: templates/dashboard-widget.php:65
+msgid "Session depth"
+msgstr "Ziyaret derinliği"
+
+#: includes/widget.php:99
+msgid "Show Pageview"
+msgstr "Sayfa Gösterimlerini Göster"
+
+#: includes/widget.php:103
+msgid "Show Visitors"
+msgstr "Ziyaretçileri Göster"
+
+#: includes/widget.php:101
+msgid "Show Visits"
+msgstr "Ziyaretleri Göster"
+
+#: templates/dashboard-widget.php:22
+msgid "Site Usage"
+msgstr "Site Kullanımı"
+
+#: templates/settings.php:17
+msgid "Something went wrong. Please check your confirmation code!"
+msgstr ""
+"Olamaz! Bi' şeyler ters gitti! Doğrulama kodunu kontrol edebilir misiniz?"
+
+#: templates/dashboard-charts-js.php:7
+msgid ""
+"Sorry, couldn't draw graph for selected period, please try different time "
+"period."
+msgstr ""
+
+#: includes/widget.php:91
+msgid "Statistics for:"
+msgstr "Zaman:"
+
+#: templates/settings.php:15
+msgid "Successfully connected to Yandex Server"
+msgstr "Başarılı bir şekilde Yandex Servisine bağlanıldı."
+
+#: yandex-metrica.php:147
 msgid "Temporary, connectivity problem!"
 msgstr ""
 "Düşük bir olasılıkta olsa, geçici bir bağlantı sorunu yaşamış olabilirsiniz."
 
-#: yandex-metrica.php:172
-msgid "View Full Report"
-msgstr "Tüm Raporu Görüntüle"
+#: templates/settings.php:107
+msgid "Temporary, getting connectivity problem.!"
+msgstr "API erişiminde geçici bir bağlantı sorunu var!"
 
-#. Plugin URI of the plugin/theme
-msgid "http://uysalmustafa.com/plugins/yandex-metrica"
-msgstr "http://uysalmustafa.com/plugins/yandex-metrica"
-
-#. Description of the plugin/theme
-msgid "Best metrica plugin for the use Yandex Metrica in your WordPress site."
+#. Description of the plugin
+msgid "The best Yandex Metrica plugin for WordPress."
 msgstr ""
-"Yandex Metrika servisi için kullanabileceğiniz en iyi WordPress eklentisi."
 
-#. Author of the plugin/theme
-msgid "Mustafa Uysal"
-msgstr "Mustafa Uysal"
+#: includes/widget.php:93
+msgid "Today"
+msgstr "Bugün"
 
-#. Author URI of the plugin/theme
-msgid "http://uysalmustafa.com"
-msgstr "http://uysalmustafa.com"
+#: templates/dashboard-widget.php:140
+msgid "Top Referrers"
+msgstr "En Çok Yönlendirenler"
 
-#: ../templates/settings.php:179
+#: templates/settings.php:128
+msgid "Track Clickmap"
+msgstr "Tıklama Haritası"
+
+#: templates/settings.php:130
+msgid "Track Links, social sharing, file requests..."
+msgstr "Dış bağlantılar, dosya yüklemeleri ve Paylaş butonu raporu"
+
+#: templates/settings.php:155
+msgid "Track logged in users"
+msgstr "Giriş yapmış kullanıcıları dahil et"
+
+#: templates/settings.php:208
 msgid "Tracker JS"
 msgstr "Takipçi JS"
 
-#: ../templates/settings.php:183
-msgid "If you want to change watcher js address, use the field above."
-msgstr "JS adresini değiştirmek isterseniz yukarıdaki alanı kullanın."
+#: templates/settings.php:115
+msgid "Tracking Settings"
+msgstr "Takip Ayarları"
 
-#~ msgid ""
-#~ "Sorry, couldn't draw graph for selected period, please try different time "
-#~ "period."
-#~ msgstr ""
-#~ "Üzgünüz, seçitiğiniz aralık için grafik oluşturamadık, lütfen farklı bir "
-#~ "periyot seçin."
+#: templates/dashboard-charts-js.php:55
+msgid "Unique"
+msgstr "Ziyaretçiler"
+
+#: templates/settings.php:136
+msgid "Use new counter code"
+msgstr ""
+
+#: templates/settings.php:186
+msgid "User roles to display dashboard widget"
+msgstr "Yönetim panelinde istatistikleri görüntüleyebilecek kullanıcı seviyesi"
+
+#: templates/settings.php:167
+msgid "User roles to not track"
+msgstr "Takip edilmeyecek kullanıcı seviyesi"
+
+#: templates/dashboard-charts-js.php:109
+msgid "View Full Report"
+msgstr "Tüm Raporu Görüntüle"
+
+#: templates/dashboard-widget.php:80
+msgid "Visitors"
+msgstr "Ziyaretçiler"
+
+#: includes/widget.php:71
+msgid "Visitors: <b>%d</b> </br>"
+msgstr "Ziyaretçiler: <b>%d</b> </br>"
+
+#: templates/dashboard-charts-js.php:44 templates/dashboard-widget.php:26
+msgid "Visits"
+msgstr "Ziyaretler"
+
+#: includes/widget.php:68
+msgid "Visits: <b>%d</b> </br>"
+msgstr "Ziyaretler: <b>%d</b> </br>"
+
+#: templates/settings.php:126
+msgid "Webvisor"
+msgstr "Webvisor"
+
+#: includes/widget.php:94
+msgid "Week"
+msgstr "Hafta"
+
+#: templates/dashboard-widget.php:9
+msgid "Weekly"
+msgstr "Haftalık"
+
+#. Plugin Name of the plugin
+#: templates/settings.php:79 yandex-metrica.php:71
+msgid "Yandex Metrica"
+msgstr "Yandex Metrika"
+
+#: templates/settings.php:159
+msgid "Yes"
+msgstr "Evet"
+
+#: yandex-metrica.php:115
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Bu sayfayı görüntüleme yetkiniz bulunmamaktadır."
+
+#: templates/settings.php:82
+msgid ""
+"You need sign in to Yandex and grant this plugin access to your Yandex "
+"Metrica account."
+msgstr ""
+"Yandex hesabınıza giriş yapmanız ve bu eklentinin Yandex Metrica hesabınıza "
+"bağlanmasına izin vermelisiniz."

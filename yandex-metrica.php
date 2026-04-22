@@ -4,7 +4,7 @@ Plugin Name: Yandex Metrica
 Plugin URI: https://github.com/mustafauysal/yandex-metrica
 Description: The best Yandex Metrica plugin for WordPress.
 Author: Mustafa Uysal
-Version: 2.0.2
+Version: 2.0.3
 Requires PHP: 5.6
 Requires at least: 5.0
 Text Domain: yandex-metrica
@@ -174,8 +174,15 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 	 */
 	public function ajax_listener() {
 
-		if ( isset( $_POST["period"] ) && check_ajax_referer( "yandex-metrica-nonce" ) ) {
-			$period = sanitize_text_field( stripslashes( $_POST["period"] ) );
+		check_ajax_referer( "yandex-metrica-nonce" );
+
+		if ( ! $this->current_user_has_access( $this->options["widget-access-roles"] ) ) {
+			status_header( 403 );
+			wp_die( -1 );
+		}
+
+		if ( isset( $_POST["period"] ) ) {
+			$period = sanitize_text_field( wp_unslash( $_POST["period"] ) );
 			$this->set_period( $period );
 			$this->dashboard_chart_js();
 			$this->metrica_dashboard_widget();
@@ -221,9 +228,9 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 	 * @return mixed | Current user' role
 	 */
 	public function current_user_role() {
-		global $current_user;
+		$current_user = wp_get_current_user();
 
-		$user_roles = $current_user->roles;
+		$user_roles = (array) $current_user->roles;
 		$user_role  = array_shift( $user_roles );
 
 		return $user_role;
@@ -326,7 +333,7 @@ class WP_Yandex_Metrica extends WP_Stack_Plugin {
 	 * @return void
 	 */
 	public function maybe_upgrade_20() {
-		$current_version = get_option( YandexMetrica\Constants\DB_VERSION );
+		$current_version = get_option( YandexMetrica\Constants\DB_VERSION_OPTION );
 
 		if ( ! version_compare( $current_version, '2.0', '<' ) ) {
 			return;

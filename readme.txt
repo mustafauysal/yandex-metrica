@@ -2,8 +2,8 @@
 Contributors: m_uysl
 Tags: yandex, metrica, metrika, stats, analytics
 Requires at least: 5.0
-Tested up to: 6.7
-Stable tag: 2.0.2
+Tested up to: 7.0
+Stable tag: 2.0.3
 Requires PHP: 5.6
 License: GPLv2 (or later)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -41,11 +41,14 @@ Pull requests are welcome on [Github](https://github.com/mustafauysal/yandex-met
 
 __If you like Yandex Metrica, then consider checking out my other projects:__
 
-* <a href="https://bit.ly/3WIGUTg" rel="friend">Powered Cache</a> – Caching and Optimization for WordPress – Easily Improve PageSpeed & Web Vitals Score
-* <a href="https://bit.ly/4ag2OAc" rel="friend">Magic Login Pro</a> – Easy, secure, and passwordless authentication for WordPress.
-* <a href="https://bit.ly/3wAFSxM" rel="friend">Easy Text-to-Speech for WordPress</a> – Transform your textual content into high-quality synthesized speech with Amazon Polly.
-* <a href="https://bit.ly/4bk1Tjp" rel="friend">Handywriter</a> – AI-powered writing assistant that can help you create content for your WordPress.
-* <a href="https://bit.ly/44GZOf8" rel="friend">PaddlePress PRO</a> – Paddle Plugin for WordPress
+* <a href="https://handyplugins.co/magic-login-pro/" rel="friend">Magic Login Pro</a> – Easy, secure, and passwordless authentication for WordPress.
+* <a href="https://handyplugins.co/sessionquota-pro/" rel="friend">SessionQuota Pro</a> – Limit concurrent sessions in WordPress.
+* <a href="https://handyplugins.co/stream-integration-pro/" rel="friend">Stream Integration Pro</a> – Upload, sync, restore, and manage WordPress videos with Cloudflare Stream.
+* <a href="https://handyplugins.co/easy-text-to-speech/" rel="friend">Easy Text-to-Speech</a> – Convert written content into high-quality synthesized speech for WordPress.
+* <a href="https://handyplugins.co/handywriter/" rel="friend">Handywriter</a> – AI-powered writing assistant for WordPress.
+* <a href="https://handyplugins.co/paddlepress-pro/" rel="friend">PaddlePress PRO</a> – Paddle plugin for WordPress.
+* <a href="https://handyplugins.co/wp-accessibility-toolkit/" rel="friend">WP Accessibility Toolkit</a> – Tools to help make your WordPress site more accessible.
+* <a href="https://poweredcache.com/" rel="friend">Powered Cache</a> – Caching and optimization for WordPress to help improve PageSpeed and Core Web Vitals.
 
 
 == Installation ==
@@ -76,6 +79,11 @@ Yandex Metrica plugin uses wp_head hook for the adds necessary tracking code. Pl
 3. Settings page.
 
 == Changelog ==
+
+= 2.0.3 (Apr 22, 2026) =
+  - Harden dashboard widget AJAX access checks
+  - Improve escaping for tracker and dashboard output
+  - Bump tested WordPress version to 7.0
 
 = 2.0.2 (Feb 23, 2025) =
   - Fix authorization issue

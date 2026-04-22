@@ -28,7 +28,7 @@
             <td style="width:20%;">
                 <?php
                 if ( ! empty( $total_values["visits"] )) {
-                    echo $total_values["visits"];
+                    echo esc_html( absint( $total_values["visits"] ) );
                 } else {
                      esc_html_e( 'None', 'yandex-metrica' );
                 }
@@ -40,7 +40,7 @@
             <td style="width:20%;">
                 <?php
                 if ( ! empty( $total_values["new_visitors"] )) {
-                    echo '% '.round($total_values["new_visitors"],2);
+                    echo esc_html( '% ' . round( $total_values["new_visitors"], 2 ) );
                 } else {
                      esc_html_e( 'None', 'yandex-metrica' );
                 }
@@ -55,7 +55,7 @@
             </td>
             <td>
                 <?php if ( ! empty( $total_values["pageviews"] )) {
-                    echo $total_values["pageviews"];
+                    echo esc_html( absint( $total_values["pageviews"] ) );
                 } else {
                     esc_html_e( 'None', 'yandex-metrica' );
                 }
@@ -66,7 +66,7 @@
             </td>
             <td>
                 <?php if ( ! empty( $total_values["page_depth"] )) {
-                    echo round( $total_values["page_depth"], 1 );
+                    echo esc_html( round( $total_values["page_depth"], 1 ) );
                 } else {
 	                esc_html_e( 'None', 'yandex-metrica' );
                 }
@@ -81,9 +81,9 @@
             </td>
             <td>
                 <?php if ( ! empty( $total_values["visitors"] )) {
-                    echo $total_values["visitors"];
+                    echo esc_html( absint( $total_values["visitors"] ) );
                 } else {
-                    echo __( 'None', 'yandex-metrica' );
+                    esc_html_e( 'None', 'yandex-metrica' );
                 }
                 ?>
             </td>
@@ -93,7 +93,7 @@
             <td>
                 <?php
                 if ( ! empty( $total_values["duration"] ) ) {
-	                echo gmdate( "H:i:s", round( $total_values["duration"] ) );
+	                echo esc_html( gmdate( "H:i:s", round( $total_values["duration"] ) ) );
                 } else {
 	                esc_html_e( 'None', 'yandex-metrica' );
                 }
@@ -123,7 +123,7 @@
                     <?php foreach ( $popular_posts as $post ): ?>
                         <li>
                             <a href="<?php echo esc_url( $post["url"] ); ?>"><?php echo esc_url( $post["url"] ); ?></a> -
-                            <?php echo sprintf( _n( '%d View', '%d Views', $post["pageviews"], 'yandex-metrica' ), $post["pageviews"] ); ?>
+                            <?php printf( esc_html( _n( '%d View', '%d Views', $post["pageviews"], 'yandex-metrica' ) ), absint( $post["pageviews"] ) ); ?>
                         </li>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -152,7 +152,7 @@
                     <?php foreach ( $top_referrers as $referrer ): ?>
                         <li>
                             <a href="<?php echo esc_url( $referrer["url"] ); ?>"><?php echo esc_url( $referrer["url"] ); ?></a> -
-                            <?php echo sprintf( _n( '%d Visit', '%d Visits', $referrer["visits"], 'yandex-metrica' ), $referrer["visits"] ); ?>
+                            <?php printf( esc_html( _n( '%d Visit', '%d Visits', $referrer["visits"], 'yandex-metrica' ) ), absint( $referrer["visits"] ) ); ?>
                         </li>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -180,8 +180,8 @@
                 <?php if ( ! empty( $top_searches ) ) : ?>
                     <?php foreach ( $top_searches as $search_term ): ?>
                         <li>
-                            <strong><?php echo $search_term["name"]; ?></strong> -
-                            <?php echo sprintf( _n( '%d Visit', '%d Visits', $search_term["visits"], 'yandex-metrica' ), $search_term["visits"] ); ?>
+                            <strong><?php echo esc_html( $search_term["name"] ); ?></strong> -
+                            <?php printf( esc_html( _n( '%d Visit', '%d Visits', $search_term["visits"], 'yandex-metrica' ) ), absint( $search_term["visits"] ) ); ?>
                         </li>
                     <?php endforeach ?>
                 <?php else: ?>
@@ -208,4 +208,3 @@
 		word-wrap: break-word;
     }
 </style>
-

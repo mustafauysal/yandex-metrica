@@ -120,5 +120,3 @@ class Metrica_Widget extends WP_Widget {
 
 
 }
-
-new Metrica_Widget;
